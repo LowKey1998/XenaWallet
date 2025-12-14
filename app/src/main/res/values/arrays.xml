@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="autosize_text_sizes">
+        <item>8sp</item>
+        <item>10sp</item>
+        <item>14sp</item>
+    </array>
+
+    <string-array name="blockchain_options" >
+        <item>BSC</item>
+        <item>Solana</item>
+        <item>Tron</item>
+    </string-array>
+</resources>

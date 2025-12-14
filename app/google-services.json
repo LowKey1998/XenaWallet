@@ -1,0 +1,209 @@
+{
+  "project_info": {
+    "project_number": "398291882726",
+    "firebase_url": "https://form-90a96.firebaseio.com",
+    "project_id": "form-90a96",
+    "storage_bucket": "form-90a96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:87679f049f8b1cce1ea127",
+        "android_client_info": {
+          "package_name": "com.couplesdating.videochataleatorioappenvivogratisdecitas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398291882726-u989ku48u1vi5t79vdgllr61t87p9d2b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.couplesdating.videochataleatorioappenvivogratisdecitas",
+            "certificate_hash": "53853b4311cc1826df1929fd1115f97116f0d180"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:f6bc4c30b92143651ea127",
+        "android_client_info": {
+          "package_name": "com.discovercalls.saberelnombredequienllamagratis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:58eff8baec34566d1ea127",
+        "android_client_info": {
+          "package_name": "com.example.healthmatics"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:5660078bea711a571ea127",
+        "android_client_info": {
+          "package_name": "com.rifcode.holala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398291882726-r7g6ea4r7lqo3bmvnu8d12nldh5poper.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rifcode.holala",
+            "certificate_hash": "53853b4311cc1826df1929fd1115f97116f0d180"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:ac5481c2474f08cc1ea127",
+        "android_client_info": {
+          "package_name": "com.tangem.wallet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:c8f5c7f3727402031ea127",
+        "android_client_info": {
+          "package_name": "com.videoeffects.editordevideosyfotosconmusicaytextopro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398291882726-tpses8v47nag1fdqubbij17sc0b1semu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.videoeffects.editordevideosyfotosconmusicaytextopro",
+            "certificate_hash": "53853b4311cc1826df1929fd1115f97116f0d180"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:445e062c4a02f7c81ea127",
+        "android_client_info": {
+          "package_name": "com.zmwchat.gpapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:2d4d28127cdfbb801ea127",
+        "android_client_info": {
+          "package_name": "g.o.form"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398291882726:android:1e4a9c6da14f2cfc1ea127",
+        "android_client_info": {
+          "package_name": "g.p.smartcalculater"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqi1DXkJ7zCbF15Ysk8N97uIr27pQ7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

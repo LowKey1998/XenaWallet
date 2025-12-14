@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <!-- Back Button -->
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+       
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receive Solana"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:layout_alignTop="@id/back_button" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use your address below to receive Solana.\nTransactions take about 30 minutes to process, based on chain activity."
+        android:textSize="16sp"
+        android:textColor="#444444"
+        android:gravity="center"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- QR Code Box -->
+    <LinearLayout
+        android:id="@+id/qr_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        
+        android:padding="16dp"
+        android:layout_below="@id/subtitle"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true">
+
+        <!-- QR Code Image -->
+        <ImageView
+            android:id="@+id/qr_code"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            />
+
+        <!-- Wallet Address with Copy -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/wallet_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4CyUwPgm7oVpdXLdN..."
+                android:textSize="16sp"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/copy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Copy"
+                android:background="@drawable/rounded_btn"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+        </LinearLayout>
+    </LinearLayout>
+    
+    <!-- Warning Box -->
+    <LinearLayout
+        android:id="@+id/warning_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF4D9"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            />
+            <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="8dp">
+
+           
+            <TextView
+            android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+                android:text="Only use a valid SOL network address"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#000000" />
+
+            <TextView
+            android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+                android:text="Receiving SOL through any other network address will result in permanent loss"
+                android:textSize="14sp"
+                android:textColor="#333333" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

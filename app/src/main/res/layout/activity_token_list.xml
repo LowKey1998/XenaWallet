@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    
+    <ImageView
+        android:id="@+id/searchIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+         />
+
+    <!-- Favourites title -->
+    <TextView
+        android:id="@+id/favTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favourites"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_below="@id/profileImage"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Favourite coins -->
+    <LinearLayout
+        android:id="@+id/favIcons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/favTitle"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:orientation="horizontal">
+
+        <!-- Example: Solana -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:tint="#5A2C91" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SOL"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Add XRP and others similarly -->
+    </LinearLayout>
+
+    <!-- Available coins -->
+    <TextView
+        android:id="@+id/availableTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/favIcons"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Available coins"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <!-- Filters (Popular Coins / Market Cap) -->
+    <LinearLayout
+        android:id="@+id/filterSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/availableTitle"
+        
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="6dp"
+        android:gravity="center_vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Popular Coins"
+            android:background="@drawable/filter_active"
+            android:textColor="#FFFFFF"
+            
+            android:paddingHorizontal="16dp" />
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Market Cap"
+            android:background="@drawable/filter_inactive"
+            android:textColor="#999999"
+           
+            android:paddingHorizontal="16dp" />
+    </LinearLayout>
+
+    <!-- Coins List -->
+    <LinearLayout
+        android:id="@+id/coinListView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/filterSection"
+        android:layout_margin="6dp"
+        android:background="#FFF"
+        android:dividerHeight="12dp"
+        android:padding="16dp" >
+        
+        <include
+         layout="@layout/item_token"
+         />
+        
+    </LinearLayout>
+
+   
+        
+</RelativeLayout>

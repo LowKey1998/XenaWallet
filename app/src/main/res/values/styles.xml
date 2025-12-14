@@ -1,0 +1,149 @@
+<resources>
+
+    <style name="MainActivity">
+        <!-- Only exists to prevent issues with pre-21 devices, see values-v21 -->
+
+    </style>
+
+    <style name="PrimaryButton">
+        <item name="android:background">@drawable/button_primary_background</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ButtonBlueTheme" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/primary_navy_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="LightBlueButtonTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <!-- Disabled colour -->
+        <item name="colorButtonNormal">@color/primary_grey_dark</item>
+        <!-- Enabled colour -->
+        <item name="colorControlHighlight">@color/primary_navy_medium</item>
+        <!-- Fonts -->
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name='android:textAllCaps'>false</item>
+    </style>
+    <style name="ButtonLightBlueTheme" parent="LightBlueButtonTheme" />
+    <style name="ButtonStyle">
+        <item name="android:fontFamily">@font/inter</item>
+    </style>
+    <style name="NoDisplay" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_navy_medium</item>
+        <item name="colorPrimaryDark">@color/primary_navy_medium</item>
+        <item name="colorAccent">@color/primary_navy_medium</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowNoDisplay">true</item>
+    </style>
+
+
+    <style name="OnboardingHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Headline</item>
+        <item name="android:textColor">@color/primary_navy_medium</item>
+    </style>
+
+    <style name="OnBoardingDetail">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Body1</item>
+        <item name="android:textColor">@color/primary_grey_medium</item>
+    </style>
+
+    <style name="OnBoardingEmail">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Body1</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+    <style name="BaseCenteredText">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="PitTitleText" parent="BaseCenteredText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/pit_text_title</item>
+        <item name="android:layout_marginStart">39dp</item>
+        <item name="android:layout_marginEnd">38dp</item>
+    </style>
+
+    <style name="PitHeadingText" parent="BaseCenteredText">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/pit_text_heading</item>
+        <item name="android:layout_marginStart">88dp</item>
+        <item name="android:layout_marginEnd">87dp</item>
+    </style>
+
+    <style name="PitBodyText" parent="BaseCenteredText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/pit_text_body</item>
+        <item name="android:layout_marginStart">48dp</item>
+        <item name="android:layout_marginEnd">48dp</item>
+        <item name="android:layout_marginTop">11dp</item>
+    </style>
+
+    <style name="PinEntryButtonLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/pinentry_padding</item>
+
+
+    </style>
+
+    <style name="PinEntryButtonNumberText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="PinEntryButtonLetterText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="PinEntryKeyboardHorizontalContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:baselineAligned">false</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+
+    <dimen name="pinentry_padding">5dp</dimen>
+</resources>
