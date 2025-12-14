@@ -27,6 +27,7 @@
         </activity>
 
         <activity android:name="com.jose.walletapp.MainActivity"/>
+        <activity android:name="com.jose.walletapp.TokenDetailsActivity"/>
         <activity android:name="com.jose.walletapp.LoginActivity"/>
         <activity android:name="com.jose.walletapp.SignupActivity"/>
         <activity android:name="com.jose.walletapp.SendCryptoActivity"/>

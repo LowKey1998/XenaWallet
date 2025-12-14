@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="48dp"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="App Logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Back"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_marginTop="24dp" />
+
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_marginTop="32dp" />
+
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/loginButton"
+            style="@style/PrimaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginTop="24dp" />
+
+        <TextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot password?"
+            android:textColor="#407BFF"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/signUpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account? Sign up"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+</ScrollView>-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFD335">
+
+    <!-- Top Logo Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:contentDescription="Yellow Card Logo" />
+    </LinearLayout>
+
+    <!-- White Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@drawable/curved_top_white_bg">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log in to your account"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#111111"
+            android:gravity="center" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Don’t have an account yet? Sign up instead"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginTop="8dp"
+            android:gravity="center" />
+
+        <!-- Phone Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
+<!--
+            <Spinner
+                android:id="@+id/spinnerCountryCode"
+                android:layout_width="90dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_input"
+                android:padding="12dp" />-->
+
+            <EditText
+                android:id="@+id/emailInput"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/bg_input"
+                android:padding="16dp" />
+        </LinearLayout>
+
+        <!-- Password -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_input"
+            android:paddingHorizontal="16dp">
+
+            <EditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent"
+                android:paddingEnd="40dp" />
+
+            <ImageView
+                android:id="@+id/btnTogglePassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+
+                android:contentDescription="Toggle password" />
+        </RelativeLayout>
+
+        <!-- Next Button -->
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:enabled="false"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_disabled" />
+
+        <!-- Forgot Password -->
+        <TextView
+            android:id="@+id/txtForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot your password?"
+            android:textColor="#2FA87C"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+</LinearLayout>

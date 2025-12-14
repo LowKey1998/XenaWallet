@@ -1,5 +1,8 @@
 package com.jose.walletapp;
 
+import static com.jose.walletapp.ERC20Metadata.callStringFunction;
+import static com.jose.walletapp.ERC20Metadata.callUint8Function;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -119,7 +122,25 @@ public class AddTokenActivity extends Activity {
             } else if (buttonText.equalsIgnoreCase("Check")) {
                 // ✅ Check contract validity
                 if(selectedBlockchain.equalsIgnoreCase(Networks.BSC)) {
-                    fetchBscTokenName(contractAddress); // Or your blockchain-specific checker
+                    //fetchBscTokenName(contractAddress); // Or your blockchain-specific checker
+                    Web3j web3j = Web3j.build(new HttpService("https://bsc-dataseed.binance.org/"));
+
+                    try {
+                        String name = callStringFunction(web3j, contractAddress, "name");
+                        String tokenSymbol = callStringFunction(web3j, contractAddress, "symbol");
+                        //int decimals = callUint8Function(web3j, contractAddress, "decimals");
+
+                        //runOnUiThread(() ->{
+                            nameEditText.setVisibility(View.VISIBLE);
+                            nameEditText.setText(name);
+                            symbolEditText.setVisibility(View.VISIBLE);
+                            symbolEditText.setText(tokenSymbol);
+                            fetchTokenDetailsButton.setText("Add");
+                            lastCheckedAddress = contractAddress; // save verified address
+                        //});
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
                 else if(selectedBlockchain.equalsIgnoreCase(Networks.SOLANA)){
                     fetchSolanaTokenMetadata(contractAddress);
@@ -137,7 +158,7 @@ public class AddTokenActivity extends Activity {
         // Create a token object
         Map<String, Object> tokenData = new HashMap<>();
         tokenData.put("contractAddress", contractAddress);
-        tokenData.put("chain", "bsc"); // Optional, can also use "solana", "tron", etc.
+        tokenData.put("chain", selectedBlockchain); // Optional, can also use "solana", "tron", etc.
         tokenData.put("timestamp", System.currentTimeMillis());
 
         // Push the data to Firebase
@@ -149,6 +170,7 @@ public class AddTokenActivity extends Activity {
     }//addTokenToFirebase
 
 
+/*
     private void fetchBscTokenName(String contractAddress) {
         new Thread(() -> {
             try {
@@ -156,6 +178,16 @@ public class AddTokenActivity extends Activity {
 
                 Function nameFunction = new Function(
                         "name",
+                        Collections.emptyList(),
+                        Collections.singletonList(new TypeReference<Utf8String>() {})
+                );
+                Function decimalsFunction = new Function(
+                        "decimals",
+                        Collections.emptyList(),
+                        Collections.singletonList(new TypeReference<Utf8String>() {})
+                );
+                Function symbolFunction = new Function(
+                        "symbol",
                         Collections.emptyList(),
                         Collections.singletonList(new TypeReference<Utf8String>() {})
                 );
@@ -195,6 +227,7 @@ public class AddTokenActivity extends Activity {
             }
         }).start();
     }
+*/
 
 
     private void fetchSolanaTokenMetadata(String contractAddress) {

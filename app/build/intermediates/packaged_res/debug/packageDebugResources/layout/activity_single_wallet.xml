@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solana"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+
+        <!-- Balance Display -->
+        <TextView
+            android:id="@+id/balance_zmw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ZMW 4.27"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/balance_sol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.00126865 SOL + ZMW 76.94 (2.20%)"
+            android:textSize="14sp"
+            android:textColor="#4CAF50"
+            android:layout_marginTop="4dp" />
+
+        <!-- Buy/Sell/Send/Receive/Convert Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:contentDescription="Buy" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buy"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Repeat for Sell, Send, Receive, Convert -->
+            <!-- SELL -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:contentDescription="Sell" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sell"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- SEND -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:contentDescription="Send" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Send"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- RECEIVE -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    
+                    android:background="@null"
+                    android:contentDescription="Receive" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Receive"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- CONVERT -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                   
+                    android:background="@null"
+                    android:contentDescription="Convert" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Convert"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Transaction History -->
+        <TextView
+            android:id="@+id/history_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction History"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <ListView
+            android:id="@+id/transaction_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="0.5dp"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -35,7 +35,7 @@
     </style>
     <style name="ButtonLightBlueTheme" parent="LightBlueButtonTheme" />
     <style name="ButtonStyle">
-        <item name="android:fontFamily">@font/inter</item>
+        <!--<item name="android:fontFamily">@font/inter</item>-->
     </style>
     <style name="NoDisplay" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary_navy_medium</item>
@@ -83,7 +83,7 @@
         <item name="android:fontFamily">@font/inter_medium</item>
     </style>
     <style name="BaseCenteredText">
-        <item name="android:fontFamily">@font/inter</item>
+        <!--<item name="android:fontFamily">@font/inter</item>-->
         <item name="android:gravity">center</item>
     </style>
 

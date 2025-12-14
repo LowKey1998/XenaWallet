@@ -1,5 +1,7 @@
 package com.jose.walletapp;
 
+import static com.jose.walletapp.ERC20Metadata.callStringFunction;
+
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -54,6 +56,8 @@ import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.http.HttpService;
 
 public class MyWalletActivity extends Activity {
     private static Context context;
@@ -322,12 +326,11 @@ public class MyWalletActivity extends Activity {
                     //Log.d("Token", "Address: " + token.contractAddress + ", Chain: " + token.chain);
                     //LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_token,null);
-                    if(token.chain.equals(Networks.SOLANA)){
-
+                    if(token.chain.equalsIgnoreCase(Networks.SOLANA)){
                         MyWalletActivity.this.addSolanaTokenToListView(tokensListView,tokenItemView,token.contractAddress);
                     }
-                    else if(token.chain.equals(Networks.BSC)){
-
+                    else if(token.chain.equalsIgnoreCase(Networks.BSC)){
+                        MyWalletActivity.this.addBscTokenToListView(tokensListView,tokenItemView,token.contractAddress);
                     }
 
 
@@ -341,6 +344,50 @@ public class MyWalletActivity extends Activity {
                 //Toast.makeText(TokenDetailsActivity.this, "Failed to fetch: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void addBscTokenToListView(LinearLayout tokensListView, View tokenView, String contractAddress) {
+        Web3j web3j = Web3j.build(new HttpService("https://bsc-dataseed.binance.org/"));
+
+        try {
+            new Thread(){
+                @Override
+                public void run() {
+                    final String name;
+                    final String url;
+                    final String tokenSymbol;
+                    try {
+                        name = ERC20Metadata.callStringFunction(web3j, contractAddress, "name");
+                        tokenSymbol = callStringFunction(web3j, contractAddress, "symbol");
+                        url=ERC20Metadata.fetchLogoFromCoinGecko(Networks.BSC,contractAddress);
+                        //int decimals = callUint8Function(web3j, contractAddress, "decimals");
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                    runOnUiThread(() ->{
+                        ImageView tokenLogo=tokenView.findViewById(R.id.coinIcon);
+                        Glide.with(MyWalletActivity.this).load(url)/*.apply(new RequestOptions().circleCrop())*/.into(tokenLogo);
+
+                        ((TextView)tokenView.findViewById(R.id.coinName)).setText(name);
+                        ((TextView)tokenView.findViewById(R.id.coinSymbol)).setText(tokenSymbol);
+                        tokenView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent=new Intent(MyWalletActivity.this,TokenDetailsActivity.class);
+                                intent.putExtra("contractAddress",contractAddress);
+
+                                MyWalletActivity.this.startActivity(intent);
+                            }
+                        });
+                        tokensListView.addView(tokenView);
+
+                    });
+                }
+            }.start();
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -359,7 +406,7 @@ public class MyWalletActivity extends Activity {
                     String responseData = response.body().string();
                     try {
                         JSONObject jsonResponse = new JSONObject(responseData);
-                        String logoUrl = jsonResponse.getJSONObject("image").getString("small");
+                        String logoUrl = jsonResponse.getJSONObject("image").getString("large");
                         String name = jsonResponse.getString("name");
                         String tokenSymbol = jsonResponse.getString("symbol");
 
@@ -370,6 +417,16 @@ public class MyWalletActivity extends Activity {
 
                             ((TextView)tokenView.findViewById(R.id.coinName)).setText(name);
                             ((TextView)tokenView.findViewById(R.id.coinSymbol)).setText(tokenSymbol);
+                            tokenView.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent=new Intent(MyWalletActivity.this,TokenDetailsActivity.class);
+                                    intent.putExtra("contractAddress",contractAddress);
+                                    intent.putExtra("chain",chain);
+
+                                    MyWalletActivity.this.startActivity(intent);
+                                }
+                            });
                             tokens.addView(tokenView);
 
                         });

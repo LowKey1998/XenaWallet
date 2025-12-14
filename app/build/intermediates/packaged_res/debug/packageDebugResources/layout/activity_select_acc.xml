@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!-- Back Arrow -->
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        
+        android:contentDescription="Back"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select your number"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue your Mobile Money transaction\nwith one of the following"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Phone Option 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            
+            android:tint="#7A67EE"
+            android:backgroundTintMode="src_in"
+            android:layout_marginEnd="12dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+260973767938"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Primary phone number"
+                android:textColor="#666666"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            
+            android:tint="#000000"/>
+    </LinearLayout>
+
+    <!-- Phone Option 2 (Same structure) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            
+            android:tint="#7A67EE"
+            android:layout_marginEnd="12dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+260963825588"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Secondary phone number"
+                android:textColor="#666666"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            
+            android:tint="#000000"/>
+    </LinearLayout>
+</LinearLayout>

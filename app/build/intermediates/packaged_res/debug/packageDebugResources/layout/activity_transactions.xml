@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction History"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:paddingBottom="12dp" />
+
+        <!-- Search Bar -->
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="Search"
+            android:padding="10dp"
+            android:background="@android:drawable/editbox_background"
+             />
+
+        <!-- Date Label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="June 2025"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+            
+        <include
+            layout="@layout/item_transaction"
+        />
+
+        
+
+    </LinearLayout>
+</ScrollView>
