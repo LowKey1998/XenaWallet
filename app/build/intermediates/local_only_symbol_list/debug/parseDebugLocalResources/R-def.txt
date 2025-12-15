@@ -195,7 +195,6 @@ drawable vector_fingerprint_success
 drawable vector_icon_blue
 drawable vector_settings
 drawable wallet
-font inter
 font inter_bold
 font inter_bold_italic
 font inter_italic
@@ -280,6 +279,7 @@ id network_list
 id nextButton
 id next_button
 id numericPad
+id p2p_transfer_card
 id passwordInput
 id pinBox0
 id pinBox1
@@ -289,6 +289,7 @@ id profileImage
 id qr_box
 id qr_code
 id receiveBtn
+id receive_token_title
 id recoverFunds
 id relativeLayout
 id searchBar

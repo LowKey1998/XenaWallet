@@ -41,9 +41,9 @@
             android:textColor="#555555"
             android:layout_marginTop="8dp" />
 
-        <!-- BANK TRANSFER CARD -->
+        <!-- P2P CARD -->
         <LinearLayout
-            android:id="@+id/bank_transfer_card"
+            android:id="@+id/p2p_transfer_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    android:text="Bank Transfer"
+                    android:text="P2P Transfer"
                     android:textStyle="bold"
                     android:textColor="#000000"
                     android:textSize="16sp" />
@@ -77,6 +77,80 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     
+                    android:contentDescription="Info" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Withdraw funds from your wallet via P2P"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_chip"
+                    android:text="1%"
+                    android:padding="6dp"
+                    android:textColor="#5E3B9D"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_chip"
+                    android:text="Takes up to 2 days"
+                    android:padding="6dp"
+                    android:textColor="#5E3B9D"
+                    android:textSize="12sp"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- BANK TRANSFER CARD -->
+        <LinearLayout
+            android:id="@+id/bank_transfer_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="16dp"
+            android:layout_marginTop="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+
+                    android:contentDescription="Bank Icon" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Bank Transfer"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+
                     android:contentDescription="Info" />
             </LinearLayout>
 

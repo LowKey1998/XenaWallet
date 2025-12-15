@@ -3635,6 +3635,7 @@ id open_search_view_toolbar
 id open_search_view_toolbar_container
 id outline
 id outward
+id p2p_transfer_card
 id packed
 id parallax
 id parent
@@ -3663,6 +3664,7 @@ id qr_code
 id radio
 id ratio
 id receiveBtn
+id receive_token_title
 id recoverFunds
 id rectangles
 id relativeLayout

@@ -1,44 +1,32 @@
 package com.jose.walletapp;
 
-import static com.jose.walletapp.ERC20Metadata.callStringFunction;
+import static com.jose.walletapp.helpers.ERC20Metadata.callStringFunction;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.bumptech.glide.Glide;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.jose.walletapp.constants.Networks;
+import com.jose.walletapp.helpers.MultiChainWalletManager;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import g.p.smartcalculater.R;
 
 public class TokenDetailsActivity extends Activity {
 
     private TextView title, balanceZMW, balanceSOL;
-    private ImageView tokenLogo, qrCodeView;
+    //private ImageView tokenLogo, qrCodeView;
     private LineChart priceChart;
     private ListView transactionList;
 
@@ -59,15 +47,30 @@ public class TokenDetailsActivity extends Activity {
 
         // Suppose your XML has ImageView with id token_logo and qr_code
        // tokenLogo = findViewById(R.id.token_logo);
-        qrCodeView = findViewById(R.id.qr_code);
+       // qrCodeView = findViewById(R.id.qr_code);
         //priceChart = findViewById(R.id.price_chart);
 
-        //todo remove
-        generateQRCode(userWalletAddress);
 
         // Get intent extras
         chainId = getIntent().getStringExtra("chain");
         contractAddress = getIntent().getStringExtra("contractAddress");
+        try {
+            MultiChainWalletManager.getInstance().initialize(this, () -> {
+                if(chainId.equalsIgnoreCase(Networks.SOLANA)) {
+                    userWalletAddress = MultiChainWalletManager.getInstance().getSolanaAddress();
+                } else if (chainId.equalsIgnoreCase(Networks.BSC)) {
+                    userWalletAddress = MultiChainWalletManager.getInstance().getBscAddress();
+
+                }
+
+            },()->{});
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
 
         // Fetch token details
         fetchTokenDetails();
@@ -123,7 +126,7 @@ public class TokenDetailsActivity extends Activity {
                     bitmap.setPixel(x, y, bitMatrix.get(x, y) ? 0xFF000000 : 0xFFFFFFFF);
                 }
             }
-            qrCodeView.setImageBitmap(bitmap);
+           // qrCodeView.setImageBitmap(bitmap);
         } catch (WriterException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,3 @@
+g.p.smartcalculater.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

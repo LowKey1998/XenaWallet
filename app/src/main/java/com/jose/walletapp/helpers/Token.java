@@ -1,6 +1,7 @@
 package com.jose.walletapp.helpers;
 
 public class Token {
+    public   String imageUrl;
     public /*final*/ String chain;
     public /*final*/ String symbol;          // SOL, USDT, USDC
     public /*final*/ String logo;

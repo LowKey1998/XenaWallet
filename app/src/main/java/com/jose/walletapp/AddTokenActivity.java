@@ -1,7 +1,6 @@
 package com.jose.walletapp;
 
-import static com.jose.walletapp.ERC20Metadata.callStringFunction;
-import static com.jose.walletapp.ERC20Metadata.callUint8Function;
+import static com.jose.walletapp.helpers.ERC20Metadata.callStringFunction;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -24,22 +23,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.jose.walletapp.constants.Networks;
 
 import org.json.JSONObject;
-import org.web3j.abi.FunctionEncoder;
-import org.web3j.abi.FunctionReturnDecoder;
-import org.web3j.abi.TypeReference;
-import org.web3j.abi.datatypes.Function;
-import org.web3j.abi.datatypes.Type;
-import org.web3j.abi.datatypes.Utf8String;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthCall;
 import org.web3j.protocol.http.HttpService;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import g.p.smartcalculater.R;
