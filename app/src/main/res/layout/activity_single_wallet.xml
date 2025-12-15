@@ -16,7 +16,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Solana"
+            android:text=""
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#000000" />
@@ -26,7 +26,7 @@
             android:id="@+id/balance_zmw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ZMW 4.27"
+            android:text="$ 0"
             android:textSize="32sp"
             android:textStyle="bold"
             android:textColor="#000000"

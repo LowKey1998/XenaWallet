@@ -22,17 +22,6 @@ public class SendCryptoActivity extends Activity {
 
         setContentView(R.layout.activity_send_crypto);
 
-        amountET=findViewById(R.id.amount_input);
-        //recipientET=findViewById(R.id.editTextRecipient);
-
-        findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String amount=amountET.getText().toString().trim();
-                String recipient=recipientET.getText().toString().trim();
-                HdWalletHelper.sendUsdt(context,recipient,Float.parseFloat(amount));
-            }
-        });
 
 
 

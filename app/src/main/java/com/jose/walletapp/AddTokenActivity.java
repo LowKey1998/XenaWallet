@@ -44,6 +44,7 @@ import java.util.Map;
 
 import g.p.smartcalculater.R;
 import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -52,7 +53,7 @@ public class AddTokenActivity extends Activity {
     private Button fetchTokenDetailsButton;
     private EditText contractAddessEditText;
     private String lastCheckedAddress = "";
-    private EditText nameEditText, symbolEditText;
+    private EditText nameEditText, symbolEditText, coinGeckoIdEditText;
     private Spinner networkSpinner;
     private String selectedBlockchain;
 
@@ -64,6 +65,7 @@ public class AddTokenActivity extends Activity {
         fetchTokenDetailsButton = findViewById(R.id.button_check_add);
         contractAddessEditText = findViewById(R.id.contractAddress);
         nameEditText = findViewById(R.id.name);
+        coinGeckoIdEditText = findViewById(R.id.coingecko_id);
         symbolEditText = findViewById(R.id.symbol);
         networkSpinner = findViewById(R.id.network);
 
@@ -238,7 +240,7 @@ public class AddTokenActivity extends Activity {
                 .url(url)
                 .build();
 
-        client.newCall(request).enqueue(new okhttp3.Callback() {
+        client.newCall(request).enqueue(new Callback() {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 if (response.isSuccessful()) {
@@ -248,13 +250,23 @@ public class AddTokenActivity extends Activity {
                         String logoUrl = jsonResponse.getJSONObject("image").getString("small");
                         String name = jsonResponse.getString("name");
                         String tokenSymbol = jsonResponse.getString("symbol");
+                        String coinGeckoId = null;
+                        try {
+                            coinGeckoId = jsonResponse.getString("id");
+                        }
+                        catch (Exception e){
+
+                        }
+
 
                         // Handle the token logo URL and name
+                        String finalCoinGeckoId = coinGeckoId;
                         runOnUiThread(() ->{
                             nameEditText.setVisibility(View.VISIBLE);
                             nameEditText.setText(name);
                             symbolEditText.setVisibility(View.VISIBLE);
                             symbolEditText.setText(tokenSymbol);
+                            coinGeckoIdEditText.setText(finalCoinGeckoId);
                             fetchTokenDetailsButton.setText("Add");
                             lastCheckedAddress = contractAddress; // save verified address
                         });

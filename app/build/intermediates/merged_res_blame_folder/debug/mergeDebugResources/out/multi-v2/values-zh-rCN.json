@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "g.p.smartcalculater.app-mergeDebugResources-48:/values-zh-rCN/values-zh-rCN.xml",
+            "outputFile": "g.p.smartcalculater.app-mergeDebugResources-49:/values-zh-rCN/values-zh-rCN.xml",
             "map": [
                 {
                     "source": "C:\\Users\\GRAPHICS PC\\.gradle\\caches\\8.11.1\\transforms\\7a2dcac78c29ac4b172efdbd59299107\\transformed\\appcompat-1.6.1\\res\\values-zh-rCN\\values-zh-rCN.xml",
@@ -88,6 +88,23 @@
                         "startOffsets": "5909",
                         "endColumns": "100",
                         "endOffsets": "6005"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\GRAPHICS PC\\.gradle\\caches\\8.11.1\\transforms\\f56ff6ffd314f58a1dffa3112fcfeb64\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-zh-rCN\\values-zh-rCN.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,104,151,238",
+                        "endColumns": "48,46,86,68",
+                        "endOffsets": "99,146,233,302"
+                    },
+                    "to": {
+                        "startLines": "122,123,124,125",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "10193,10242,10289,10376",
+                        "endColumns": "48,46,86,68",
+                        "endOffsets": "10237,10284,10371,10440"
                     }
                 },
                 {

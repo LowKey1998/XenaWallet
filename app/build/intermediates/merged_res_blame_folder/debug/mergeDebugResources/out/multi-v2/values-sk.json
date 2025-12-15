@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "g.p.smartcalculater.app-mergeDebugResources-48:/values-sk/values-sk.xml",
+            "outputFile": "g.p.smartcalculater.app-mergeDebugResources-49:/values-sk/values-sk.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\GRAPHICS PC\\.gradle\\caches\\8.11.1\\transforms\\f56ff6ffd314f58a1dffa3112fcfeb64\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-sk\\values-sk.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,114,161,315",
+                        "endColumns": "58,46,153,120",
+                        "endOffsets": "109,156,310,431"
+                    },
+                    "to": {
+                        "startLines": "124,125,126,127",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "11634,11693,11740,11894",
+                        "endColumns": "58,46,153,120",
+                        "endOffsets": "11688,11735,11889,12010"
+                    }
+                },
                 {
                     "source": "C:\\Users\\GRAPHICS PC\\.gradle\\caches\\8.11.1\\transforms\\d7e45942720914e4eb1397bd4f6a8dd7\\transformed\\jetified-play-services-base-17.1.0\\res\\values-sk\\values.xml",
                     "from": {

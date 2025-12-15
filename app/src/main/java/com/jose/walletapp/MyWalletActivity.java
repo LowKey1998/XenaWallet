@@ -36,6 +36,8 @@ import com.jose.walletapp.constants.Networks;
 import com.jose.walletapp.helpers.HdWalletHelper;
 import com.jose.walletapp.helpers.MultiChainWalletManager;
 import com.jose.walletapp.helpers.Token;
+import com.jose.walletapp.helpers.UnifiedTokenData;
+import com.jose.walletapp.helpers.solana.SolTokenOperations;
 import com.melnykov.fab.FloatingActionButton;
 import com.walletconnect.web3.wallet.client.Wallet;
 import com.walletconnect.web3.wallet.client.Web3Wallet;
@@ -48,6 +50,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import g.p.smartcalculater.R;
 import kotlin.Unit;
@@ -61,7 +64,9 @@ import org.web3j.protocol.http.HttpService;
 
 public class MyWalletActivity extends Activity {
     private static Context context;
-//    private TextView myAddress;
+    ConcurrentHashMap<String, UnifiedTokenData> tokenMap = new ConcurrentHashMap<>();
+
+    //    private TextView myAddress;
     //private String myAddressStr;
     private String balanceStr;
 
@@ -134,7 +139,7 @@ public class MyWalletActivity extends Activity {
 
                         //ToDo:add statement to check if null
                        // myAddressStr= /*HdWalletHelper.getMyAddress(context);*/solAddress;
-                        Toast.makeText(MyWalletActivity.this, solAddress, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(MyWalletActivity.this, solAddress, Toast.LENGTH_SHORT).show();
                        // myAddress.setText(myAddressStr);
                         /*myAddress.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -155,7 +160,7 @@ public class MyWalletActivity extends Activity {
                                 try {
 
                                     //Toast.makeText(MyWalletActivity.this, myAddressStr, Toast.LENGTH_SHORT).show();
-                                    Double balance = HdWalletHelper.getSolanaBalance(solAddress);
+                                    Double balance = Double.valueOf(0)/*HdWalletHelper.getSolanaBalance(solAddress)*/;
 
                                     //BigDecimal balanceMatic = HdWalletHelper.getMaticBalance(myAddressStr);
                                     runOnUiThread(new Runnable() {
@@ -327,6 +332,7 @@ public class MyWalletActivity extends Activity {
                     //LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_token,null);
                     if(token.chain.equalsIgnoreCase(Networks.SOLANA)){
+                        //unify
                         MyWalletActivity.this.addSolanaTokenToListView(tokensListView,tokenItemView,token.contractAddress);
                     }
                     else if(token.chain.equalsIgnoreCase(Networks.BSC)){
@@ -335,6 +341,7 @@ public class MyWalletActivity extends Activity {
 
 
                 }
+                //update UI
 
                 // You can now update a RecyclerView, ListView, etc.
             }
@@ -375,6 +382,7 @@ public class MyWalletActivity extends Activity {
                             public void onClick(View view) {
                                 Intent intent=new Intent(MyWalletActivity.this,TokenDetailsActivity.class);
                                 intent.putExtra("contractAddress",contractAddress);
+                                intent.putExtra("chain",Networks.BSC);
 
                                 MyWalletActivity.this.startActivity(intent);
                             }
@@ -410,6 +418,8 @@ public class MyWalletActivity extends Activity {
                         String name = jsonResponse.getString("name");
                         String tokenSymbol = jsonResponse.getString("symbol");
 
+                       // addOrUpdateToken(tokenSymbol, Networks.SOLANA, contractAddress, BigDecimal.valueOf(SolTokenOperations.getUserSplTokenBalance(solAddress,contractAddress)) /*BigDecimal.ZERO*/, name, logoUrl);
+
                         // Handle the token logo URL and name
                         runOnUiThread(() ->{
                             ImageView tokenLogo=tokenView.findViewById(R.id.coinIcon);
@@ -422,7 +432,7 @@ public class MyWalletActivity extends Activity {
                                 public void onClick(View view) {
                                     Intent intent=new Intent(MyWalletActivity.this,TokenDetailsActivity.class);
                                     intent.putExtra("contractAddress",contractAddress);
-                                    intent.putExtra("chain",chain);
+                                    intent.putExtra("chain",Networks.SOLANA);
 
                                     MyWalletActivity.this.startActivity(intent);
                                 }
@@ -449,6 +459,34 @@ public class MyWalletActivity extends Activity {
             }
 
         });
+    }//addSolanaTokenToListView
+
+
+   /* public void addOrUpdateToken(String symbol, String coingecko_coin_id,BigDecimal balance, String name, String logoUrl) {
+        String key = coingecko_coin_id;
+        tokenMap.compute(key, (k,existing) -> {
+            if (existing == null) {
+                UnifiedTokenData newToken = new UnifiedTokenData();
+                newToken.name = name;
+                newToken.symbol = symbol;
+                newToken.logoUrl = logoUrl;
+                newToken.balancesByChain.put(coingecko_coin_id, balance);
+                newToken.totalBalance = balance;
+                return newToken;
+            } else {
+                existing.balancesByChain.put(coingecko_coin_id, balance);
+                existing.totalBalance = existing.balancesByChain.values().stream()
+                        .reduce(BigDecimal.ZERO, BigDecimal::add);
+                return existing;
+            }
+        });
+    }*/
+
+
+    public BigDecimal getGrandTotal() {
+        return tokenMap.values().stream()
+                .map(token -> token.totalBalance)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
 

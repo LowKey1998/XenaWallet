@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "g.p.smartcalculater.app-mergeDebugResources-48:/values-or/values-or.xml",
+            "outputFile": "g.p.smartcalculater.app-mergeDebugResources-49:/values-or/values-or.xml",
             "map": [
                 {
                     "source": "C:\\Users\\GRAPHICS PC\\.gradle\\caches\\8.11.1\\transforms\\25ca5257d28b19a161e70a5a6832a63f\\transformed\\jetified-firebase-messaging-20.0.1\\res\\values-or\\values.xml",

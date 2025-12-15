@@ -240,6 +240,7 @@ id coinListView
 id coinName
 id coinPrice
 id coinSymbol
+id coingecko_id
 id combinedTotalAmount
 id combinedTotalLabel
 id contractAddress

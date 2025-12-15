@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "g.p.smartcalculater.app-mergeDebugResources-48:/values-ja/values-ja.xml",
+            "outputFile": "g.p.smartcalculater.app-mergeDebugResources-49:/values-ja/values-ja.xml",
             "map": [
                 {
                     "source": "C:\\Users\\GRAPHICS PC\\.gradle\\caches\\8.11.1\\transforms\\2adf958e556a684a215602425bc94c3e\\transformed\\core-1.9.0\\res\\values-ja\\values-ja.xml",
@@ -105,6 +105,23 @@
                         "startOffsets": "6112",
                         "endColumns": "101",
                         "endOffsets": "6209"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\GRAPHICS PC\\.gradle\\caches\\8.11.1\\transforms\\f56ff6ffd314f58a1dffa3112fcfeb64\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-ja\\values-ja.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,109,156,256",
+                        "endColumns": "53,46,99,81",
+                        "endOffsets": "104,151,251,333"
+                    },
+                    "to": {
+                        "startLines": "122,123,124,125",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "10477,10531,10578,10678",
+                        "endColumns": "53,46,99,81",
+                        "endOffsets": "10526,10573,10673,10755"
                     }
                 }
             ]

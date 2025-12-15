@@ -41,6 +41,15 @@
 
     <!-- Dropdown 2 -->
     <EditText
+        android:id="@+id/coingecko_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/editbox_background_disabled"
+        android:padding="16dp"
+        android:enabled="false"
+        android:hint="CoinGecko ID"
+        android:layout_marginBottom="24dp"/>
+    <EditText
         android:id="@+id/contractAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
