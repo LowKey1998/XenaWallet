@@ -3408,11 +3408,11 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id close
+id coinBalanceValue
 id coinChange
 id coinIcon
 id coinListView
 id coinName
-id coinPrice
 id coinSymbol
 id coingecko_id
 id collapseActionView
@@ -4021,9 +4021,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_pin_entry
 layout item_token
-layout item_token_bnb
 layout item_token_placeholder
-layout item_token_usdt
 layout item_transaction
 layout login_activity
 layout m3_alert_dialog

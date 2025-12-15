@@ -2,6 +2,7 @@ package com.jose.walletapp.helpers.bsc;
 
 import org.json.JSONObject;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.request.Transaction;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.protocol.core.methods.response.EthCall;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
@@ -17,15 +18,24 @@ import org.web3j.abi.datatypes.generated.Uint256;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.RawTransaction;
 import org.web3j.crypto.TransactionEncoder;
+import org.web3j.utils.Convert;
 import org.web3j.utils.Numeric;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.Arrays;
+import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class BscHelper {
 
     private final String rpcUrl="https://bsc-dataseed.binance.org/";
     private Web3j web3;
+    private OkHttpClient httpClient;
 
     public BscHelper() {
         web3 = Web3j.build(new HttpService(rpcUrl));
@@ -93,5 +103,95 @@ public class BscHelper {
             return null;
         }
     }
+
+
+    /* ===================== NATIVE BNB BALANCE ===================== */
+
+    public BigDecimal getNativeBalance(String walletAddress) {
+        try {
+            BigInteger wei = web3.ethGetBalance(
+                    walletAddress,
+                    DefaultBlockParameterName.LATEST
+            ).send().getBalance();
+
+            return Convert.fromWei(new BigDecimal(wei), Convert.Unit.ETHER);
+        } catch (Exception e) {
+            return BigDecimal.ZERO;
+        }
+    }
+
+
+    public BigDecimal getTokenBalance(
+            String walletAddress,
+            String contractAddress,
+            int decimals
+    ) {
+        try {
+            Function function = new Function(
+                    "balanceOf",
+                    List.of(new Address(walletAddress)),
+                    List.of(new TypeReference<Uint256>() {})
+            );
+
+            String encoded = FunctionEncoder.encode(function);
+            EthCall response = web3.ethCall(
+                    Transaction.createEthCallTransaction(
+                            walletAddress,
+                            contractAddress,
+                            encoded
+                    ),
+                    DefaultBlockParameterName.LATEST
+            ).send();
+
+            BigInteger raw = (BigInteger)
+                    FunctionReturnDecoder.decode(
+                            response.getValue(),
+                            function.getOutputParameters()
+                    ).get(0).getValue();
+
+            return new BigDecimal(raw)
+                    .divide(BigDecimal.TEN.pow(decimals), decimals, RoundingMode.DOWN);
+
+        } catch (Exception e) {
+            return BigDecimal.ZERO;
+        }
+    }
+
+    /**
+     * Converts token amount to ANY currency (USD, ZMW, EUR, GBP, etc.)
+     */
+    public BigDecimal convertToCurrency(
+            String coingeckoId,
+            BigDecimal amount,
+            String currency
+    ) {
+        try {
+            String url =
+                    "https://api.coingecko.com/api/v3/simple/price" +
+                            "?ids=" + coingeckoId +
+                            "&vs_currencies=" + currency.toLowerCase();
+
+            httpClient = new OkHttpClient();
+            Request request = new Request.Builder().url(url).build();
+            Response response = httpClient.newCall(request).execute();
+
+            if (!response.isSuccessful()) return BigDecimal.ZERO;
+
+            JSONObject json = new JSONObject(response.body().string());
+            BigDecimal price =
+                    BigDecimal.valueOf(
+                            json.getJSONObject(coingeckoId)
+                                    .getDouble(currency.toLowerCase())
+                    );
+
+            return amount.multiply(price);
+
+        } catch (Exception e) {
+            return BigDecimal.ZERO;
+        }
+    }//convertToCurrency
+
+
 }
+
 

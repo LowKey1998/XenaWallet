@@ -33,53 +33,11 @@ public class LoginActivity extends Activity {
     FirebaseAuth fa;
     EditText email=null;
     EditText password=null;
-    private EditText[] wordInputs = new EditText[12];
-    private LinearLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-
-        //FlexboxLayout mnemonicContainer = findViewById(R.id.mnemonicContainer);
-        /*for (int i = 0; i < 12; i++) {
-            EditText input = new EditText(this);
-            input.setId(View.generateViewId());
-            input.setHint("Word " + (i + 1));
-            input.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-            input.setLayoutParams(new FlexboxLayout.LayoutParams(
-                    getResources().getDisplayMetrics().widthPixels / 3 - 32,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            ));
-            input.setPadding(16, 16, 16, 16);
-            input.setTextSize(16);
-            input.setBackgroundResource(R.drawable.edittext_background);
-            wordInputs[i] = input;
-            mnemonicContainer.addView(input);
-
-            final int currentIndex = i;
-            input.addTextChangedListener(new TextWatcher() {
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if (s.length() > 0 && currentIndex < 11) {
-                        wordInputs[currentIndex + 1].requestFocus();
-                    }
-                }
-
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-                public void afterTextChanged(Editable s) {}
-            });
-
-            input.setOnKeyListener((v, keyCode, event) -> {
-                if (keyCode == KeyEvent.KEYCODE_DEL &&
-                        event.getAction() == KeyEvent.ACTION_DOWN &&
-                        input.getText().toString().isEmpty() &&
-                        currentIndex > 0) {
-                    wordInputs[currentIndex - 1].requestFocus();
-                    return true;
-                }
-                return false;
-            });
-        }*/
 
         if(FirebaseAuth.getInstance().getCurrentUser()!=null){
             startActivity(new Intent(this,MainActivity.class));
@@ -96,39 +54,7 @@ public class LoginActivity extends Activity {
             }
         });*/
         findViewById(R.id.loginBtn).setOnClickListener(v -> {
-            /*StringBuilder phrase = new StringBuilder();
-            for (EditText e : wordInputs) {
-                String word = e.getText().toString().trim();
-                if (word.isEmpty()) {
-                    Toast.makeText(this, "All 12 words are required", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                phrase.append(word).append(" ");
-            }
-            String finalPhrase = phrase.toString().trim();
-            Log.d("MNEMONIC", "Phrase: " + finalPhrase);*/
-
-            // TODO: Handle login with phrase
-                /*try {
-                    MultiChainWalletManager.getInstance().initialize(this, () -> {
-                        String eth = MultiChainWalletManager.getInstance().getEthAddress();
-                        String sol = MultiChainWalletManager.getInstance().getSolanaAddress();
-                        String bsc = MultiChainWalletManager.getInstance().getBscAddress();
-
-                        Log.d("WALLET", "ETH: " + eth);
-                        Log.d("WALLET", "SOL: " + sol);
-                        Log.d("WALLET", "BSC: " + bsc);
-                    }, () -> {
-                        Toast.makeText(this, "Wallet initialization failed", Toast.LENGTH_SHORT).show();
-                        Log.e("WALLET", "Wallet initialization failed");
-                    });
-                } catch (Exception e) {
-                    Toast.makeText(this, "Wallet creation failed", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                    Log.e("Wallet", "Wallet creation failed: " + e.getMessage());
-                }*/
             loginClicked();
-
         });
     }
 

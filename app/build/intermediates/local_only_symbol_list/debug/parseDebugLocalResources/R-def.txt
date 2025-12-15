@@ -235,11 +235,11 @@ id button_check_add
 id button_next
 id button_settings
 id close
+id coinBalanceValue
 id coinChange
 id coinIcon
 id coinListView
 id coinName
-id coinPrice
 id coinSymbol
 id coingecko_id
 id combinedTotalAmount
@@ -343,9 +343,7 @@ layout activity_withdraw
 layout avtivity_reset_password
 layout fragment_pin_entry
 layout item_token
-layout item_token_bnb
 layout item_token_placeholder
-layout item_token_usdt
 layout item_transaction
 layout login_activity
 layout view_pin_entry_keyboard

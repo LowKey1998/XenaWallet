@@ -1,6 +1,7 @@
 package com.jose.walletapp;
 
 import static com.jose.walletapp.helpers.ERC20Metadata.callStringFunction;
+import static com.jose.walletapp.helpers.ERC20Metadata.callUint8Function;
 
 import android.app.Activity;
 import android.content.Context;
@@ -33,6 +34,8 @@ import com.jose.walletapp.helpers.ERC20Metadata;
 import com.jose.walletapp.helpers.MultiChainWalletManager;
 import com.jose.walletapp.helpers.Token;
 import com.jose.walletapp.helpers.UnifiedTokenData;
+import com.jose.walletapp.helpers.bsc.BscHelper;
+import com.jose.walletapp.helpers.solana.SolTokenOperations;
 import com.melnykov.fab.FloatingActionButton;
 
 import java.io.IOException;
@@ -125,7 +128,7 @@ public class MyWalletActivity extends Activity {
     private void showLoadingPlaceholders() {
         tokensListView.removeAllViews();
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 8; i++) {
             View shimmerView = getLayoutInflater()
                     .inflate(R.layout.item_token_placeholder, tokensListView, false);
             tokensListView.addView(shimmerView);
@@ -186,23 +189,29 @@ public class MyWalletActivity extends Activity {
                     String name = "";
                     String url = "";
                     String tokenSymbol = "";
+                    int decimals = 0;
                     try {
                         name = callStringFunction(web3j, contractAddress, "name");
                         tokenSymbol = callStringFunction(web3j, contractAddress, "symbol");
                         url= ERC20Metadata.fetchLogoFromCoinGecko(Networks.BSC,contractAddress);
-                        //int decimals = callUint8Function(web3j, contractAddress, "decimals");
+                        decimals = callUint8Function(web3j, contractAddress, "decimals");
                     } catch (Exception e) {
                         //throw new RuntimeException(e);
                     }
                     String finalUrl = url;
                     String finalName = name;
                     String finalTokenSymbol = tokenSymbol;
+                    int finalDecimals = decimals;
                     runOnUiThread(() ->{
                         ImageView tokenLogo=tokenView.findViewById(R.id.coinIcon);
                         Glide.with(MyWalletActivity.this).load(finalUrl)/*.apply(new RequestOptions().circleCrop())*/.into(tokenLogo);
 
                         ((TextView)tokenView.findViewById(R.id.coinName)).setText(finalName);
                         ((TextView)tokenView.findViewById(R.id.coinSymbol)).setText(finalTokenSymbol);
+                        BscHelper bscHelper=new BscHelper();
+                        BigDecimal tokenBalance=bscHelper.getTokenBalance(bscAddress,contractAddress, finalDecimals);
+
+                        ((TextView)tokenView.findViewById(R.id.coinBalanceValue)).setText("$ "+bscHelper.convertToCurrency("tether",tokenBalance,"usd").toString());
                         tokenView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -253,6 +262,7 @@ public class MyWalletActivity extends Activity {
 
                             ((TextView)tokenView.findViewById(R.id.coinName)).setText(name);
                             ((TextView)tokenView.findViewById(R.id.coinSymbol)).setText(tokenSymbol);
+                            ((TextView)tokenView.findViewById(R.id.coinBalanceValue)).setText(""+SolTokenOperations.getUserSplTokenBalance(/*solAddress*/"4Nd1mZ5n4kL3oHUX77YPDhmPEw24kTx5cHGNy8JD7Q9y",/*contractAddress*/"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"));
                             tokenView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -364,26 +374,6 @@ public class MyWalletActivity extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            // myAddress=findViewById(R.id.myAddress);
-
-                            // Toast.makeText(MyWalletActivity.this, solAddress, Toast.LENGTH_SHORT).show();
-
-                            //ToDo:add statement to check if null
-                            // myAddressStr= /*HdWalletHelper.getMyAddress(context);*/solAddress;
-                            // Toast.makeText(MyWalletActivity.this, solAddress, Toast.LENGTH_SHORT).show();
-                            // myAddress.setText(myAddressStr);
-                        /*myAddress.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Wallet Address", myAddressStr);
-                                clipboard.setPrimaryClip(clip);
-
-                                Toast.makeText(MyWalletActivity.this, "Address copied to clipboard", Toast.LENGTH_SHORT).show();
-                            }
-                        });*/
-
-
                             //Toast.makeText(MyWalletActivity.this, myAddressStr, Toast.LENGTH_SHORT).show();
                             Double balance = Double.valueOf(0)/*HdWalletHelper.getSolanaBalance(solAddress)*/;
 
@@ -391,21 +381,15 @@ public class MyWalletActivity extends Activity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-
-                                    totalBalance.setText(balance != null ? ("$" + balance) : "Error ");
-                                    //totalMaticBalance.setText(balanceMatic != null ? ("$" + balanceMatic) : "Error fetching Balance");
-                                    swipeRefreshLayout.setRefreshing(false);
+                                    //swipeRefreshLayout.setRefreshing(false);
                                 }
                             });
-
 
                             fetchAllTokensFromFirebase();
                             loadTokensThread=new Thread(){
                                 @Override
                                 public void run() {
                                     try {
-
-
                                         //BigDecimal balanceMatic = HdWalletHelper.getMaticBalance(myAddressStr);
                                         runOnUiThread(new Runnable() {
                                             @Override
@@ -425,7 +409,6 @@ public class MyWalletActivity extends Activity {
                                     }
                                 }
                             };
-
 
                         }
                     });
@@ -464,7 +447,6 @@ public class MyWalletActivity extends Activity {
             } else {
                 totalBalance.setText("$ 0");
             }
-
             swipeRefreshLayout.setRefreshing(false);
         }
     }
