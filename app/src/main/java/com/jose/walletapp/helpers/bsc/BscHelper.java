@@ -1,5 +1,11 @@
 package com.jose.walletapp.helpers.bsc;
 
+
+
+
+import android.util.Log;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.request.Transaction;
@@ -21,12 +27,16 @@ import org.web3j.crypto.TransactionEncoder;
 import org.web3j.utils.Convert;
 import org.web3j.utils.Numeric;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -35,7 +45,8 @@ public class BscHelper {
 
     private final String rpcUrl="https://bsc-dataseed.binance.org/";
     private Web3j web3;
-    private OkHttpClient httpClient;
+    private static final String BSCSCAN_API_KEY = "FJG823HCJYXZ6FPSHEXXQS149DYBW6W1XW";
+    private static final String BASE_URL = "https://api.bscscan.com/api";
 
     public BscHelper() {
         web3 = Web3j.build(new HttpService(rpcUrl));
@@ -171,7 +182,7 @@ public class BscHelper {
                             "?ids=" + coingeckoId +
                             "&vs_currencies=" + currency.toLowerCase();
 
-            httpClient = new OkHttpClient();
+            OkHttpClient httpClient = new OkHttpClient();
             Request request = new Request.Builder().url(url).build();
             Response response = httpClient.newCall(request).execute();
 
@@ -191,6 +202,77 @@ public class BscHelper {
         }
     }//convertToCurrency
 
+
+    public static class TokenTransaction {
+        public String hash;
+        public String from;
+        public String to;
+        public String value;
+        public long timestamp;
+    }
+
+    /**
+     * Fetch token transfer transactions for a wallet and contract.
+     */
+    public void fetchTokenTransactions(String walletAddress, String contractAddress, TokenTransactionsCallback callback) {
+        String url = BASE_URL + "?module=account&action=tokentx&contractaddress="
+                + contractAddress + "&address=" + walletAddress
+                + "&startblock=0&endblock=99999999&sort=desc&apikey=" + BSCSCAN_API_KEY;
+
+        Request request = new Request.Builder().url(url).build();
+
+        OkHttpClient client=new OkHttpClient();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                //Log.e(TAG, "Failed to fetch transactions", e);
+                callback.onError(e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    callback.onError(new IOException("Unexpected code " + response));
+                    return;
+                }
+
+                try {
+                    String jsonData = response.body().string();
+                    JSONObject json = new JSONObject(jsonData);
+
+                    if (!"1".equals(json.getString("status"))) {
+                        callback.onError(new Exception("BscScan API error: " + json.getString("message")));
+                        return;
+                    }
+
+                    JSONArray resultArray = json.getJSONArray("result");
+                    List<TokenTransaction> transactions = new ArrayList<>();
+
+                    for (int i = 0; i < resultArray.length(); i++) {
+                        JSONObject obj = resultArray.getJSONObject(i);
+                        TokenTransaction tx = new TokenTransaction();
+                        tx.hash = obj.getString("hash");
+                        tx.from = obj.getString("from");
+                        tx.to = obj.getString("to");
+                        tx.value = obj.getString("value");
+                        tx.timestamp = obj.getLong("timeStamp");
+                        transactions.add(tx);
+                    }
+
+                    callback.onSuccess(transactions);
+
+                } catch (Exception e) {
+                    //Log.e(TAG, "Error parsing transactions", e);
+                    callback.onError(e);
+                }
+            }
+        });
+    }
+
+    public interface TokenTransactionsCallback {
+        void onSuccess(List<TokenTransaction> transactions);
+        void onError(Exception e);
+    }
 
 }
 

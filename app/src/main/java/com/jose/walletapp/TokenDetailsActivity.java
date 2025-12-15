@@ -3,8 +3,10 @@ package com.jose.walletapp;
 import static com.jose.walletapp.helpers.ERC20Metadata.callStringFunction;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.jose.walletapp.constants.Networks;
+import com.jose.walletapp.helpers.ERC20Metadata;
 import com.jose.walletapp.helpers.MultiChainWalletManager;
 
 import org.web3j.protocol.Web3j;
@@ -45,6 +48,7 @@ public class TokenDetailsActivity extends Activity {
         balanceSOL = findViewById(R.id.balance_sol);
         transactionList = findViewById(R.id.transaction_list);
 
+
         // Suppose your XML has ImageView with id token_logo and qr_code
        // tokenLogo = findViewById(R.id.token_logo);
        // qrCodeView = findViewById(R.id.qr_code);
@@ -54,6 +58,18 @@ public class TokenDetailsActivity extends Activity {
         // Get intent extras
         chainId = getIntent().getStringExtra("chain");
         contractAddress = getIntent().getStringExtra("contractAddress");
+
+        findViewById(R.id.receiveBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //todo: show receivable networks for token supported by app
+
+                Intent intent = new Intent(TokenDetailsActivity.this, ReceiveActivity.class);
+                intent.putExtra("contractAddress",contractAddress);
+                intent.putExtra("chain",chainId);
+                startActivity(intent);
+            }
+        });
         try {
             MultiChainWalletManager.getInstance().initialize(this, () -> {
                 if(chainId.equalsIgnoreCase(Networks.SOLANA)) {
@@ -82,14 +98,27 @@ public class TokenDetailsActivity extends Activity {
             Web3j web3j = Web3j.build(new HttpService("https://bsc-dataseed.binance.org/"));
 
             try {
-                String name = callStringFunction(web3j, contractAddress, "name");
-                String tokenSymbol = callStringFunction(web3j, contractAddress, "symbol");
-                //int decimals = callUint8Function(web3j, contractAddress, "decimals");
+                new Thread(){
+                    @Override
+                    public void run() {
+                        String name = null;
+                        try {
+                            name = ERC20Metadata.callStringFunction(web3j, contractAddress, "name");
+                            String tokenSymbol = callStringFunction(web3j, contractAddress, "symbol");
 
-                //runOnUiThread(() ->{
-                title.setText(name);
-                //symbolEditText.setText(tokenSymbol);
-                //});
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                        //int decimals = callUint8Function(web3j, contractAddress, "decimals");
+
+                        String finalName = name;
+                        runOnUiThread(() ->{
+                            title.setText(finalName);
+                            //symbolEditText.setText(tokenSymbol);
+                        });
+                    }
+                }.start();
+
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

@@ -83,7 +83,10 @@ public class MyWalletActivity extends Activity {
         tokensListView=findViewById(R.id.tokens);
         totalBalance=findViewById(R.id.combinedTotalAmount);
 
+        //shimer
         showLoadingPlaceholders();
+        // Fetch tokens immediately from Firebase (offline data will load first)
+        //fetchAllTokensFromFirebase();
         // Initial load
         new RefreshWalletTask().execute();
 
@@ -215,7 +218,7 @@ public class MyWalletActivity extends Activity {
                         tokenView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent=new Intent(MyWalletActivity.this,/*TokenDetailsActivity*/ReceiveActivity.class);
+                                Intent intent=new Intent(MyWalletActivity.this,TokenDetailsActivity.class);
                                 intent.putExtra("contractAddress",contractAddress);
                                 intent.putExtra("chain",Networks.BSC);
 
@@ -266,7 +269,7 @@ public class MyWalletActivity extends Activity {
                             tokenView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Intent intent=new Intent(MyWalletActivity.this,/*TokenDetailsActivity*/ReceiveActivity.class);
+                                    Intent intent=new Intent(MyWalletActivity.this,TokenDetailsActivity.class);
                                     intent.putExtra("contractAddress",contractAddress);
                                     intent.putExtra("chain",Networks.SOLANA);
 
