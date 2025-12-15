@@ -179,6 +179,8 @@ drawable ic_polygon
 drawable ic_swap
 drawable ic_usdt
 drawable input_background
+drawable placeholder_circle
+drawable placeholder_rect
 drawable purple_cicle
 drawable rounded_btn
 drawable rounded_view_blue_white_border
@@ -342,6 +344,7 @@ layout avtivity_reset_password
 layout fragment_pin_entry
 layout item_token
 layout item_token_bnb
+layout item_token_placeholder
 layout item_token_usdt
 layout item_transaction
 layout login_activity

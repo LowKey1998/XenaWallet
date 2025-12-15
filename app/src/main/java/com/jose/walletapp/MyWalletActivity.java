@@ -75,10 +75,12 @@ public class MyWalletActivity extends Activity {
         setContentView(R.layout.activity_main);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
+
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         tokensListView=findViewById(R.id.tokens);
         totalBalance=findViewById(R.id.combinedTotalAmount);
 
+        showLoadingPlaceholders();
         // Initial load
         new RefreshWalletTask().execute();
 
@@ -118,9 +120,16 @@ public class MyWalletActivity extends Activity {
         });
 
 
+    }
 
+    private void showLoadingPlaceholders() {
+        tokensListView.removeAllViews();
 
-
+        for (int i = 0; i < 5; i++) {
+            View shimmerView = getLayoutInflater()
+                    .inflate(R.layout.item_token_placeholder, tokensListView, false);
+            tokensListView.addView(shimmerView);
+        }
     }
 
 

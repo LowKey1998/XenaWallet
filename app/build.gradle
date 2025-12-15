@@ -66,9 +66,11 @@ dependencies {
     //implementation 'com.squareup.okhttp3:okhttp-urlconnection:4.4.1'
 
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     //implementation 'com.github.cryptoplease:solana-android-sdk:'
     implementation 'com.mmorrell:solanaj:1.20.4'
+
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 

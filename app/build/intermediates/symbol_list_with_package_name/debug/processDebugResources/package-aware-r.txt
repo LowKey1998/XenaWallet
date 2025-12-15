@@ -1004,6 +1004,26 @@ attr shapeAppearanceMediumComponent
 attr shapeAppearanceOverlay
 attr shapeAppearanceSmallComponent
 attr shapeCornerFamily
+attr shimmer_auto_start
+attr shimmer_base_alpha
+attr shimmer_base_color
+attr shimmer_clip_to_children
+attr shimmer_colored
+attr shimmer_direction
+attr shimmer_dropoff
+attr shimmer_duration
+attr shimmer_fixed_height
+attr shimmer_fixed_width
+attr shimmer_height_ratio
+attr shimmer_highlight_alpha
+attr shimmer_highlight_color
+attr shimmer_intensity
+attr shimmer_repeat_count
+attr shimmer_repeat_delay
+attr shimmer_repeat_mode
+attr shimmer_shape
+attr shimmer_tilt
+attr shimmer_width_ratio
 attr shortcutMatchRequired
 attr shouldRemoveExpandedCorners
 attr showAnimationBehavior
@@ -3221,6 +3241,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable placeholder_circle
+drawable placeholder_rect
 drawable purple_cicle
 drawable rounded_btn
 drawable rounded_view_blue_white_border
@@ -3346,6 +3368,7 @@ id beginning
 id blocking
 id bottom
 id bottomNav
+id bottom_to_top
 id bounce
 id btnBack
 id btnNext
@@ -3524,6 +3547,7 @@ id labeled
 id layout
 id left
 id leftToRight
+id left_to_right
 id legacy
 id light
 id line1
@@ -3661,6 +3685,7 @@ id progress_circular
 id progress_horizontal
 id qr_box
 id qr_code
+id radial
 id radio
 id ratio
 id receiveBtn
@@ -3669,11 +3694,14 @@ id recoverFunds
 id rectangles
 id relativeLayout
 id report_drawn
+id restart
+id reverse
 id reverseSawtooth
 id right
 id rightToLeft
 id right_icon
 id right_side
+id right_to_left
 id rounded
 id row
 id row_index_key
@@ -3789,6 +3817,7 @@ id toggle
 id tokens
 id top
 id topPanel
+id top_to_bottom
 id touch_outside
 id transaction_list
 id transactions
@@ -3993,6 +4022,7 @@ layout design_text_input_start_icon
 layout fragment_pin_entry
 layout item_token
 layout item_token_bnb
+layout item_token_placeholder
 layout item_token_usdt
 layout item_transaction
 layout login_activity
@@ -6281,6 +6311,7 @@ styleable SearchBar android_textAppearance android_text android_hint backgroundT
 styleable SearchView android_textAppearance android_focusable android_maxWidth android_text android_hint android_inputType android_imeOptions animateMenuItems animateNavigationIcon autoShowKeyboard backHandlingEnabled backgroundTint closeIcon commitIcon defaultQueryHint goIcon headerLayout hideNavigationIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon searchPrefixText submitBackground suggestionRowLayout useDrawerArrowDrawable voiceIcon
 styleable ShapeAppearance cornerFamily cornerFamilyBottomLeft cornerFamilyBottomRight cornerFamilyTopLeft cornerFamilyTopRight cornerSize cornerSizeBottomLeft cornerSizeBottomRight cornerSizeTopLeft cornerSizeTopRight
 styleable ShapeableImageView contentPadding contentPaddingBottom contentPaddingEnd contentPaddingLeft contentPaddingRight contentPaddingStart contentPaddingTop shapeAppearance shapeAppearanceOverlay strokeColor strokeWidth
+styleable ShimmerFrameLayout shimmer_auto_start shimmer_base_alpha shimmer_base_color shimmer_clip_to_children shimmer_colored shimmer_direction shimmer_dropoff shimmer_duration shimmer_fixed_height shimmer_fixed_width shimmer_height_ratio shimmer_highlight_alpha shimmer_highlight_color shimmer_intensity shimmer_repeat_count shimmer_repeat_delay shimmer_repeat_mode shimmer_shape shimmer_tilt shimmer_width_ratio
 styleable SideSheetBehavior_Layout android_maxWidth android_maxHeight android_elevation backgroundTint behavior_draggable coplanarSiblingViewId shapeAppearance shapeAppearanceOverlay
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Slider android_enabled android_value android_stepSize android_valueFrom android_valueTo haloColor haloRadius labelBehavior labelStyle minTouchTargetSize thumbColor thumbElevation thumbRadius thumbStrokeColor thumbStrokeWidth tickColor tickColorActive tickColorInactive tickRadiusActive tickRadiusInactive tickVisible trackColor trackColorActive trackColorInactive trackHeight
