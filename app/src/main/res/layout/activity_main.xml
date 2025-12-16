@@ -20,16 +20,56 @@
        
         android:background="@drawable/circle_background" />
 
-    <TextView
-        android:id="@+id/greetingText"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_toRightOf="@id/profileImage"
         android:layout_alignTop="@id/profileImage"
-        android:layout_marginStart="8dp"
-        android:text="Hi, Gerald"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+    >
+        <TextView
+            android:id="@+id/greetingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Hi, Gerald"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/ic_notification"
+            >
+
+            <LinearLayout
+                android:background="@drawable/circle_action_btns"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="16dp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:padding="4dp"
+                android:layout_height="16dp">
+                <TextView
+                    android:text="1"
+                    android:textSize="11dp"
+                    android:textColor="#FFF"
+                    android:gravity="center"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    />
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
 
     <!-- Combined total -->
     <TextView
@@ -59,7 +99,10 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="35dp" android:background="@drawable/curved_top_white_bg" android:layout_below="@id/combinedTotalAmount"      
+        android:paddingTop="35dp"
+        android:paddingHorizontal="5dp"
+        android:background="@drawable/curved_top_white_bg"
+        android:layout_below="@id/combinedTotalAmount"
         android:gravity="center"
         >
 
@@ -72,10 +115,12 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:padding="5dp"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+                android:src="@drawable/ic_add"
                android:background="@drawable/circle_action_btns"
-                android:tint="#5A2C91" />
+                android:tint="#FFF" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,10 +135,12 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:padding="8dp"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+                android:src="@drawable/ic_withdraw"
                 android:background="@drawable/circle_action_btns"
-                android:tint="#5A2C91" />
+                android:tint="#FFF" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,10 +158,13 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-               android:background="@drawable/circle_action_btns"
-                android:tint="#5A2C91" />
+                android:padding="9dp"
+                android:rotation="45"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+                android:background="@drawable/circle_action_btns"
+                android:src="@drawable/ic_arrow_down"
+                android:tint="#FFF" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -130,10 +180,13 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-               android:background="@drawable/circle_action_btns"
-                android:tint="#5A2C91" />
+                android:padding="8dp"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+                android:background="@drawable/circle_action_btns"
+                android:src="@drawable/ic_arrow_down"
+                android:rotation="225"
+                android:tint="#FFF" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -150,8 +203,11 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_convert"
+                android:tint="#FFF"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
                android:background="@drawable/circle_action_btns"
                 />
             <TextView
@@ -200,8 +256,9 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_add"
             android:tint="#FFDF00"
+            app:fab_shadow="true"
             app:rippleColor="#CCC"
-            android:elevation="20sp"
+            android:elevation="5dp"
             android:backgroundTint="#FFF"
             />
     </RelativeLayout>
@@ -220,7 +277,6 @@
         <!-- Repeat for Coins and Pay -->
          <LinearLayout
             android:id="@+id/wallet"
-            android:onClick="tabClicked"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -241,7 +297,6 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/transactions"
-            android:onClick="transactionsClicked"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -249,7 +304,6 @@
             android:gravity="center">
             <ImageView
                 android:padding="6dp"
-                android:src="@drawable/transaction"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                  />
@@ -270,15 +324,15 @@
             android:gravity="center">
             <ImageView
                 android:padding="6dp"
-                android:src="@drawable/settings"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
+                android:src="@drawable/ic_p2p"
                  />
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/tx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Settings"
+                android:text="P2P"
                 android:textSize="12sp"/>
         </LinearLayout>
         

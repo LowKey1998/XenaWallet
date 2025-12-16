@@ -2294,6 +2294,7 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen action_btn_width_height
 dimen appcompat_dialog_background_inset
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
@@ -3101,7 +3102,6 @@ drawable bg_button_disabled
 drawable bg_card
 drawable bg_chip
 drawable bg_input
-drawable bnb
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3150,9 +3150,13 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_add
 drawable ic_arrow_back_black_24
+drawable ic_arrow_down
 drawable ic_btc
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_convert
+drawable ic_eye
+drawable ic_eye_slash
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3163,11 +3167,13 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_notification
 drawable ic_notifications_gold
-drawable ic_polygon
+drawable ic_p2p
 drawable ic_search_black_24
 drawable ic_swap
 drawable ic_usdt
+drawable ic_withdraw
 drawable input_background
 drawable m3_appbar_background
 drawable m3_avd_hide_password
@@ -3246,12 +3252,9 @@ drawable placeholder_rect
 drawable purple_cicle
 drawable rounded_btn
 drawable rounded_view_blue_white_border
-drawable settings
-drawable solana
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
-drawable transaction
 drawable usdt
 drawable vector_arrow_forward_blue
 drawable vector_backspace
@@ -3829,6 +3832,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tx
 id txtForgot
 id txtSubtitle
 id txtTitle

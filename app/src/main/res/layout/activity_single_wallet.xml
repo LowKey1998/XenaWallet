@@ -7,6 +7,7 @@
     android:padding="16dp">
 
     <LinearLayout
+        android:paddingTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -57,10 +58,12 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <ImageButton
+                <ImageView
+                    android:padding="6dp"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="@null"
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/black"
                     android:contentDescription="Buy" />
 
                 <TextView
@@ -79,10 +82,12 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <ImageButton
+                <ImageView
+                    android:padding="8dp"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="@null"
+                    android:tint="@color/black"
+                    android:src="@drawable/ic_withdraw"
                     android:contentDescription="Sell" />
 
                 <TextView
@@ -100,10 +105,13 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <ImageButton
+                <ImageView
+                    android:padding="8dp"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="@null"
+
+                    android:rotation="45"
+                    android:src="@drawable/ic_arrow_down"
                     android:contentDescription="Send" />
 
                 <TextView
@@ -122,11 +130,13 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <ImageButton
+                <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-
-                    android:background="@null"
+                    android:padding="8dp"
+                    android:rotation="225"
+                    android:tint="@color/black"
+                    android:src="@drawable/ic_arrow_down"
                     android:contentDescription="Receive" />
 
                 <TextView
@@ -144,11 +154,12 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <ImageButton
+                <ImageView
+                    android:padding="8dp"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                   
-                    android:background="@null"
+                    android:tint="@color/black"
+                    android:src="@drawable/ic_convert"
                     android:contentDescription="Convert" />
 
                 <TextView

@@ -43,6 +43,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.jose.walletapp.ReceiveActivity"/>
+        <activity android:name="com.jose.walletapp.TokenListActivity"/>
         <activity android:name="com.jose.walletapp.ConvertActivity"/>
         <activity android:name="com.jose.walletapp.DepositActivity"/>
         <activity android:name="com.jose.walletapp.AddTokenActivity"/>
