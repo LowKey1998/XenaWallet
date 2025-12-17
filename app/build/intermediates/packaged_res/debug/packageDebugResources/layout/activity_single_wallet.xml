@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<!--<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header -->
+        &lt;!&ndash; Header &ndash;&gt;
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
             android:textStyle="bold"
             android:textColor="#000000" />
 
-        <!-- Balance Display -->
+        &lt;!&ndash; Balance Display &ndash;&gt;
         <TextView
             android:id="@+id/balance_zmw"
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:textColor="#4CAF50"
             android:layout_marginTop="4dp" />
 
-        <!-- Buy/Sell/Send/Receive/Convert Buttons -->
+        &lt;!&ndash; Buy/Sell/Send/Receive/Convert Buttons &ndash;&gt;
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,8 +73,8 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <!-- Repeat for Sell, Send, Receive, Convert -->
-            <!-- SELL -->
+            &lt;!&ndash; Repeat for Sell, Send, Receive, Convert &ndash;&gt;
+            &lt;!&ndash; SELL &ndash;&gt;
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             </LinearLayout>
 
 
-            <!-- RECEIVE -->
+            &lt;!&ndash; RECEIVE &ndash;&gt;
             <LinearLayout
                 android:id="@+id/receiveBtn"
                 android:layout_width="0dp"
@@ -123,7 +123,7 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <!-- SEND -->
+            &lt;!&ndash; SEND &ndash;&gt;
             <LinearLayout
                 android:id="@+id/sendBtn"
                 android:layout_width="0dp"
@@ -149,7 +149,7 @@
             </LinearLayout>
 
 
-            <!-- CONVERT -->
+            &lt;!&ndash; CONVERT &ndash;&gt;
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Transaction History -->
+        &lt;!&ndash; Transaction History &ndash;&gt;
         <TextView
             android:id="@+id/history_title"
             android:layout_width="wrap_content"
@@ -192,4 +192,318 @@
             android:layout_marginTop="8dp" />
 
     </LinearLayout>
+</ScrollView>-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F6FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/bg_gradient_header"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back"
+                android:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_toEndOf="@id/back"
+                android:layout_marginStart="12dp"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <!-- COIN INFO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="-80dp">
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/ic_net_eth"
+                android:background="@drawable/bg_circle_white"
+                android:padding="7dp"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:text=""
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="ETH"
+                android:textSize="12sp"
+                android:textColor="#888"/>
+
+            <TextView
+                android:id="@+id/token_balance"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="USD 0"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="-0.45"
+                android:textColor="#E53935"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- ACTION BUTTONS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/receive_button"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Receive"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_action_button"/>
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="1dp"/>
+
+            <Button
+                android:id="@+id/send_button"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Send"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_action_button"/>
+        </LinearLayout>
+
+        <!-- PRICE HISTORY -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_card"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Price History"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical"
+                    android:gravity="end">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="+0.56"
+                        android:textColor="#2ED573"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="10 Min ago"
+                        android:textSize="11sp"
+                        android:textColor="#999"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- LINE CHART PLACEHOLDER -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_line_chart"/>
+
+            <!-- TIME LABELS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="15 MIN"
+                    android:textSize="10sp"
+                    android:textColor="#777"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="30 MIN"
+                    android:textSize="10sp"
+                    android:textColor="#777"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="45 MIN"
+                    android:textSize="10sp"
+                    android:textColor="#777"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="60 MIN"
+                    android:textSize="10sp"
+                    android:textColor="#777"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="end"/>
+            </LinearLayout>
+
+            <!-- RANGE BUTTONS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="1 hr"
+                    android:padding="8dp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/bg_range_active"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="3 Days"
+                    android:padding="8dp"
+                    android:textColor="#777"
+                    android:layout_marginStart="8dp"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="1 Week"
+                    android:padding="8dp"
+                    android:textColor="#777"
+                    android:layout_marginStart="8dp"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="1 Month"
+                    android:padding="8dp"
+                    android:textColor="#777"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- BALANCE -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="You have "
+                android:textColor="#999"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text=".23 ETH"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- PRICE ALERT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_card"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bar_chart"/>
+
+            <LinearLayout
+                android:layout_marginStart="12dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Set Price Alert"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="When price goes up or down you will get notified."
+                    android:textSize="12sp"
+                    android:textColor="#777"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </ScrollView>
+

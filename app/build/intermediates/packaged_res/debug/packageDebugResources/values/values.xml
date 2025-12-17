@@ -155,7 +155,7 @@
     <color name="teal_200">#AEE1E6</color>
     <color name="teal_300">#6CD0D9</color>
     <color name="teal_500">#12A5B2</color>
-    <color name="theme">#FFD73A</color>
+    <color name="theme">#6C63FF</color>
     <color name="tiers_get_crypto_blue">@color/blue_900</color>
     <color name="tiers_splash_blue_text">@color/blue_800</color>
     <color name="tiers_splash_grey_text">@color/grey_600</color>
@@ -176,6 +176,7 @@
     <dimen name="exchange_row_height">58dp</dimen>
     <dimen name="list_item_height">80dp</dimen>
     <dimen name="pinentry_padding">5dp</dimen>
+    <dimen name="token_img_size">40dp</dimen>
     <plurals name="transfer_label_plural">
         <item quantity="one">1 imported address</item>
         <item quantity="other">%d imported addresses</item>
@@ -1399,7 +1400,7 @@
         
         <item name="colorOnPrimary">@color/white</item>
         
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/theme</item>
         <item name="colorOnSecondary">@color/black</item>
         
         <item name="android:statusBarColor" ns1:targetApi="l">@color/theme</item>

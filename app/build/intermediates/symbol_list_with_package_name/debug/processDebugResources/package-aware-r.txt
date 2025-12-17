@@ -3010,6 +3010,7 @@ dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen pinentry_padding
+dimen token_img_size
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -3099,12 +3100,19 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bar_chart
+drawable bg_action_button
 drawable bg_button_disabled
 drawable bg_buy_sell
 drawable bg_card
 drawable bg_chip
+drawable bg_circle_white
+drawable bg_copy_button
 drawable bg_gradient_header
 drawable bg_input
+drawable bg_line_chart
+drawable bg_range_active
+drawable bg_selected_tick
 drawable bg_white_card
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3155,6 +3163,7 @@ drawable googleg_standard_color_18
 drawable ic_add
 drawable ic_arrow_back_black_24
 drawable ic_arrow_down
+drawable ic_back
 drawable ic_btc
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
@@ -3172,6 +3181,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_net_eth
 drawable ic_notification
 drawable ic_notifications_gold
 drawable ic_p2p
@@ -3361,13 +3371,12 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id availableTitle
+id back
 id backArrow
 id back_arrow
 id back_button
 id balance
 id balance_row
-id balance_sol
-id balance_zmw
 id bank_transfer_card
 id barrier
 id baseline
@@ -3521,7 +3530,6 @@ id groups
 id header
 id header_title
 id hideable
-id history_title
 id home
 id homeAsUp
 id honorRequest
@@ -3691,12 +3699,10 @@ id postLayout
 id pressed
 id progress_circular
 id progress_horizontal
-id qr_box
 id qr_code
 id radial
 id radio
 id ratio
-id receiveBtn
 id receive_button
 id receive_token_title
 id recoverFunds
@@ -3740,7 +3746,6 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
-id sendBtn
 id send_button
 id send_title_section
 id shortcut
@@ -3823,12 +3828,12 @@ id titleBox
 id titleDividerNoCustom
 id title_template
 id toggle
+id token_balance
 id token_list
 id top
 id topPanel
 id top_to_bottom
 id touch_outside
-id transaction_list
 id transitionToEnd
 id transitionToStart
 id transition_current_scene
@@ -3853,7 +3858,6 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id wallet_address
-id warning_box
 id wide
 id withText
 id with_icon
@@ -4029,6 +4033,7 @@ layout design_text_input_start_icon
 layout fragment_pin_entry
 layout item_coin_card
 layout item_network
+layout item_receive_wallet
 layout item_token
 layout item_token_placeholder
 layout item_transaction

@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_card"
+    android:padding="16dp"
+    android:layout_marginEnd="12dp">
+
+    <!-- Selected tick -->
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bg_selected_tick"
+        android:tint="@android:color/white"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_btc"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/icon"
+        android:text="Bit Coin"
+        android:textStyle="bold"
+        android:textColor="#333"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/icon"
+        android:layout_marginTop="28dp"
+        android:text="BTC"
+        android:textSize="12sp"
+        android:textColor="#888"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/icon"
+        android:text="Current Value"
+        android:textSize="12sp"
+        android:textColor="#999"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="0.011"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#333"/>
+</RelativeLayout>

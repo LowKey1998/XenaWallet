@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:padding="16dp">
 
-    <!-- Back Button -->
+    &lt;!&ndash; Back Button &ndash;&gt;
     <ImageView
         android:id="@+id/back_button"
         android:layout_width="24dp"
@@ -15,7 +16,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp" />
 
-    <!-- Title -->
+    &lt;!&ndash; Title &ndash;&gt;
     <TextView
         android:id="@+id/receive_token_title"
         android:layout_width="wrap_content"
@@ -27,7 +28,7 @@
         android:layout_marginTop="8dp"
         android:layout_alignTop="@id/back_button" />
 
-    <!-- Subtitle -->
+    &lt;!&ndash; Subtitle &ndash;&gt;
     <TextView
         android:id="@+id/subtitle"
         android:layout_width="wrap_content"
@@ -40,7 +41,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
-    <!-- QR Code Box -->
+    &lt;!&ndash; QR Code Box &ndash;&gt;
     <LinearLayout
         android:id="@+id/qr_box"
         android:layout_width="match_parent"
@@ -52,7 +53,7 @@
         android:layout_marginTop="24dp"
         android:layout_centerHorizontal="true">
 
-        <!-- QR Code Image -->
+        &lt;!&ndash; QR Code Image &ndash;&gt;
         <ImageView
             android:id="@+id/qr_code"
             android:layout_width="250dp"
@@ -60,7 +61,7 @@
             android:layout_gravity="center"
             />
 
-        <!-- Wallet Address with Copy -->
+        &lt;!&ndash; Wallet Address with Copy &ndash;&gt;
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,7 +90,7 @@
         </LinearLayout>
     </LinearLayout>
     
-    <!-- Warning Box -->
+    &lt;!&ndash; Warning Box &ndash;&gt;
     <LinearLayout
         android:id="@+id/warning_box"
         android:layout_width="match_parent"
@@ -130,3 +131,138 @@
     </LinearLayout>
 
 </RelativeLayout>
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F6F7FB">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- HEADER -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back"
+                android:tint="#444"/>
+
+            <TextView
+                android:id="@+id/receive_token_title"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_toEndOf="@id/btnBack"
+                android:layout_marginStart="12dp"
+                android:text=""
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333"/>
+        </RelativeLayout>
+
+        <!-- QR CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/bg_white_card"
+            android:padding="24dp">
+
+            <FrameLayout
+                android:layout_width="220dp"
+                android:layout_height="220dp">
+
+                <ImageView
+                    android:id="@+id/qr_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"/>
+
+                <!-- Center coin icon -->
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_circle_white"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_net_eth"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/wallet_address"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textSize="12sp"
+                android:textColor="#999"/>
+
+            <Button
+                android:id="@+id/copy_button"
+                android:layout_marginTop="12dp"
+                android:text="Copy Code"
+                android:textAllCaps="false"
+                android:textColor="#6C63FF"
+                android:background="@drawable/bg_copy_button"
+                android:paddingHorizontal="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"/>
+        </LinearLayout>
+
+        <!-- INFO TEXT -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Scan this QR code form sender’s mobile"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#333"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Open our app and click send camera will open"
+            android:textSize="12sp"
+            android:textColor="#888"/>
+
+        <!-- WALLET SELECTION -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Which wallet you need to receive"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#333"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <include layout="@layout/item_receive_wallet"/>
+                <include layout="@layout/item_receive_wallet"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+</ScrollView>

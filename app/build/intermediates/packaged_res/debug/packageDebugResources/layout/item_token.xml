@@ -8,8 +8,8 @@
     <!-- Coin Icon -->
     <ImageView
         android:id="@+id/coinIcon"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/token_img_size"
+        android:layout_height="@dimen/token_img_size"
         android:layout_marginEnd="12dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside" />

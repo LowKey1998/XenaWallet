@@ -45,7 +45,7 @@ import g.p.smartcalculater.R;
 
 public class TokenDetailsActivity extends Activity {
 
-    private TextView title, balanceZMW, balanceSOL;
+    private TextView title, balanceZMW;
     //private ImageView tokenLogo, qrCodeView;
     private LineChart priceChart;
     private ListView transactionList;
@@ -61,9 +61,8 @@ public class TokenDetailsActivity extends Activity {
 
         // UI elements
         title = findViewById(R.id.title);
-        balanceZMW = findViewById(R.id.balance_zmw);
-        balanceSOL = findViewById(R.id.balance_sol);
-        transactionList = findViewById(R.id.transaction_list);
+        balanceZMW = findViewById(R.id.token_balance);
+        //transactionList = findViewById(R.id.transaction_list);
 
 
         // Suppose your XML has ImageView with id token_logo and qr_code
@@ -77,7 +76,7 @@ public class TokenDetailsActivity extends Activity {
         contractAddress = getIntent().getStringExtra("contractAddress");
 
 
-        findViewById(R.id.sendBtn).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.send_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String coinGeckoFetchChainId = "";
@@ -160,7 +159,7 @@ public class TokenDetailsActivity extends Activity {
 
             }
         });
-        findViewById(R.id.receiveBtn).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.receive_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String coinGeckoFetchChainId = "";

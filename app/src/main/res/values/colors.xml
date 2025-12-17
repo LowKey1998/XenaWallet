@@ -144,5 +144,5 @@
     <color name="pit_bottom_dialog_buttons_text_color">@color/blue_400</color>
     <color name="pit_bottom_dialog_divider">@color/grey_100</color>
     <color name="purple">#5A2C91</color>
-    <color name="theme">#FFD73A</color>
+    <color name="theme">#6C63FF</color>
 </resources>

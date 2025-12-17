@@ -12,6 +12,14 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\layout_item_receive_wallet.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\item_receive_wallet.xml"
+    },
+    {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bar_chart.png.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bar_chart.png"
+    },
+    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\font_inter_italic.otf.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\font\\inter_italic.otf"
     },
@@ -24,8 +32,16 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\activity_token_list.xml"
     },
     {
+        "merged": "g.p.smartcalculater.app-debug-52:/layout_activity_receive_token.xml.flat",
+        "source": "g.p.smartcalculater.app-main-54:/layout/activity_receive_token.xml"
+    },
+    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_rounded_btn.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\rounded_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_ic_back.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\ic_back.xml"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_circle_background.xml.flat",
@@ -72,6 +88,10 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\item_wallet.xml"
     },
     {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_copy_button.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bg_copy_button.xml"
+    },
+    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_input.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bg_input.xml"
     },
@@ -88,6 +108,10 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_selected_tick.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bg_selected_tick.xml"
+    },
+    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_vector_backspace.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\vector_backspace.xml"
     },
@@ -98,10 +122,6 @@
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\layout_activity_deposit.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\activity_deposit.xml"
-    },
-    {
-        "merged": "g.p.smartcalculater.app-debug-52:/layout_activity_wallet.xml.flat",
-        "source": "g.p.smartcalculater.app-main-54:/layout/activity_wallet.xml"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_white_card.xml.flat",
@@ -138,6 +158,10 @@
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_usdt.png.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\usdt.png"
+    },
+    {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_action_button.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bg_action_button.xml"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_vector_fingerprint_error.xml.flat",
@@ -284,6 +308,10 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\vector_fingerprint.xml"
     },
     {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_range_active.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bg_range_active.xml"
+    },
+    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_vector_settings.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\vector_settings.xml"
     },
@@ -298,6 +326,10 @@
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\layout_item_token_placeholder.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\item_token_placeholder.xml"
+    },
+    {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_line_chart.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bg_line_chart.xml"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
@@ -320,12 +352,16 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\layout_item_token.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\item_token.xml"
+    },
+    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_ic_menu.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\ic_menu.xml"
     },
     {
-        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\layout_item_token.xml.flat",
-        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\item_token.xml"
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_ic_net_eth.png.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\ic_net_eth.png"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_button_primary_background.xml.flat",
@@ -338,6 +374,10 @@
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_circle_action_btns.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\circle_action_btns.xml"
+    },
+    {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_circle_white.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bg_circle_white.xml"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\font_inter_medium.otf.flat",

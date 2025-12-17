@@ -93,10 +93,9 @@ public class MyWalletActivity extends Activity {
         contentCard = findViewById(R.id.contentCard);
         contentCard.animate().setInterpolator(new AccelerateDecelerateInterpolator());
 
-/*
-        profileImage = findViewById(R.id.profileImage);
+        profileImage = findViewById(R.id.menu);
 
-        profileImage.setOnClickListener(v -> toggleSidebar());*/
+        profileImage.setOnClickListener(v -> toggleSidebar());
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         tokensListView=findViewById(R.id.token_list);
