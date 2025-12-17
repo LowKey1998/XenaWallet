@@ -2294,6 +2294,7 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen action_btn_padding
 dimen action_btn_width_height
 dimen appcompat_dialog_background_inset
 dimen cardview_compat_inset_shadow
@@ -3624,6 +3625,7 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id name
+id name_symbol
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -4024,6 +4026,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_pin_entry
+layout item_network
 layout item_token
 layout item_token_placeholder
 layout item_transaction

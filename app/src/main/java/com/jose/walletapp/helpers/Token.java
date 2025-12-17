@@ -1,5 +1,8 @@
 package com.jose.walletapp.helpers;
 
+import java.util.List;
+import java.util.Set;
+
 public class Token {
     public   String imageUrl;
     public /*final*/ String chain;
@@ -10,6 +13,8 @@ public class Token {
     public /*final*/ boolean isStable;  // true for USDT/USDC
 
     public /*final*/ String contractAddress;
+
+    //public Set platforms;
 
     public Token() {}
 
@@ -22,5 +27,7 @@ public class Token {
         this.decimals = decimals;
         this.isStable = isStable;
     }
+
+
 
 }

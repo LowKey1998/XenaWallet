@@ -8,6 +8,9 @@ import com.jose.walletapp.helpers.Token;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -17,8 +20,11 @@ import okhttp3.Response;
 
 public class CoinGeckoTokenHelper {
 
+    public static String coinIdSolana="solana";
+    public static String coinIdBSC="binance-smart-chain";
+
     public interface TokenCallback {
-        void onSuccess(Token token);
+        void onSuccess(Token token, Set<String> platforms);
         void onError(String error);
     }
 
@@ -31,13 +37,11 @@ public class CoinGeckoTokenHelper {
     public static void fetchTokenInfo(
             String coinId,
             String contractAddress,
+            String chain,
             TokenCallback callback
     ) {
-
-        String url = "https://api.coingecko.com/api/v3/coins/"
-                + coinId
-                + "/contract/"
-                + contractAddress;
+        // Construct URL for CoinGecko contract API
+        String url = "https://api.coingecko.com/api/v3/coins/" + coinId + "/contract/" + contractAddress;
 
         OkHttpClient client = new OkHttpClient();
 
@@ -46,19 +50,14 @@ public class CoinGeckoTokenHelper {
                 .get()
                 .build();
 
-        client.newCall(request).enqueue(new Callback() {
-
+        client.newCall(request).enqueue(new okhttp3.Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 callback.onError(e.getMessage());
             }
 
             @Override
-            public void onResponse(
-                    @NonNull Call call,
-                    @NonNull Response response
-            ) throws IOException {
-
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 if (!response.isSuccessful() || response.body() == null) {
                     callback.onError("CoinGecko request failed");
                     return;
@@ -68,7 +67,7 @@ public class CoinGeckoTokenHelper {
                     String responseData = response.body().string();
                     JSONObject json = new JSONObject(responseData);
 
-                    // Required fields
+                    // Basic info
                     String id = json.optString("id");
                     String name = json.optString("name");
                     String symbol = json.optString("symbol");
@@ -79,32 +78,44 @@ public class CoinGeckoTokenHelper {
                         imageUrl = json.getJSONObject("image").optString("large");
                     }
 
+                    Set<String> platformsSet = new HashSet<>();
+                    if (json.has("platforms")) {
+
+                        JSONObject platforms = json.getJSONObject("platforms");
+                        Iterator<String> keys = platforms.keys();
+                        while (keys.hasNext()) {
+                            String platform=keys.next();
+                            //System.out.println("platform: "+platform);
+                            platformsSet.add(platform); // solana, tron, bsc, etc
+                        }
+                    }
+
                     // Decimals (Solana uses detail_platforms)
                     int decimals = 0;
                     if (json.has("detail_platforms")) {
                         JSONObject platforms = json.getJSONObject("detail_platforms");
 
                         // Use first available platform
-                        for (int i = 0; i < platforms.names().length(); i++) {
-                            String platformKey = platforms.names().getString(i);
+                        if (platforms.names() != null && platforms.names().length() > 0) {
+                            String platformKey = platforms.names().getString(0);
                             JSONObject platform = platforms.getJSONObject(platformKey);
                             decimals = platform.optInt("decimal_place", 0);
-                            break;
                         }
                     }
 
+                    // Construct Token object
                     Token token = new Token(
                             imageUrl,
                             symbol.toUpperCase(),
-                            /*chain*/Networks.SOLANA,
+                            chain,
                             contractAddress,
                             id,
                             decimals,
-                            /*isStable*/false
-
+                            false // isStable, adjust if needed
                     );
 
-                    callback.onSuccess(token);
+                    // Return via callback
+                    callback.onSuccess(token,platformsSet);
 
                 } catch (Exception e) {
                     callback.onError("Parsing error: " + e.getMessage());
@@ -112,5 +123,6 @@ public class CoinGeckoTokenHelper {
             }
         });
     }
+
 }
 

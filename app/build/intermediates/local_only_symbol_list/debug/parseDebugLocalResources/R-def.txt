@@ -152,6 +152,7 @@ color xlm
 color xlm_dialog_background
 color xlm_dialog_text_body
 color xlm_dialog_text_title
+dimen action_btn_padding
 dimen action_btn_width_height
 dimen exchange_row_height
 dimen list_item_height
@@ -279,6 +280,7 @@ id main_content
 id max_button
 id mobile_money_card
 id name
+id name_symbol
 id network
 id network_list
 id nextButton
@@ -346,6 +348,7 @@ layout activity_transactions
 layout activity_withdraw
 layout avtivity_reset_password
 layout fragment_pin_entry
+layout item_network
 layout item_token
 layout item_token_placeholder
 layout item_transaction

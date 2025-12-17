@@ -59,9 +59,9 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:padding="6dp"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:padding="@dimen/action_btn_padding"
+                    android:layout_width="@dimen/action_btn_width_height"
+                    android:layout_height="@dimen/action_btn_width_height"
                     android:src="@drawable/ic_add"
                     android:tint="@color/black"
                     android:contentDescription="Buy" />
@@ -83,9 +83,9 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:padding="8dp"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:padding="@dimen/action_btn_padding"
+                    android:layout_width="@dimen/action_btn_width_height"
+                    android:layout_height="@dimen/action_btn_width_height"
                     android:tint="@color/black"
                     android:src="@drawable/ic_withdraw"
                     android:contentDescription="Sell" />
@@ -97,29 +97,6 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <!-- SEND -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:padding="8dp"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-
-                    android:rotation="45"
-                    android:src="@drawable/ic_arrow_down"
-                    android:contentDescription="Send" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Send"
-                    android:textSize="12sp" />
-            </LinearLayout>
 
             <!-- RECEIVE -->
             <LinearLayout
@@ -131,9 +108,9 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:padding="8dp"
+                    android:layout_width="@dimen/action_btn_width_height"
+                    android:layout_height="@dimen/action_btn_width_height"
+                    android:padding="@dimen/action_btn_padding"
                     android:rotation="225"
                     android:tint="@color/black"
                     android:src="@drawable/ic_arrow_down"
@@ -146,6 +123,32 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
+            <!-- SEND -->
+            <LinearLayout
+                android:id="@+id/sendBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:padding="@dimen/action_btn_padding"
+                    android:layout_width="@dimen/action_btn_width_height"
+                    android:layout_height="@dimen/action_btn_width_height"
+
+                    android:rotation="45"
+                    android:src="@drawable/ic_arrow_down"
+                    android:contentDescription="Send" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Send"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
             <!-- CONVERT -->
             <LinearLayout
                 android:layout_width="0dp"
@@ -155,9 +158,9 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:padding="8dp"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:padding="@dimen/action_btn_padding"
+                    android:layout_width="@dimen/action_btn_width_height"
+                    android:layout_height="@dimen/action_btn_width_height"
                     android:tint="@color/black"
                     android:src="@drawable/ic_convert"
                     android:contentDescription="Convert" />

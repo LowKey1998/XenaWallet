@@ -265,7 +265,25 @@ public class MyWalletActivity extends Activity {
 
                             ((TextView)tokenView.findViewById(R.id.coinName)).setText(name);
                             ((TextView)tokenView.findViewById(R.id.coinSymbol)).setText(tokenSymbol);
-                            ((TextView)tokenView.findViewById(R.id.coinBalanceValue)).setText(""+SolTokenOperations.getUserSplTokenBalance(/*solAddress*/"4Nd1mZ5n4kL3oHUX77YPDhmPEw24kTx5cHGNy8JD7Q9y",/*contractAddress*/"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"));
+                            new Thread(){
+                                @Override
+                                public void run() {
+                                    try {
+                                        double balance = SolTokenOperations.getUserSplTokenBalance(/*solAddress*/"4Nd1mZ5n4kL3oHUX77YPDhmPEw24kTx5cHGNy8JD7Q9y",/*contractAddress*/"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB");
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                ((TextView) tokenView.findViewById(R.id.coinBalanceValue)).setText("" + balance);
+
+                                            }
+                                        });
+                                    }
+                                    catch (Exception e){
+                                        e.printStackTrace();
+
+                                    }
+                                }
+                            }.start();
                             tokenView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
