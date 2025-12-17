@@ -93,14 +93,14 @@ public class MyWalletActivity extends Activity {
         contentCard = findViewById(R.id.contentCard);
         contentCard.animate().setInterpolator(new AccelerateDecelerateInterpolator());
 
-
+/*
         profileImage = findViewById(R.id.profileImage);
 
-        profileImage.setOnClickListener(v -> toggleSidebar());
+        profileImage.setOnClickListener(v -> toggleSidebar());*/
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
-        tokensListView=findViewById(R.id.tokens);
-        totalBalance=findViewById(R.id.combinedTotalAmount);
+        tokensListView=findViewById(R.id.token_list);
+        totalBalance=findViewById(R.id.balance);
 
         //shimer
         showLoadingPlaceholders();
@@ -114,35 +114,36 @@ public class MyWalletActivity extends Activity {
             new RefreshWalletTask().execute();
         });
 
-        fab=findViewById(R.id.fab);
-       // scrollView=findViewById(R.id.scroll_view);
+        // scrollView=findViewById(R.id.scroll_view);
+        /*fab=findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MyWalletActivity.this,AddTokenActivity.class));
             }
-        });
+        });*/
         //fab.attachToScrollView(scrollView);
-        findViewById(R.id.depositBtn).setOnClickListener(v -> {
+        /*findViewById(R.id.depositBtn).setOnClickListener(v -> {
             Intent intent = new Intent(MyWalletActivity.this, DepositActivity.class);
             startActivity(intent);
         });
         findViewById(R.id.withdrawBtn).setOnClickListener(v -> {
             Intent intent = new Intent(MyWalletActivity.this, WithdrawOptionsActivity.class);
             startActivity(intent);
-        });
-        findViewById(R.id.sendBtn).setOnClickListener(v -> {
+        });*/
+        findViewById(R.id.send_button).setOnClickListener(v -> {
             Intent intent = new Intent(MyWalletActivity.this, SendActivity.class);
             startActivity(intent);
         });
-        findViewById(R.id.receiveBtn).setOnClickListener(v -> {
+        findViewById(R.id.receive_button).setOnClickListener(v -> {
             Intent intent = new Intent(MyWalletActivity.this, ReceiveActivity.class);
             startActivity(intent);
         });
-        findViewById(R.id.convertBtn).setOnClickListener(v -> {
+        /*findViewById(R.id.convertBtn).setOnClickListener(v -> {
             Intent intent = new Intent(MyWalletActivity.this, ConvertActivity.class);
             startActivity(intent);
-        });
+        });*/
 
 
     }

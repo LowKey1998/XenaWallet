@@ -3100,9 +3100,12 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable bg_button_disabled
+drawable bg_buy_sell
 drawable bg_card
 drawable bg_chip
+drawable bg_gradient_header
 drawable bg_input
+drawable bg_white_card
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3164,6 +3167,7 @@ drawable ic_launcher_foreground
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
+drawable ic_menu
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -3320,7 +3324,6 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
-id actionButtons
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -3361,6 +3364,7 @@ id availableTitle
 id backArrow
 id back_arrow
 id back_button
+id balance
 id balance_row
 id balance_sol
 id balance_zmw
@@ -3371,7 +3375,6 @@ id beginOnFirstDraw
 id beginning
 id blocking
 id bottom
-id bottomNav
 id bottom_to_top
 id bounce
 id btnBack
@@ -3422,8 +3425,6 @@ id coingecko_id
 id collapseActionView
 id column
 id column_reverse
-id combinedTotalAmount
-id combinedTotalLabel
 id compress
 id confirm_button
 id container
@@ -3432,7 +3433,6 @@ id contentCard
 id contentPanel
 id contiguous
 id contractAddress
-id convertBtn
 id coordinator
 id copy_button
 id cos
@@ -3450,7 +3450,6 @@ id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
 id deltaRelative
-id depositBtn
 id deposit_subtitle
 id deposit_title
 id design_bottom_sheet
@@ -3488,7 +3487,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id fab
 id fade
 id favIcons
 id favTitle
@@ -3518,7 +3516,6 @@ id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
-id greetingText
 id group_divider
 id groups
 id header
@@ -3590,6 +3587,7 @@ id material_timepicker_view
 id material_value_index
 id matrix
 id max_button
+id menu
 id menuCart
 id menuCatalogue
 id menuFav
@@ -3691,7 +3689,6 @@ id pinBox3
 id position
 id postLayout
 id pressed
-id profileImage
 id progress_circular
 id progress_horizontal
 id qr_box
@@ -3700,6 +3697,7 @@ id radial
 id radio
 id ratio
 id receiveBtn
+id receive_button
 id receive_token_title
 id recoverFunds
 id rectangles
@@ -3743,8 +3741,8 @@ id select_dialog_listview
 id selected
 id selection_type
 id sendBtn
+id send_button
 id send_title_section
-id settings
 id shortcut
 id showCustom
 id showHome
@@ -3825,13 +3823,12 @@ id titleBox
 id titleDividerNoCustom
 id title_template
 id toggle
-id tokens
+id token_list
 id top
 id topPanel
 id top_to_bottom
 id touch_outside
 id transaction_list
-id transactions
 id transitionToEnd
 id transitionToStart
 id transition_current_scene
@@ -3840,7 +3837,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tx
 id txtForgot
 id txtSubtitle
 id txtTitle
@@ -3856,13 +3852,11 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
-id wallet
 id wallet_address
 id warning_box
 id wide
 id withText
 id with_icon
-id withdrawBtn
 id withdraw_title
 id withinBounds
 id wrap
@@ -4033,10 +4027,12 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_pin_entry
+layout item_coin_card
 layout item_network
 layout item_token
 layout item_token_placeholder
 layout item_transaction
+layout item_wallet
 layout layout_sidebar
 layout login_activity
 layout m3_alert_dialog
