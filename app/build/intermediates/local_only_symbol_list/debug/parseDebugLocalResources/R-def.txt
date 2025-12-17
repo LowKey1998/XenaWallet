@@ -248,6 +248,7 @@ id coinSymbol
 id coingecko_id
 id combinedTotalAmount
 id combinedTotalLabel
+id contentCard
 id contractAddress
 id convertBtn
 id copy_button
@@ -278,6 +279,11 @@ id login
 id loginBtn
 id main_content
 id max_button
+id menuCart
+id menuCatalogue
+id menuFav
+id menuLogout
+id menuOrders
 id mobile_money_card
 id name
 id name_symbol
@@ -345,6 +351,7 @@ layout activity_splash_screen
 layout activity_token_convert
 layout activity_token_list
 layout activity_transactions
+layout activity_wallet
 layout activity_withdraw
 layout avtivity_reset_password
 layout fragment_pin_entry
@@ -352,6 +359,7 @@ layout item_network
 layout item_token
 layout item_token_placeholder
 layout item_transaction
+layout layout_sidebar
 layout login_activity
 layout view_pin_entry_keyboard
 mipmap ic_launcher
@@ -1121,6 +1129,9 @@ style PitBodyText
 style PitHeadingText
 style PitTitleText
 style PrimaryButton
+style SidebarIcon
+style SidebarItem
+style SidebarText
 style Theme.WalletApp
 styleable CurrencyTextView textSizeStep textSizeStepRatio
 xml backup_rules

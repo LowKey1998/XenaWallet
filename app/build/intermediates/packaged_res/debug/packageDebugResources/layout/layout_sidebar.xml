@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#14152A"
+    android:padding="24dp">
+
+    <!-- PROFILE -->
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="32dp">
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:tint="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hey\nGerald P."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- MENU ITEM -->
+    <LinearLayout
+        android:id="@+id/menuCatalogue"
+        style="@style/SidebarItem">
+
+        <ImageView
+            style="@style/SidebarIcon"/>
+
+        <TextView
+            android:text="Catalogue"
+            style="@style/SidebarText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuCart"
+        style="@style/SidebarItem">
+
+        <ImageView
+            style="@style/SidebarIcon"/>
+
+        <TextView
+            android:text="Your Cart"
+            style="@style/SidebarText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuFav"
+        style="@style/SidebarItem">
+
+        <ImageView
+            style="@style/SidebarIcon"/>
+
+        <TextView
+            android:text="Favourites"
+            style="@style/SidebarText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuOrders"
+        style="@style/SidebarItem">
+
+        <ImageView
+            style="@style/SidebarIcon"/>
+
+        <TextView
+            android:text="Your Orders"
+            style="@style/SidebarText"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#33FFFFFF"
+        android:layout_marginVertical="24dp"/>
+
+    <LinearLayout
+        android:id="@+id/menuLogout"
+        style="@style/SidebarItem">
+
+        <ImageView
+            style="@style/SidebarIcon"/>
+
+        <TextView
+            android:text="Sign Out"
+            style="@style/SidebarText"/>
+    </LinearLayout>
+
+</LinearLayout>

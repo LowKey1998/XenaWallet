@@ -112,10 +112,6 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\ic_arrow_down.xml"
     },
     {
-        "merged": "g.p.smartcalculater.app-debug-52:/layout_activity_main.xml.flat",
-        "source": "g.p.smartcalculater.app-main-54:/layout/activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_vector_arrow_forward_blue.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\vector_arrow_forward_blue.xml"
     },
@@ -232,6 +228,10 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\activity_receive_token.xml"
     },
     {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\layout_activity_wallet.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\activity_wallet.xml"
+    },
+    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_ic_swap.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\ic_swap.xml"
     },
@@ -254,6 +254,10 @@
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_transaction.png.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\transaction.png"
+    },
+    {
+        "merged": "g.p.smartcalculater.app-debug-52:/layout_layout_sidebar.xml.flat",
+        "source": "g.p.smartcalculater.app-main-54:/layout/layout_sidebar.xml"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
@@ -352,16 +356,16 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\curved_top_white_bg.xml"
     },
     {
+        "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\layout_layout_sidebar.xml.flat",
+        "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\layout_sidebar.xml"
+    },
+    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_ic_eye.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\ic_eye.xml"
-    },
-    {
-        "merged": "g.p.smartcalculater.app-debug-52:/layout_activity_single_wallet.xml.flat",
-        "source": "g.p.smartcalculater.app-main-54:/layout/activity_single_wallet.xml"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_button_disabled.xml.flat",

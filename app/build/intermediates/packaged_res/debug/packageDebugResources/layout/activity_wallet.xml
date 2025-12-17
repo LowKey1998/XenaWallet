@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:paddingTop="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme">
+
+    <!-- Profile and Greeting -->
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+       
+        android:background="@drawable/circle_background" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_toRightOf="@id/profileImage"
+        android:layout_alignTop="@id/profileImage"
+    >
+        <TextView
+            android:id="@+id/greetingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Hi, Gerald"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/ic_notification"
+            >
+
+            <LinearLayout
+                android:background="@drawable/circle_action_btns"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="16dp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:padding="4dp"
+                android:layout_height="16dp">
+                <TextView
+                    android:text="1"
+                    android:textSize="11dp"
+                    android:textColor="#FFF"
+                    android:gravity="center"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    />
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+    <!-- Combined total -->
+    <TextView
+        android:id="@+id/combinedTotalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileImage"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:text="Balance"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/combinedTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/combinedTotalLabel"
+        android:layout_margin="16dp"
+        android:text="$ 0.0"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+   
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:id="@+id/actionButtons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="35dp"
+        android:paddingHorizontal="5dp"
+        android:background="@drawable/curved_top_white_bg"
+        android:layout_below="@id/combinedTotalAmount"
+        android:gravity="center"
+        >
+
+        <!-- Repeat for each button -->
+        <LinearLayout
+            android:id="@+id/depositBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:padding="@dimen/action_btn_padding"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+                android:src="@drawable/ic_add"
+               android:background="@drawable/circle_action_btns"
+                android:tint="#FFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deposit"
+                android:textSize="12sp"/>
+        </LinearLayout>
+         <LinearLayout
+            android:id="@+id/withdrawBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:padding="@dimen/action_btn_padding"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+                android:src="@drawable/ic_withdraw"
+                android:background="@drawable/circle_action_btns"
+                android:tint="#FFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Withdraw"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        
+        
+        
+         <LinearLayout
+            android:id="@+id/receiveBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:padding="@dimen/action_btn_padding"
+                android:rotation="45"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+                android:background="@drawable/circle_action_btns"
+                android:src="@drawable/ic_arrow_down"
+                android:tint="#FFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Receive"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        
+         <LinearLayout
+             android:id="@+id/sendBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:padding="@dimen/action_btn_padding"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+                android:background="@drawable/circle_action_btns"
+                android:src="@drawable/ic_arrow_down"
+                android:rotation="225"
+                android:tint="#FFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        
+        
+         <LinearLayout
+            android:id="@+id/convertBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:padding="@dimen/action_btn_padding"
+                android:src="@drawable/ic_convert"
+                android:tint="#FFF"
+                android:layout_width="@dimen/action_btn_width_height"
+                android:layout_height="@dimen/action_btn_width_height"
+               android:background="@drawable/circle_action_btns"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Convert"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!-- Repeat above block for Sell, Deposit, Withdraw, Convert -->
+    </LinearLayout>
+    
+    
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/actionButtons"
+        android:layout_above="@+id/bottomNav"
+        >
+     <LinearLayout
+        android:id="@+id/tokens"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#FFF"
+     
+        android:paddingHorizontal="20dp"
+         android:paddingTop="20dp"
+        
+        >
+
+        
+
+
+        
+    </LinearLayout>
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add"
+            android:tint="#FFDF00"
+            app:fab_shadow="true"
+            app:rippleColor="#CCC"
+            android:elevation="3dp"
+            android:backgroundTint="#FFF"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#FFF"
+        
+        android:gravity="center">
+
+        
+
+        <!-- Repeat for Coins and Pay -->
+         <LinearLayout
+            android:id="@+id/wallet"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:padding="6dp"
+                android:src="@drawable/wallet"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                 />
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wallet"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/transactions"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:padding="6dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                 />
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transactions"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/settings"
+            android:onClick="tabClicked"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:padding="6dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_p2p"
+                 />
+            <TextView
+                android:id="@+id/tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="P2P"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        
+    </LinearLayout>
+
+
+   
+</RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

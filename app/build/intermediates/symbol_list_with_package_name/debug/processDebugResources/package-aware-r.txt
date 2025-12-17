@@ -3428,6 +3428,7 @@ id compress
 id confirm_button
 id container
 id content
+id contentCard
 id contentPanel
 id contiguous
 id contractAddress
@@ -3589,6 +3590,11 @@ id material_timepicker_view
 id material_value_index
 id matrix
 id max_button
+id menuCart
+id menuCatalogue
+id menuFav
+id menuLogout
+id menuOrders
 id message
 id middle
 id mini
@@ -4007,6 +4013,7 @@ layout activity_splash_screen
 layout activity_token_convert
 layout activity_token_list
 layout activity_transactions
+layout activity_wallet
 layout activity_withdraw
 layout avtivity_reset_password
 layout custom_dialog
@@ -4030,6 +4037,7 @@ layout item_network
 layout item_token
 layout item_token_placeholder
 layout item_transaction
+layout layout_sidebar
 layout login_activity
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
@@ -5479,6 +5487,9 @@ style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Window_Fullscreen
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Year
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
+style SidebarIcon
+style SidebarItem
+style SidebarText
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2

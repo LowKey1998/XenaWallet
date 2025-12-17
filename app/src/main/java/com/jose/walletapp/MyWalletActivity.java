@@ -11,12 +11,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 //import com.walletconnect.android.internal.common.model.Namespace;
@@ -60,6 +62,13 @@ public class MyWalletActivity extends Activity {
     private String balanceStr;
 
     private static boolean isNightModeEnabled = false;
+
+    private static final float TRANSLATE_X = 280f;
+    private static final float SCALE = 0.88f;
+
+    // 👇 MATCHES IMAGE
+    private static final float ROTATE_Y = -8f;   // depth
+    private static final float ROTATE_Z = -2f;   // slight tilt
     private TextView totalBalance;
     SwipeRefreshLayout swipeRefreshLayout;
     FloatingActionButton fab;
@@ -68,6 +77,9 @@ public class MyWalletActivity extends Activity {
     private String ethAddress, solAddress, bscAddress;
     private Thread loadTokensThread;
     private LinearLayout tokensListView;
+    private CardView contentCard;
+    private ImageView profileImage;
+    private boolean isSidebarOpen=false;
     //TextView addressTextView = findViewById(R.id.addressTextView);
     //TextView balanceTextView = findViewById(R.id.balanceTextView);
 
@@ -78,6 +90,13 @@ public class MyWalletActivity extends Activity {
         setContentView(R.layout.activity_main);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
+        contentCard = findViewById(R.id.contentCard);
+        contentCard.animate().setInterpolator(new AccelerateDecelerateInterpolator());
+
+
+        profileImage = findViewById(R.id.profileImage);
+
+        profileImage.setOnClickListener(v -> toggleSidebar());
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         tokensListView=findViewById(R.id.tokens);
@@ -135,6 +154,64 @@ public class MyWalletActivity extends Activity {
             View shimmerView = getLayoutInflater()
                     .inflate(R.layout.item_token_placeholder, tokensListView, false);
             tokensListView.addView(shimmerView);
+        }
+    }
+
+
+    private void toggleSidebar() {
+        if (isSidebarOpen) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+        isSidebarOpen = !isSidebarOpen;
+    }
+
+    private void openSidebar() {
+
+        contentCard.setPivotX(0f);
+        contentCard.setPivotY(contentCard.getHeight() / 2f);
+
+        contentCard.animate()
+                .translationX(320f)
+                .scaleX(0.85f)
+                .scaleY(0.85f)
+                .rotationY(-9f)
+                .rotation(-8f)
+                .setDuration(320)
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .start();
+
+        contentCard.setRadius(32f);
+    }
+
+
+    private void closeSidebar() {
+
+        contentCard.setPivotX(contentCard.getWidth() / 2f);
+        contentCard.setPivotY(contentCard.getHeight() / 2f);
+
+        contentCard.animate()
+                .translationX(0f)
+                .scaleX(1f)
+                .scaleY(1f)
+                .rotationY(0f)
+                .rotation(0f)
+                .setDuration(280)
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .start();
+
+        contentCard.setRadius(0f);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (isSidebarOpen) {
+            closeSidebar();
+            isSidebarOpen = false;
+        } else {
+            super.onBackPressed();
         }
     }
 
