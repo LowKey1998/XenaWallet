@@ -54,7 +54,7 @@ public class SignupActivity extends AppCompatActivity {
                                     }
                                 });
 
-                                createWallet(user);
+                                /*createWallet(user);*/
                                 Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignupActivity.this, MyWalletActivity.class));
                             }
@@ -71,6 +71,7 @@ public class SignupActivity extends AppCompatActivity {
         });
 
     }
+/*
 
     private void createWallet(FirebaseUser user) {
         try {
@@ -98,5 +99,6 @@ public class SignupActivity extends AppCompatActivity {
             Log.e("Wallet", "Wallet creation failed: " + e.getMessage());
         }
     }
+*/
 
 }

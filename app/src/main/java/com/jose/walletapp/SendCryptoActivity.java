@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.jose.walletapp.constants.Networks;
 import com.jose.walletapp.helpers.HdWalletHelper;
+import com.jose.walletapp.helpers.MultiChainWalletManager;
 import com.jose.walletapp.helpers.PriceService;
 import com.jose.walletapp.helpers.solana.SolTokenOperations;
 
@@ -59,7 +60,10 @@ public class SendCryptoActivity extends Activity {
                 if(chain.equalsIgnoreCase(Networks.SOLANA)) {
                     checkSolanaFees();
                 } else if (chain.equalsIgnoreCase(Networks.BSC)) {
-                    checkBscFees();
+                    final String recipientAddrStr=recipientET.getText().toString().trim();
+                    final String amountStr=amountET.getText().toString();
+
+                    checkBscFees(MultiChainWalletManager.getInstance().getBscAddress(), recipientAddrStr,amountStr);
                 }
             }
         });

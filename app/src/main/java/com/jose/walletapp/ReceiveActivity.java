@@ -50,22 +50,14 @@ public class ReceiveActivity extends Activity {
         // Get intent extras
         chain = getIntent().getStringExtra("chain");
         contractAddress = getIntent().getStringExtra("contractAddress");
-        try {
-            MultiChainWalletManager.getInstance().initialize(this, () -> {
-                if(chain.equalsIgnoreCase(Networks.SOLANA)) {
-                    walletAddress = MultiChainWalletManager.getInstance().getSolanaAddress();
-                } else if (chain.equalsIgnoreCase(Networks.BSC)) {
-                    walletAddress = MultiChainWalletManager.getInstance().getBscAddress();
-                }
-                setupUI();
-                generateQRCode(walletAddress);
-                setupClicks();
-
-            },()->{});
+        if(chain.equalsIgnoreCase(Networks.SOLANA)) {
+            walletAddress = MultiChainWalletManager.getInstance().getSolanaAddress();
+        } else if (chain.equalsIgnoreCase(Networks.BSC)) {
+            walletAddress = MultiChainWalletManager.getInstance().getBscAddress();
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        setupUI();
+        generateQRCode(walletAddress);
+        setupClicks();
 
     }
 

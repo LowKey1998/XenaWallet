@@ -249,25 +249,16 @@ public class TokenDetailsActivity extends Activity {
             }
         });
 
-
-        try {
-            MultiChainWalletManager.getInstance().initialize(this, () -> {
-                if(chainId.equalsIgnoreCase(Networks.SOLANA)) {
-                    userWalletAddress = MultiChainWalletManager.getInstance().getSolanaAddress();
-                }
-                else if (chainId.equalsIgnoreCase(Networks.BSC)) {
-                    userWalletAddress = MultiChainWalletManager.getInstance().getBscAddress();
-
-                }
-                else if (chainId.equalsIgnoreCase(Networks.TRON)) {
-                    //userWalletAddress = MultiChainWalletManager.getInstance().getEthAddress();
-
-                }
-
-            },()->{});
+        if(chainId.equalsIgnoreCase(Networks.SOLANA)) {
+            userWalletAddress = MultiChainWalletManager.getInstance().getSolanaAddress();
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        else if (chainId.equalsIgnoreCase(Networks.BSC)) {
+            userWalletAddress = MultiChainWalletManager.getInstance().getBscAddress();
+
+        }
+        else if (chainId.equalsIgnoreCase(Networks.TRON)) {
+            //userWalletAddress = MultiChainWalletManager.getInstance().getEthAddress();
+
         }
 
         // Fetch token details
