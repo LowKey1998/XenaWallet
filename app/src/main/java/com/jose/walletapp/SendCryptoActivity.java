@@ -16,11 +16,18 @@ import com.jose.walletapp.helpers.PriceService;
 import com.jose.walletapp.helpers.solana.SolTokenOperations;
 
 import org.json.JSONObject;
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.request.Transaction;
+import org.web3j.protocol.core.methods.response.EthEstimateGas;
+import org.web3j.protocol.core.methods.response.EthGasPrice;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.utils.Convert;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -52,7 +59,7 @@ public class SendCryptoActivity extends Activity {
                 if(chain.equalsIgnoreCase(Networks.SOLANA)) {
                     checkSolanaFees();
                 } else if (chain.equalsIgnoreCase(Networks.BSC)) {
-                    
+                    checkBscFees();
                 }
             }
         });
@@ -97,6 +104,135 @@ public class SendCryptoActivity extends Activity {
         });
     }
 
+
+    private void getBnbUsdPrice(PriceService.PriceCallback callback) {
+
+        Executors.newSingleThreadExecutor().execute(() -> {
+            try {
+                URL url = new URL(
+                        "https://api.coingecko.com/api/v3/simple/price" +
+                                "?ids=binancecoin&vs_currencies=usd"
+                );
+
+                HttpURLConnection conn =
+                        (HttpURLConnection) url.openConnection();
+
+                conn.setRequestMethod("GET");
+                conn.setConnectTimeout(8000);
+                conn.setReadTimeout(8000);
+
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(conn.getInputStream())
+                );
+
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+
+                reader.close();
+                conn.disconnect();
+
+                JSONObject json = new JSONObject(response.toString());
+                BigDecimal bnbUsd = new BigDecimal(
+                        json.getJSONObject("binancecoin")
+                                .getDouble("usd")
+                );
+
+                runOnUiThread(() -> callback.onPrice(bnbUsd.doubleValue()));
+
+            } catch (Exception e) {
+                //runOnUiThread(callback::onError);
+            }
+        });
+    }
+
+    private void checkBscFees(
+            String fromAddress,
+            String toAddress,
+            BigDecimal amountBNB
+    ) {
+
+        Executors.newSingleThreadExecutor().execute(() -> {
+            try {
+
+                Web3j web3j = Web3j.build(
+                        new HttpService("https://bsc-dataseed.binance.org/")
+                );
+
+                BigInteger valueWei = Convert.toWei(
+                        amountBNB, Convert.Unit.ETHER
+                ).toBigInteger();
+
+                EthGasPrice gasPriceResp = web3j.ethGasPrice().send();
+                BigInteger gasPrice = gasPriceResp.getGasPrice();
+
+                Transaction tx = Transaction.createEtherTransaction(
+                        fromAddress,
+                        null,
+                        gasPrice,
+                        BigInteger.valueOf(21000),
+                        toAddress,
+                        valueWei
+                );
+
+                EthEstimateGas estimateGas =
+                        web3j.ethEstimateGas(tx).send();
+
+                BigInteger gasLimit = estimateGas.getAmountUsed();
+
+                BigInteger feeWei = gasLimit.multiply(gasPrice);
+
+                BigDecimal feeBNB = Convert.fromWei(
+                        new BigDecimal(feeWei),
+                        Convert.Unit.ETHER
+                );
+
+                getBnbUsdPrice(new PriceService.PriceCallback() {
+                    @Override
+                    public void onPrice(double usdPrice) {
+                        runOnUiThread(() -> showBscFee(feeBNB, BigDecimal.valueOf(usdPrice)));
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
+
+
+            } catch (Exception e) {
+                runOnUiThread(() ->
+                        Toast.makeText(this,
+                                "BSC fee check failed",
+                                Toast.LENGTH_SHORT).show()
+                );
+            }
+        });
+    }
+
+
+    private void showBscFee(
+            BigDecimal feeBNB,
+            BigDecimal bnbUsdPrice
+    ) {
+
+        BigDecimal feeUsd = feeBNB.multiply(bnbUsdPrice)
+                .setScale(6, RoundingMode.HALF_UP);
+
+        TextView feeText = findViewById(R.id.feeText);
+        LinearLayout layoutFees = findViewById(R.id.layoutFees);
+
+        feeText.setText(
+                feeBNB.toPlainString() +
+                        " BNB (~$" + feeUsd.toPlainString() + ")"
+        );
+
+        layoutFees.setVisibility(View.VISIBLE);
+    }
+
+
     private void getSolUsdPrice(PriceService.PriceCallback callback) {
 
         Executors.newSingleThreadExecutor().execute(() -> {
@@ -133,7 +269,7 @@ public class SendCryptoActivity extends Activity {
                                 .getDouble("usd")
                 );
 
-                runOnUiThread(() -> callback.onPrice(solUsd.toBigInteger().doubleValue()));
+                runOnUiThread(() -> callback.onPrice(solUsd.doubleValue()));
 
             } catch (Exception e) {
                 //runOnUiThread(callback.onError);
