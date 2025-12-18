@@ -3831,6 +3831,7 @@ id title_template
 id toggle
 id token_balance
 id token_list
+id token_logo
 id top
 id topPanel
 id top_to_bottom

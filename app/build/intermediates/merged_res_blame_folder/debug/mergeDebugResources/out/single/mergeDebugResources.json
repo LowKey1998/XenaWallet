@@ -120,10 +120,6 @@
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\layout\\activity_deposit.xml"
     },
     {
-        "merged": "g.p.smartcalculater.app-debug-52:/layout_activity_wallet.xml.flat",
-        "source": "g.p.smartcalculater.app-main-54:/layout/activity_wallet.xml"
-    },
-    {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_bg_white_card.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\bg_white_card.xml"
     },
@@ -410,6 +406,10 @@
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_ic_eye.xml.flat",
         "source": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-main-54:\\drawable\\ic_eye.xml"
+    },
+    {
+        "merged": "g.p.smartcalculater.app-debug-52:/layout_activity_single_wallet.xml.flat",
+        "source": "g.p.smartcalculater.app-main-54:/layout/activity_single_wallet.xml"
     },
     {
         "merged": "C:\\Users\\GRAPHICS PC\\.gradle\\daemon\\8.11.1\\g.p.smartcalculater.app-debug-52:\\drawable_button_disabled.xml.flat",

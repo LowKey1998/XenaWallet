@@ -75,7 +75,7 @@ public class ReceiveActivity extends Activity {
         titleText = findViewById(R.id.receive_token_title);
         walletAddressText = findViewById(R.id.wallet_address);
         copyButton = findViewById(R.id.copy_button);
-        symbolText = findViewById(R.id.symbol);
+       // symbolText = findViewById(R.id.symbol);
         balanceText = findViewById(R.id.token_balance);
     }
 
@@ -99,7 +99,7 @@ public class ReceiveActivity extends Activity {
                                         @Override
                                         public void run() {
                                             titleText.setText("Receive " + token.name);
-                                            symbolText.setText(token.symbol);
+                                           // symbolText.setText(token.symbol);
 
 
                                         }

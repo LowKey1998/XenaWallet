@@ -15,7 +15,9 @@
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:background="@drawable/bg_gradient_header"
-            android:padding="16dp">
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp"
+            >
 
             <ImageView
                 android:id="@+id/back"
@@ -43,12 +45,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginTop="-80dp">
+            android:layout_marginTop="-52dp">
 
             <ImageView
+                android:id="@+id/token_logo"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:src="@drawable/ic_net_eth"
                 android:background="@drawable/bg_circle_white"
                 android:padding="7dp"/>
 

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.github.mikephil.charting.charts.LineChart;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.zxing.BarcodeFormat;
@@ -25,8 +28,10 @@ import com.jose.walletapp.constants.Networks;
 import com.jose.walletapp.helpers.ERC20Metadata;
 import com.jose.walletapp.helpers.MultiChainWalletManager;
 import com.jose.walletapp.helpers.Token;
+import com.jose.walletapp.helpers.bsc.BscHelper;
 import com.jose.walletapp.helpers.coingecko.CoinGeckoTokenHelper;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
@@ -44,8 +49,8 @@ import g.p.smartcalculater.R;
 
 public class TokenDetailsActivity extends Activity {
 
-    private TextView title, balanceZMW;
-    //private ImageView tokenLogo, qrCodeView;
+    private TextView title, symbol,balanceZMW;
+    private ImageView logo;
     private LineChart priceChart;
     private ListView transactionList;
 
@@ -60,6 +65,8 @@ public class TokenDetailsActivity extends Activity {
 
         // UI elements
         title = findViewById(R.id.title);
+        symbol = findViewById(R.id.symbol);
+        logo = findViewById(R.id.token_logo);
         balanceZMW = findViewById(R.id.token_balance);
         //transactionList = findViewById(R.id.transaction_list);
 
@@ -263,37 +270,82 @@ public class TokenDetailsActivity extends Activity {
             e.printStackTrace();
         }
 
-
-
-
         // Fetch token details
         fetchTokenDetails();
     }
 
     private void fetchTokenDetails() {
         if(chainId.equalsIgnoreCase(Networks.BSC)) {
-            //fetchBscTokenName(contractAddress); // Or your blockchain-specific checker
-            Web3j web3j = Web3j.build(new HttpService("https://bsc-dataseed.binance.org/"));
-
             try {
                 new Thread(){
                     @Override
                     public void run() {
-                        String name = null;
-                        try {
-                            name = callStringFunction(web3j, contractAddress, "name");
-                            String tokenSymbol = callStringFunction(web3j, contractAddress, "symbol");
-
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                        //int decimals = callUint8Function(web3j, contractAddress, "decimals");
-
-                        String finalName = name;
+                        JSONObject token=new BscHelper().getTokenInfo(contractAddress);
                         runOnUiThread(() ->{
-                            title.setText(finalName);
+                            try {
+                                title.setText(token.getString("name"));
+                                symbol.setText(token.getString("symbol"));
+                                try {
+                                    /*Glide.with(TokenDetailsActivity.this).load(token.getString("logo"))
+                                            .apply(new RequestOptions().circleCrop()).into(logo);*/
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            String url = null;
+                                            try {
+                                                url = ERC20Metadata.fetchLogoFromCoinGecko(Networks.BSC, contractAddress);
+                                                String finalUrl = url;
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Glide.with(TokenDetailsActivity.this).load(finalUrl)
+                                                                .apply(new RequestOptions().circleCrop()).into(logo);
+                                                    }
+                                                });
+                                            } catch (Exception ex) {
+                                                //throw new RuntimeException(ex);
+                                            }
+
+
+                                        }
+                                    }).start();
+                                } catch (Exception e) {
+                                    /*try {
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                String url = null;
+                                                try {
+                                                    url = ERC20Metadata.fetchLogoFromCoinGecko(Networks.BSC, contractAddress);
+                                                    String finalUrl = url;
+                                                    runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            Glide.with(TokenDetailsActivity.this).load(finalUrl)
+                                                                    .apply(new RequestOptions().circleCrop()).into(logo);
+                                                        }
+                                                    });
+                                                } catch (Exception ex) {
+                                                    //throw new RuntimeException(ex);
+                                                }
+
+
+                                            }
+                                        }).start();
+                                    }
+                                    catch (Exception se){
+
+                                    }*/
+
+                                }
+
+                            } catch (JSONException e) {
+                                //Log.e("Error",e.toString());
+                                //throw new RuntimeException(e);
+                            }
                             //symbolEditText.setText(tokenSymbol);
                         });
+
                     }
                 }.start();
 
@@ -315,7 +367,10 @@ public class TokenDetailsActivity extends Activity {
                 public void onSuccess(Token token, Set<String> platforms) {
                     runOnUiThread(() ->{
                         title.setText(token.name);
-                        //symbolEditText.setText(tokenSymbol);
+                        symbol.setText(token.symbol);
+                        Glide.with(TokenDetailsActivity.this).load(token.logo)
+                                .apply(new RequestOptions().circleCrop()).into(logo);
+
                     });
 
                 }

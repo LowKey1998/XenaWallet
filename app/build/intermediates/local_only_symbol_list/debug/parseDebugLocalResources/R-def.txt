@@ -327,6 +327,7 @@ id title
 id titleBox
 id token_balance
 id token_list
+id token_logo
 id tvAddressError
 id tvAmountError
 id tvMin
