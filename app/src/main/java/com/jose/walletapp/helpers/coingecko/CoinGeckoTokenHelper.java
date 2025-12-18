@@ -106,6 +106,7 @@ public class CoinGeckoTokenHelper {
                     // Construct Token object
                     Token token = new Token(
                             imageUrl,
+                            name,
                             symbol.toUpperCase(),
                             chain,
                             contractAddress,

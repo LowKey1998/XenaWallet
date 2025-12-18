@@ -25,7 +25,6 @@ import com.jose.walletapp.constants.Networks;
 import com.jose.walletapp.helpers.ERC20Metadata;
 import com.jose.walletapp.helpers.MultiChainWalletManager;
 import com.jose.walletapp.helpers.Token;
-import com.jose.walletapp.helpers.coingecko.CoinGeckoPlatformTask;
 import com.jose.walletapp.helpers.coingecko.CoinGeckoTokenHelper;
 
 import org.json.JSONObject;
@@ -299,11 +298,33 @@ public class TokenDetailsActivity extends Activity {
                 }.start();
 
             } catch (Exception e) {
-                throw new RuntimeException(e);
+               // throw new RuntimeException(e);
             }
         }
         else if(chainId.equalsIgnoreCase(Networks.SOLANA)){
             //fetchSolanaTokenMetadata(contractAddress);
+            String coinGeckoFetchChainId = "";
+            if(chainId.equalsIgnoreCase(Networks.SOLANA)){
+                coinGeckoFetchChainId=CoinGeckoTokenHelper.coinIdSolana;
+            }
+            else if (chainId.equalsIgnoreCase(Networks.BSC)) {
+                coinGeckoFetchChainId=CoinGeckoTokenHelper.coinIdBSC;
+            }
+            CoinGeckoTokenHelper.fetchTokenInfo(coinGeckoFetchChainId, contractAddress, chainId, new CoinGeckoTokenHelper.TokenCallback() {
+                @Override
+                public void onSuccess(Token token, Set<String> platforms) {
+                    runOnUiThread(() ->{
+                        title.setText(token.name);
+                        //symbolEditText.setText(tokenSymbol);
+                    });
+
+                }
+
+                @Override
+                public void onError(String error) {
+
+                }
+            });
         }
     }
 

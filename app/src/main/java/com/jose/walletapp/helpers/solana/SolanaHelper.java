@@ -16,6 +16,7 @@ public class SolanaHelper {
 
     // Fetch SPL token info
 
+/*
     public static JSONObject getTokenInfo(String mintAddress,String apiKey) {
         JSONObject assetInfo = new JSONObject();
         try {
@@ -57,6 +58,7 @@ public class SolanaHelper {
         }
         return assetInfo;
     }
+*/
 
 
     // Send SPL token using Solana JSON RPC

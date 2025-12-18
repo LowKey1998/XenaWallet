@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Token {
+    public String name;
     public   String imageUrl;
     public /*final*/ String chain;
     public /*final*/ String symbol;          // SOL, USDT, USDC
@@ -18,8 +19,9 @@ public class Token {
 
     public Token() {}
 
-    public Token(String logo, String symbol, String chain, String contractAddress, String coingeckoId, int decimals, boolean isStable) {
+    public Token(String logo, String name,String symbol, String chain, String contractAddress, String coingeckoId, int decimals, boolean isStable) {
         this.logo = logo;
+        this.name = name;
         this.symbol = symbol;
         this.contractAddress = contractAddress;
         this.chain = chain;

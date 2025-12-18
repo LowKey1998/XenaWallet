@@ -18,19 +18,24 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.jose.walletapp.constants.Networks;
 import com.jose.walletapp.helpers.MultiChainWalletManager;
+import com.jose.walletapp.helpers.Token;
 import com.jose.walletapp.helpers.bsc.BscHelper;
+import com.jose.walletapp.helpers.coingecko.CoinGeckoTokenHelper;
+import com.jose.walletapp.helpers.solana.SolTokenOperations;
 import com.jose.walletapp.helpers.solana.SolanaHelper;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Set;
+
 import g.p.smartcalculater.R;
 
 public class ReceiveActivity extends Activity {
 
     ImageView backButton, qrCodeImage;
-    TextView titleText, walletAddressText;
+    TextView titleText, symbolText,balanceText, walletAddressText;
     Button copyButton;
     private String walletAddress="";
     private String chain, contractAddress;
@@ -70,6 +75,8 @@ public class ReceiveActivity extends Activity {
         titleText = findViewById(R.id.receive_token_title);
         walletAddressText = findViewById(R.id.wallet_address);
         copyButton = findViewById(R.id.copy_button);
+        symbolText = findViewById(R.id.symbol);
+        balanceText = findViewById(R.id.token_balance);
     }
 
     private void setupUI() {
@@ -81,23 +88,65 @@ public class ReceiveActivity extends Activity {
                 public void run() {
                     JSONObject tokenInfo = null;
                     if(chain.equalsIgnoreCase(Networks.SOLANA)) {
-                        tokenInfo = SolanaHelper.getTokenInfo(contractAddress, "e7b07a12-9a69-4910-9a0e-8e17bc2bc010");
+                        //fetch details
+                        try {
+                            String coinGeckoFetchChainId = CoinGeckoTokenHelper.coinIdSolana;
+                            CoinGeckoTokenHelper.fetchTokenInfo(coinGeckoFetchChainId, contractAddress, chain, new CoinGeckoTokenHelper.TokenCallback() {
+                                @Override
+                                public void onSuccess(Token token, Set<String> platforms) {
+                                    //String tokenName = tokenInfo.getString("name");
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            titleText.setText("Receive " + token.name);
+                                            symbolText.setText(token.symbol);
+
+
+                                        }
+                                    });
+                                }
+
+                                @Override
+                                public void onError(String error) {
+
+                                }
+                            });
+
+                        }
+                        catch (Exception e){
+
+                        }
+
+                        //fetch balance
+                        try {
+                            double balance=SolTokenOperations.getUserSplTokenBalance(walletAddress, contractAddress);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    balanceText.setText("USD "+balance);
+                                }
+                            });
+                        }
+                        catch (Exception e){
+
+                        }
                     }
                     else if(chain.equalsIgnoreCase(Networks.BSC)){
                         tokenInfo= new BscHelper().getTokenInfo(contractAddress);
-                    }
-                    //String tokenName = tokenInfo.getString("name");
-                    JSONObject finalTokenInfo = tokenInfo;
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                titleText.setText("Receive "+ finalTokenInfo.getString("name"));
-                            } catch (JSONException e) {
-                                //throw new RuntimeException(e);
+                        //String tokenName = tokenInfo.getString("name");
+                        JSONObject finalTokenInfo = tokenInfo;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    titleText.setText("Receive "+ finalTokenInfo.getString("name"));
+                                } catch (JSONException e) {
+                                    //throw new RuntimeException(e);
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
+
 
                 }
             }.start();
