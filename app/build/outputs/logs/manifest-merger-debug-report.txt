@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:2:1-56:12
-INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:2:1-56:12
-INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:2:1-56:12
-INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:2:1-56:12
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:2:1-55:12
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\7c427db87d32ae71dff2254dfa2591d1\transformed\material-1.10.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\95f73b066a171bfcde8377f7a7511fe5\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\5894bf32a68bc49e6a4cc228eb6407bb\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -133,8 +133,8 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.1] C:
 	android:name
 		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:7:5-54:19
-INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:7:5-54:19
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:7:5-53:19
+INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:7:5-53:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\7c427db87d32ae71dff2254dfa2591d1\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\7c427db87d32ae71dff2254dfa2591d1\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\5894bf32a68bc49e6a4cc228eb6407bb\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -267,60 +267,56 @@ activity#com.jose.walletapp.SendCryptoActivity
 ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:33:9-73
 	android:name
 		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:33:19-71
-activity#com.jose.walletapp.SendActivity
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:34:9-67
-	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:34:19-65
 activity#com.jose.walletapp.MyWalletActivity
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:35:9-45:20
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:34:9-44:20
 	android:exported
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:36:13-36
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:35:13-36
 	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:35:19-69
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:34:19-69
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:wc+data:scheme:mywallet
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:37:13-44:29
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:36:13-43:29
 action#android.intent.action.VIEW
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:38:17-68
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:37:17-68
 	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:38:25-66
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:37:25-66
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:39:17-75
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:38:17-75
 	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:39:27-73
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:38:27-73
 category#android.intent.category.BROWSABLE
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:40:17-77
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:39:17-77
 	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:40:27-75
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:39:27-75
 data
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:41:17-43:40
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:40:17-42:40
 	android:host
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:43:21-38
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:42:21-38
 	android:scheme
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:42:21-46
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:41:21-46
 activity#com.jose.walletapp.ReceiveActivity
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:46:9-70
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:45:9-70
 	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:46:19-68
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:45:19-68
 activity#com.jose.walletapp.TokenListActivity
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:47:9-72
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:46:9-72
 	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:47:19-70
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:46:19-70
 activity#com.jose.walletapp.ConvertActivity
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:47:9-70
+	android:name
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:47:19-68
+activity#com.jose.walletapp.DepositActivity
 ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:48:9-70
 	android:name
 		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:48:19-68
-activity#com.jose.walletapp.DepositActivity
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:49:9-70
-	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:49:19-68
 activity#com.jose.walletapp.AddTokenActivity
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:50:9-71
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:49:9-71
 	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:50:19-69
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:49:19-69
 activity#com.jose.walletapp.WithdrawOptionsActivity
-ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:51:9-78
+ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:50:9-78
 	android:name
-		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:51:19-76
+		ADDED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:50:19-76
 uses-sdk
 INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml

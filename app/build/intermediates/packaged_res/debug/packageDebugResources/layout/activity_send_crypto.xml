@@ -1,179 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="16dp">
-
-    &lt;!&ndash; Back Arrow &ndash;&gt;
-    <ImageView
-        android:id="@+id/back_arrow"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="8dp"
-         />
-
-    
-
-    &lt;!&ndash; Token and Title Row &ndash;&gt;
-    <LinearLayout
-        android:id="@+id/send_title_section"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/back_arrow"
-        android:layout_marginTop="24dp"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-             />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send Solana"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="8dp"
-            android:textColor="#000000" />
-    </LinearLayout>
-
-    &lt;!&ndash; Amount Input Card &ndash;&gt;
-    <RelativeLayout
-        android:id="@+id/input_card"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/send_title_section"
-        android:layout_marginTop="24dp"
-        android:background="#F9F9F9"
-        android:padding="16dp"
-        android:layout_marginHorizontal="4dp"
-        android:backgroundTint="#FFF9F0"
-        android:backgroundTintMode="src_in"
-        >
-
-        <TextView
-            android:id="@+id/you_send_label"
-            android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-            
-            android:text="You send"
-            android:textColor="#666666"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/amount_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/you_send_label"
-            android:layout_marginTop="8dp"
-            android:text="SOL 0.00"
-            android:textColor="#CCCCCC"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/currency_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="USD"
-            android:textColor="#552382"
-            android:textSize="14sp"
-            
-            android:drawablePadding="4dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignBottom="@id/amount_input"
-            android:background="@android:color/transparent" />
-    </RelativeLayout>
-
-    &lt;!&ndash; Max Button &ndash;&gt;
-    <TextView
-        android:id="@+id/max_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Max"
-        android:textColor="#552382"
-        android:textStyle="bold"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@id/input_card"
-        android:layout_marginBottom="4dp" />
-
-    &lt;!&ndash; Available Balance &ndash;&gt;
-    <LinearLayout
-        android:id="@+id/balance_row"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/input_card"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Available SOL:"
-            android:textColor="#777777"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SOL 0.00126865"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    &lt;!&ndash; Exchange Rate Footer &ndash;&gt;
-    <LinearLayout
-        android:id="@+id/footer_row"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
-        android:gravity="center_vertical"
-        android:layout_centerHorizontal="true">
-
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1 SOL ≈ ZMW 3,495.88"
-            android:textColor="#444444"
-            android:textSize="13sp"
-            android:layout_marginStart="6dp" />
-    </LinearLayout>
-
-    &lt;!&ndash; Next Button (Disabled) &ndash;&gt;
-    <Button
-        android:id="@+id/next_button"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:background="#F3F3F3"
-        android:text="Next"
-        android:textColor="#CCCCCC"
-        android:textStyle="bold"
-        android:enabled="false" />
-</RelativeLayout>
--->
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:scrollbars="none"
     android:background="#F6F7FB">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -349,23 +180,15 @@
                 android:textSize="12sp"/>
 
             <TextView
+                android:id="@+id/feeText"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="0.00021 ETH (~$0.48)"
+                android:text=""
                 android:textStyle="bold"
                 android:textSize="14sp"/>
         </LinearLayout>
 
         <!-- SEND BUTTON -->
-        <Button
-            android:id="@+id/btnSend"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="24dp"
-            android:text="Send"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:background="@drawable/bg_action_button"/>
 
     </LinearLayout>
 </ScrollView>

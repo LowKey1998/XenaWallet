@@ -234,7 +234,6 @@ id btnBack
 id btnCheckFees
 id btnMax
 id btnNext
-id btnSend
 id btnSignUp
 id btnTogglePassword
 id btnToggleUnit
@@ -274,6 +273,7 @@ id etAddress
 id etAmount
 id favIcons
 id favTitle
+id feeText
 id filterSection
 id fingerprint_logo
 id header
@@ -335,6 +335,7 @@ id txtForgot
 id txtSubtitle
 id txtTitle
 id wallet_address
+id warning_box
 id withdraw_title
 layout activity_add_token
 layout activity_deposit

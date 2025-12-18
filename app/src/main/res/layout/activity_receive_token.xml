@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:scrollbars="none"
     android:background="#F6F7FB">
 
     <LinearLayout
@@ -12,14 +13,17 @@
         android:padding="16dp">
 
         <!-- HEADER -->
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/back_button"
+                android:layout_alignParentLeft="true"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_gravity="center"
                 android:src="@drawable/ic_back"
                 android:tint="#444"/>
 
@@ -27,13 +31,15 @@
                 android:id="@+id/receive_token_title"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_toEndOf="@id/btnBack"
-                android:layout_marginStart="12dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_toRightOf="@id/btnBack"
+                android:layout_marginLeft="12dp"
                 android:text=""
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#333"/>
-        </RelativeLayout>
+        </LinearLayout>
 
         <!-- QR CARD -->
         <LinearLayout
@@ -56,13 +62,6 @@
                     android:scaleType="fitCenter"/>
 
                 <!-- Center coin icon -->
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_circle_white"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_net_eth"/>
             </FrameLayout>
 
             <TextView
@@ -80,6 +79,7 @@
                 android:text="Copy Code"
                 android:textAllCaps="false"
                 android:textColor="#6C63FF"
+                android:layout_gravity="center"
                 android:background="@drawable/bg_copy_button"
                 android:paddingHorizontal="24dp"
                 android:layout_width="wrap_content"
@@ -105,14 +105,45 @@
             android:textColor="#888"/>
 
         <!-- WALLET SELECTION -->
-        <TextView
+        <LinearLayout
+            android:id="@+id/warning_box"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Which wallet you need to receive"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:textColor="#333"/>
+            android:background="#FFF4D9"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="8dp">
+
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Only use a valid SOL network address"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Receiving SOL through any other network address will result in permanent loss"
+                    android:textSize="14sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+        </LinearLayout>
+
 
         <HorizontalScrollView
             android:layout_width="match_parent"

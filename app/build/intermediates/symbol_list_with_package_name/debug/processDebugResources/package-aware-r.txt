@@ -3390,7 +3390,6 @@ id btnBack
 id btnCheckFees
 id btnMax
 id btnNext
-id btnSend
 id btnSignUp
 id btnTogglePassword
 id btnToggleUnit
@@ -3504,6 +3503,7 @@ id expanded_menu
 id fade
 id favIcons
 id favTitle
+id feeText
 id fill
 id fill_horizontal
 id fill_vertical
@@ -3863,6 +3863,7 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id wallet_address
+id warning_box
 id wide
 id withText
 id with_icon

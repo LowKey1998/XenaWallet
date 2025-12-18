@@ -132,7 +132,7 @@ public class MyWalletActivity extends Activity {
             startActivity(intent);
         });*/
         findViewById(R.id.send_button).setOnClickListener(v -> {
-            Intent intent = new Intent(MyWalletActivity.this, SendActivity.class);
+            Intent intent = new Intent(MyWalletActivity.this, SendCryptoActivity.class);
             startActivity(intent);
         });
         findViewById(R.id.receive_button).setOnClickListener(v -> {

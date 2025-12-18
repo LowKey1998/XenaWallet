@@ -31,7 +31,6 @@
         <activity android:name="com.jose.walletapp.LoginActivity"/>
         <activity android:name="com.jose.walletapp.SignupActivity"/>
         <activity android:name="com.jose.walletapp.SendCryptoActivity"/>
-        <activity android:name="com.jose.walletapp.SendActivity"/>
         <activity android:name="com.jose.walletapp.MyWalletActivity"
             android:exported="true">
             <intent-filter>

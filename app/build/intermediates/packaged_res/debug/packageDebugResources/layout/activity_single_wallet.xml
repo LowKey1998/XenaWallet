@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:scrollbars="none"
     android:background="#F5F6FA">
 
     <LinearLayout
@@ -13,7 +14,7 @@
         <!-- HEADER -->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="180dp"
             android:background="@drawable/bg_gradient_header"
             android:paddingHorizontal="16dp"
             android:paddingBottom="16dp"
@@ -45,14 +46,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginTop="-80dp">
+            android:layout_marginTop="-42dp">
 
             <ImageView
                 android:id="@+id/token_logo"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/bg_circle_white"
-                android:padding="7dp"/>
+                android:padding="2dp"/>
 
             <TextView
                 android:id="@+id/title"

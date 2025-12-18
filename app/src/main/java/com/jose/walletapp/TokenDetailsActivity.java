@@ -444,7 +444,7 @@ public class TokenDetailsActivity extends Activity {
                 public void onClick(View view) {
                     dialog.dismiss();
                     // Navigate to your QR / receive screen
-                    Intent intent = new Intent(TokenDetailsActivity.this, SendActivity.class);
+                    Intent intent = new Intent(TokenDetailsActivity.this, SendCryptoActivity.class);
                     intent.putExtra("contractAddress", contractAddress);
                     intent.putExtra("chain", chain);
                     startActivity(intent);
