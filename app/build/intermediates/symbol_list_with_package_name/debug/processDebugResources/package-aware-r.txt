@@ -3108,6 +3108,7 @@ drawable bg_card
 drawable bg_chip
 drawable bg_circle_white
 drawable bg_copy_button
+drawable bg_corner_check
 drawable bg_gradient_header
 drawable bg_input
 drawable bg_line_chart
@@ -3165,6 +3166,7 @@ drawable ic_arrow_back_black_24
 drawable ic_arrow_down
 drawable ic_back
 drawable ic_btc
+drawable ic_check
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_convert
@@ -3360,7 +3362,6 @@ id alertTitle
 id aligned
 id all
 id always
-id amount_input
 id animateToEnd
 id animateToStart
 id arc
@@ -3376,7 +3377,6 @@ id backArrow
 id back_arrow
 id back_button
 id balance
-id balance_row
 id bank_transfer_card
 id barrier
 id baseline
@@ -3387,9 +3387,13 @@ id bottom
 id bottom_to_top
 id bounce
 id btnBack
+id btnCheckFees
+id btnMax
 id btnNext
+id btnSend
 id btnSignUp
 id btnTogglePassword
+id btnToggleUnit
 id button0
 id button1
 id button10
@@ -3448,7 +3452,6 @@ id cos
 id counterclockwise
 id cradle
 id create
-id currency_switch
 id custom
 id customPanel
 id cut
@@ -3493,6 +3496,8 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id etAddress
+id etAmount
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3515,7 +3520,6 @@ id flex_end
 id flex_start
 id flip
 id floating
-id footer_row
 id forever
 id fragment_container_view_tag
 id fullscreen_header
@@ -3545,7 +3549,6 @@ id imageView3
 id imgIllustration
 id indeterminate
 id info
-id input_card
 id invisible
 id inward
 id italic
@@ -3555,6 +3558,7 @@ id jumpToStart
 id keyboard
 id labeled
 id layout
+id layoutFees
 id left
 id leftToRight
 id left_to_right
@@ -3594,7 +3598,6 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
-id max_button
 id menu
 id menuCart
 id menuCatalogue
@@ -3649,7 +3652,6 @@ id network
 id network_list
 id never
 id nextButton
-id next_button
 id noScroll
 id none
 id normal
@@ -3747,7 +3749,6 @@ id select_dialog_listview
 id selected
 id selection_type
 id send_button
-id send_title_section
 id shortcut
 id showCustom
 id showHome
@@ -3842,6 +3843,9 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAddressError
+id tvAmountError
+id tvMin
 id txtForgot
 id txtSubtitle
 id txtTitle
@@ -3866,7 +3870,6 @@ id withinBounds
 id wrap
 id wrap_content
 id wrap_reverse
-id you_send_label
 id zxing_back_button
 id zxing_barcode_scanner
 id zxing_barcode_surface
