@@ -63,7 +63,7 @@ public class SendCryptoActivity extends Activity {
                     final String recipientAddrStr=recipientET.getText().toString().trim();
                     final String amountStr=amountET.getText().toString();
 
-                    checkBscFees(MultiChainWalletManager.getInstance().getBscAddress(), recipientAddrStr,amountStr);
+                    checkBscFees(MultiChainWalletManager.getInstance().getBscAddress(), recipientAddrStr, BigDecimal.valueOf(Double.parseDouble(amountStr)));
                 }
             }
         });

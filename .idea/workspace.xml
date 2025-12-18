@@ -238,10 +238,7 @@
   <component name="ChangeListManager">
     <list default="true" id="758976ae-1b4a-42be-9241-d7d0be35e4cb" name="Changes" comment="first">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jose/walletapp/ReceiveActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jose/walletapp/ReceiveActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jose/walletapp/SendCryptoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jose/walletapp/SendCryptoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jose/walletapp/SignupActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jose/walletapp/SignupActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jose/walletapp/TokenDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jose/walletapp/TokenDetailsActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
