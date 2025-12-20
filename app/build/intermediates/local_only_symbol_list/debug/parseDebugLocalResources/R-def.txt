@@ -191,8 +191,7 @@ drawable ic_check
 drawable ic_convert
 drawable ic_eye
 drawable ic_eye_slash
-drawable ic_launcher_background
-drawable ic_launcher_foreground
+drawable ic_launcher
 drawable ic_menu
 drawable ic_net_eth
 drawable ic_notification
@@ -265,6 +264,7 @@ id contentCard
 id contractAddress
 id copy_button
 id create
+id default_tokens
 id deposit_subtitle
 id deposit_title
 id edtPhone
@@ -367,8 +367,6 @@ layout item_wallet
 layout layout_sidebar
 layout login_activity
 layout view_pin_entry_keyboard
-mipmap ic_launcher
-mipmap ic_launcher_round
 plurals transfer_label_plural
 plurals transfer_success_archive_prompt_plurals
 string CLOSE

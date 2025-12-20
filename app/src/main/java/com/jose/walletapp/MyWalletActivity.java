@@ -38,6 +38,7 @@ import com.jose.walletapp.helpers.MultiChainWalletManager;
 import com.jose.walletapp.helpers.Token;
 import com.jose.walletapp.helpers.UnifiedTokenData;
 import com.jose.walletapp.helpers.bsc.BscHelper;
+import com.jose.walletapp.helpers.coingecko.CoinGeckoTokenHelper;
 import com.jose.walletapp.helpers.solana.SolTokenOperations;
 import com.jose.walletapp.helpers.user.UserStatus;
 import com.melnykov.fab.FloatingActionButton;
@@ -48,6 +49,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import g.p.smartcalculater.R;
@@ -236,6 +238,27 @@ public class MyWalletActivity extends Activity {
     }
 
     private void addTokenToDefaultListView(LinearLayout defaultTokensListView, View tokenItemView, String coinGeckoId) {
+        CoinGeckoTokenHelper.fetchTokenInfo(coinGeckoId, null, null, new CoinGeckoTokenHelper.TokenCallback() {
+            @Override
+            public void onSuccess(Token token, Set<String> platforms) {
+/*
+                ImageView tokenLogo=tokenItemView.findViewById(R.id.coinIcon);
+                Glide.with(MyWalletActivity.this).load(finalUrl)*/
+/*.apply(new RequestOptions().circleCrop())*//*
+.into(tokenLogo);
+*/
+
+                ((TextView)tokenItemView.findViewById(R.id.name)).setText(token.name);
+                ((TextView)tokenItemView.findViewById(R.id.symbol)).setText(token.symbol);
+
+                defaultTokensListView.addView(tokenItemView);
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
     }
 
     private void fetchUsersDefaultTokensFromFirebase(TokensCallback callback) {

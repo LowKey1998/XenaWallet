@@ -88,12 +88,12 @@
 49        android:extractNativeLibs="false"
 50        android:fullBackupContent="@xml/backup_rules"
 50-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:10:9-54
-51        android:icon="@mipmap/ic_launcher"
-51-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:12:9-43
+51        android:icon="@drawable/ic_launcher"
+51-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:12:9-45
 52        android:label="@string/app_name"
 52-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:13:9-41
-53        android:roundIcon="@mipmap/ic_launcher_round"
-53-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:14:9-54
+53        android:roundIcon="@drawable/ic_launcher"
+53-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:14:9-50
 54        android:supportsRtl="true"
 54-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:15:9-35
 55        android:theme="@style/Theme.WalletApp"

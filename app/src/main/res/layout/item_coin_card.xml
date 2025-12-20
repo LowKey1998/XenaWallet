@@ -7,22 +7,25 @@
     android:layout_marginEnd="12dp">
 
     <TextView
+        android:id="@+id/name"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Bitcoin"
+        android:text=""
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/symbol"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="BTC"
+        android:text=""
         android:textSize="12sp"
         android:textColor="#888"/>
 
     <TextView
+        android:id="@+id/balance"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="USD 3,536.28"
+        android:text=""
         android:textStyle="bold"
         android:layout_marginTop="8dp"/>
 

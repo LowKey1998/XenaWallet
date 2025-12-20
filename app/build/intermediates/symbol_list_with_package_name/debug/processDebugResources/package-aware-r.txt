@@ -3173,8 +3173,7 @@ drawable ic_convert
 drawable ic_eye
 drawable ic_eye_slash
 drawable ic_keyboard_black_24dp
-drawable ic_launcher_background
-drawable ic_launcher_foreground
+drawable ic_launcher
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
@@ -3460,6 +3459,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id default_tokens
 id deltaRelative
 id deposit_subtitle
 id deposit_title
@@ -4109,8 +4109,6 @@ layout support_simple_spinner_dropdown_item
 layout view_pin_entry_keyboard
 layout zxing_barcode_scanner
 layout zxing_capture
-mipmap ic_launcher
-mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 plurals transfer_label_plural
 plurals transfer_success_archive_prompt_plurals
