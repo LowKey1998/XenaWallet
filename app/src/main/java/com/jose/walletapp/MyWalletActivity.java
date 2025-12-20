@@ -166,6 +166,7 @@ public class MyWalletActivity extends Activity {
         });
 
 */
+        LinearLayout defaultTokensListView=findViewById(R.id.default_tokens);
 
         fetchUsersDefaultTokensFromFirebase(new TokensCallback(){
 
@@ -175,10 +176,9 @@ public class MyWalletActivity extends Activity {
                     addDefaultTokensToUserFirebase(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 }
                 else{
-                    LinearLayout defaultTokensListView=findViewById(R.id.default_tokens);
                     for(Token token:tokens){
                         View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
-                        MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.chain);
+                        MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.chain, token.contractAddress);
                     }
 
                 }
@@ -237,7 +237,7 @@ public class MyWalletActivity extends Activity {
 
     }
 
-    private void addTokenToDefaultListView(LinearLayout defaultTokensListView, View tokenItemView, String chain) {
+    private void addTokenToDefaultListView(LinearLayout defaultTokensListView, View tokenItemView, String chain, String contractAddress) {
         String coinGeckoId = null;
         if(chain.equalsIgnoreCase(Networks.BSC)){
             coinGeckoId="binancecoin";
@@ -247,20 +247,24 @@ public class MyWalletActivity extends Activity {
             coinGeckoId="tron";
         }
 
-        CoinGeckoTokenHelper.fetchTokenInfo(coinGeckoId, null, null, new CoinGeckoTokenHelper.TokenCallback() {
+        CoinGeckoTokenHelper.fetchNativeCoin(coinGeckoId, new CoinGeckoTokenHelper.TokenCallback() {
             @Override
             public void onSuccess(Token token, Set<String> platforms) {
-/*
-                ImageView tokenLogo=tokenItemView.findViewById(R.id.coinIcon);
-                Glide.with(MyWalletActivity.this).load(finalUrl)*/
-/*.apply(new RequestOptions().circleCrop())*//*
-.into(tokenLogo);
-*/
 
-                ((TextView)tokenItemView.findViewById(R.id.name)).setText(token.name);
-                ((TextView)tokenItemView.findViewById(R.id.symbol)).setText(token.symbol);
 
-                defaultTokensListView.addView(tokenItemView);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        /*ImageView tokenLogo=tokenItemView.findViewById(R.id.coinIcon);
+                        Glide.with(MyWalletActivity.this).load(finalUrl)
+                                .apply(new RequestOptions().circleCrop())
+                                .into(tokenLogo);*/
+                        ((TextView)tokenItemView.findViewById(R.id.name)).setText(token.name);
+                        ((TextView)tokenItemView.findViewById(R.id.symbol)).setText(token.symbol);
+
+                        defaultTokensListView.addView(tokenItemView);
+                    }
+                });
             }
 
             @Override
@@ -271,16 +275,15 @@ public class MyWalletActivity extends Activity {
     }
 
     private void fetchUsersDefaultTokensFromFirebase(TokensCallback callback) {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/Tokens");
 
-        ref.orderByChild("is_default")
-                .equalTo(true)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+        Query tokensRef = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/"+ FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Tokens").orderByChild("is_default")
+                .equalTo(true);
+                tokensRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
                     @Override
-                    public void onDataChange(DataSnapshot snapshot) {
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                        if(snapshot.hasChildren()) {
+                        if(snapshot.exists()) {
                             List<Token> tokens = new ArrayList<>();
 
 

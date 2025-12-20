@@ -13,7 +13,6 @@ import java.util.Iterator;
 import java.util.Set;
 
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -120,6 +119,85 @@ public class CoinGeckoTokenHelper {
 
                 } catch (Exception e) {
                     callback.onError("Parsing error: " + e.getMessage());
+                }
+            }
+        });
+    }
+
+
+    public static void fetchNativeCoin(
+            String coinGeckoId,
+            TokenCallback callback
+    ) {
+
+        final String BASE_URL = "https://api.coingecko.com/api/v3/";
+
+        String url = BASE_URL + "coins/" + coinGeckoId +
+                "?localization=false" +
+                "&tickers=false" +
+                "&market_data=true" +
+                "&community_data=false" +
+                "&developer_data=false" +
+                "&sparkline=false";
+
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                callback.onError(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    callback.onError("HTTP " + response.code());
+                    return;
+                }
+
+                try {
+                    JSONObject json = new JSONObject(response.body().string());
+
+                    JSONObject marketData = json.getJSONObject("market_data");
+                    JSONObject currentPrice = marketData.getJSONObject("current_price");
+                    JSONObject marketCap = marketData.getJSONObject("market_cap");
+                    JSONObject image = json.getJSONObject("image");
+
+                    Set<String> platformsSet = new HashSet<>();
+                    if (json.has("platforms")) {
+
+                        JSONObject platforms = json.getJSONObject("platforms");
+                        Iterator<String> keys = platforms.keys();
+                        while (keys.hasNext()) {
+                            String platform=keys.next();
+                            //System.out.println("platform: "+platform);
+                            platformsSet.add(platform); // solana, tron, bsc, etc
+                        }
+                    }
+
+                    Token token = new Token(image.getString("large"),
+                            json.getString("name"),
+                            json.getString("symbol").toUpperCase(),
+                            null,
+                            null,
+                            coinGeckoId,
+                            0,
+                            false
+                            );
+
+                    //token.setPriceUsd(currentPrice.getDouble("usd"));
+                    //token.setMarketCapUsd(marketCap.getDouble("usd"));
+                    //token.setNative(true);
+
+                    callback.onSuccess(token,platformsSet);
+
+                } catch (Exception e) {
+                    callback.onError(e.getMessage());
                 }
             }
         });
