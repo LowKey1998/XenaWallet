@@ -25,6 +25,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 //import com.walletconnect.walletconnectv2.clientsync.session.Session;
 //import com.walletconnect.walletconnectv2.clientsync.session.after.params.SessionRequest;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -255,10 +256,10 @@ public class MyWalletActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        /*ImageView tokenLogo=tokenItemView.findViewById(R.id.coinIcon);
-                        Glide.with(MyWalletActivity.this).load(finalUrl)
+                        ImageView tokenLogo=tokenItemView.findViewById(R.id.coinIcon);
+                        Glide.with(MyWalletActivity.this).load(token.logo)
                                 .apply(new RequestOptions().circleCrop())
-                                .into(tokenLogo);*/
+                                .into(tokenLogo);
                         ((TextView)tokenItemView.findViewById(R.id.name)).setText(token.name);
                         ((TextView)tokenItemView.findViewById(R.id.symbol)).setText(token.symbol);
 
