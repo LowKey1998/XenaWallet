@@ -77,106 +77,105 @@
 42-->[androidx.core:core:1.9.0] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\2adf958e556a684a215602425bc94c3e\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 43
 44    <application
-44-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:7:5-53:19
+44-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:7:5-50:19
 45        android:allowBackup="true"
 45-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:8:9-35
 46        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 46-->[androidx.core:core:1.9.0] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\2adf958e556a684a215602425bc94c3e\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
-47        android:dataExtractionRules="@xml/data_extraction_rules"
-47-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:9:9-65
-48        android:debuggable="true"
-49        android:extractNativeLibs="false"
-50        android:fullBackupContent="@xml/backup_rules"
-50-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:10:9-54
-51        android:icon="@drawable/ic_launcher"
-51-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:12:9-45
-52        android:label="@string/app_name"
-52-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:13:9-41
-53        android:roundIcon="@drawable/ic_launcher"
-53-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:14:9-50
-54        android:supportsRtl="true"
-54-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:15:9-35
+47        android:debuggable="true"
+48        android:extractNativeLibs="false"
+49        android:fullBackupContent="@xml/backup_rules"
+49-->[com.walletconnect:sign:2.5.0] C:\Users\GRAPHICS PC\.gradle\caches\8.11.1\transforms\f39bc51a414a937c0f16a78d2ecaa67b\transformed\jetified-sign-2.5.0\AndroidManifest.xml:9:18-63
+50        android:icon="@drawable/ic_launcher"
+50-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:9:9-45
+51        android:label="@string/app_name"
+51-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:10:9-41
+52        android:roundIcon="@drawable/ic_launcher"
+52-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:11:9-50
+53        android:supportsRtl="true"
+53-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:12:9-35
+54        android:testOnly="true"
 55        android:theme="@style/Theme.WalletApp"
-55-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:17:9-47
+55-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:14:9-47
 56        android:usesCleartextTraffic="true" >
-56-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:16:9-44
+56-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:13:9-44
 57        <activity
-57-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:20:9-27:20
+57-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:17:9-24:20
 58            android:name="com.jose.walletapp.SplashActivity"
-58-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:20:19-67
+58-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:17:19-67
 59            android:exported="true" >
-59-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:21:13-36
+59-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:18:13-36
 60            <intent-filter>
-60-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:22:13-26:29
+60-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:19:13-23:29
 61                <action android:name="android.intent.action.MAIN" />
-61-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:23:17-69
-61-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:23:25-66
+61-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:20:17-69
+61-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:20:25-66
 62
 63                <category android:name="android.intent.category.LAUNCHER" />
-63-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:25:17-77
-63-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:25:27-74
+63-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:22:17-77
+63-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:22:27-74
 64            </intent-filter>
 65        </activity>
 66        <activity android:name="com.jose.walletapp.MainActivity" />
-66-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:29:9-67
-66-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:29:19-65
+66-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:26:9-67
+66-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:26:19-65
 67        <activity android:name="com.jose.walletapp.TokenDetailsActivity" />
-67-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:30:9-75
-67-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:30:19-73
+67-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:27:9-75
+67-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:27:19-73
 68        <activity android:name="com.jose.walletapp.LoginActivity" />
-68-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:31:9-68
-68-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:31:19-66
+68-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:28:9-68
+68-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:28:19-66
 69        <activity android:name="com.jose.walletapp.SignupActivity" />
-69-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:32:9-69
-69-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:32:19-67
+69-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:29:9-69
+69-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:29:19-67
 70        <activity android:name="com.jose.walletapp.SendCryptoActivity" />
-70-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:33:9-73
-70-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:33:19-71
+70-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:30:9-73
+70-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:30:19-71
 71        <activity
-71-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:34:9-44:20
+71-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:31:9-41:20
 72            android:name="com.jose.walletapp.MyWalletActivity"
-72-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:34:19-69
+72-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:31:19-69
 73            android:exported="true" >
-73-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:35:13-36
+73-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:32:13-36
 74            <intent-filter>
-74-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:36:13-43:29
+74-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:33:13-40:29
 75                <action android:name="android.intent.action.VIEW" />
-75-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:37:17-68
-75-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:37:25-66
+75-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:34:17-68
+75-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:34:25-66
 76
 77                <category android:name="android.intent.category.DEFAULT" />
-77-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:38:17-75
-77-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:38:27-73
+77-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:35:17-75
+77-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:35:27-73
 78                <category android:name="android.intent.category.BROWSABLE" />
-78-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:39:17-77
-78-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:39:27-75
+78-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:36:17-77
+78-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:36:27-75
 79
 80                <data
-80-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:40:17-42:40
+80-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:37:17-39:40
 81                    android:host="wc"
-81-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:42:21-38
+81-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:39:21-38
 82                    android:scheme="mywallet" />
-82-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:41:21-46
+82-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:38:21-46
 83            </intent-filter>
 84        </activity>
 85        <activity android:name="com.jose.walletapp.ReceiveActivity" />
-85-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:45:9-70
-85-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:45:19-68
+85-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:42:9-70
+85-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:42:19-68
 86        <activity android:name="com.jose.walletapp.TokenListActivity" />
-86-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:46:9-72
-86-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:46:19-70
+86-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:43:9-72
+86-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:43:19-70
 87        <activity android:name="com.jose.walletapp.ConvertActivity" />
-87-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:47:9-70
-87-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:47:19-68
+87-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:44:9-70
+87-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:44:19-68
 88        <activity android:name="com.jose.walletapp.DepositActivity" />
-88-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:48:9-70
-88-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:48:19-68
+88-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:45:9-70
+88-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:45:19-68
 89        <activity android:name="com.jose.walletapp.AddTokenActivity" />
-89-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:49:9-71
-89-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:49:19-69
+89-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:46:9-71
+89-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:46:19-69
 90        <activity android:name="com.jose.walletapp.WithdrawOptionsActivity" />
-90-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:50:9-78
-90-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:50:19-76
+90-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:47:9-78
+90-->C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\AndroidManifest.xml:47:19-76
 91
 92        <!--
 93             FirebaseMessagingService performs security checks at runtime,

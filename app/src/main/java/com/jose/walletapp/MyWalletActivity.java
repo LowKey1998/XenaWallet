@@ -30,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.jose.walletapp.constants.Networks;
@@ -170,15 +171,14 @@ public class MyWalletActivity extends Activity {
 
             @Override
             public void onSuccess(List<Token> tokens) {
-                if(tokens.isEmpty()) {
+                if(tokens==null) {
                     addDefaultTokensToUserFirebase(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 }
                 else{
                     LinearLayout defaultTokensListView=findViewById(R.id.default_tokens);
                     for(Token token:tokens){
                         View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
-                        MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.coingeckoId);
-
+                        MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.chain);
                     }
 
                 }
@@ -237,7 +237,16 @@ public class MyWalletActivity extends Activity {
 
     }
 
-    private void addTokenToDefaultListView(LinearLayout defaultTokensListView, View tokenItemView, String coinGeckoId) {
+    private void addTokenToDefaultListView(LinearLayout defaultTokensListView, View tokenItemView, String chain) {
+        String coinGeckoId = null;
+        if(chain.equalsIgnoreCase(Networks.BSC)){
+            coinGeckoId="binancecoin";
+        } else if (chain.equalsIgnoreCase(Networks.SOLANA)) {
+            coinGeckoId = "solana";
+        } else if(chain.equalsIgnoreCase(Networks.TRON)){
+            coinGeckoId="tron";
+        }
+
         CoinGeckoTokenHelper.fetchTokenInfo(coinGeckoId, null, null, new CoinGeckoTokenHelper.TokenCallback() {
             @Override
             public void onSuccess(Token token, Set<String> platforms) {
@@ -271,17 +280,22 @@ public class MyWalletActivity extends Activity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
 
-                        List<Token> tokens = new ArrayList<>();
+                        if(snapshot.hasChildren()) {
+                            List<Token> tokens = new ArrayList<>();
 
 
-                        for (DataSnapshot child : snapshot.getChildren()) {
-                            Token token = child.getValue(Token.class);
-                            if (token != null) {
-                                tokens.add(token);
+                            for (DataSnapshot child : snapshot.getChildren()) {
+                                Token token = child.getValue(Token.class);
+                                if (token != null) {
+                                    tokens.add(token);
+                                }
                             }
-                        }
 
-                        callback.onSuccess(tokens);
+                            callback.onSuccess(tokens);
+                        }
+                        else{
+                            callback.onSuccess(null);
+                        }
                     }
 
                     @Override
@@ -376,8 +390,8 @@ public class MyWalletActivity extends Activity {
 
 
     private void fetchAllTokensFromFirebase() {
-        DatabaseReference tokensRef = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/"+ FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Tokens");
-
+        Query tokensRef = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/"+ FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Tokens").orderByChild("is_default")
+                .equalTo(null);
         tokensRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

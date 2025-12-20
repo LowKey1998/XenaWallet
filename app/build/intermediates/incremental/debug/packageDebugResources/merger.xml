@@ -474,7 +474,7 @@
         <item name="android:layout_height">48dp</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center_vertical</item>
-    </style></file><file path="C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.WalletApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    </style></file><file path="C:\Users\GRAPHICS PC\Downloads\Compressed\geraldwallet\JoseWalletApp\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.WalletApp" parent="Theme.AppCompat.Light.NoActionBar">
         
         <item name="colorOnPrimary">@color/white</item>
         
