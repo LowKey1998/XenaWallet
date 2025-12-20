@@ -116,7 +116,7 @@ public class MyWalletActivity extends Activity {
         //set online presense
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference userStatusRef =
-                database.getReference("ProductionDB/Users/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"Status");
+                database.getReference("ProductionDB/Users/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Status");
 
         DatabaseReference connectedRef =
                 database.getReference(".info/connected");
@@ -170,7 +170,7 @@ public class MyWalletActivity extends Activity {
 
             @Override
             public void onSuccess(List<Token> tokens) {
-                if(tokens==null) {
+                if(tokens.isEmpty()) {
                     addDefaultTokensToUserFirebase(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 }
                 else{
@@ -262,7 +262,7 @@ public class MyWalletActivity extends Activity {
     }
 
     private void fetchUsersDefaultTokensFromFirebase(TokensCallback callback) {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/tokens");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/Tokens");
 
         ref.orderByChild("is_default")
                 .equalTo(true)
@@ -272,6 +272,7 @@ public class MyWalletActivity extends Activity {
                     public void onDataChange(DataSnapshot snapshot) {
 
                         List<Token> tokens = new ArrayList<>();
+
 
                         for (DataSnapshot child : snapshot.getChildren()) {
                             Token token = child.getValue(Token.class);
