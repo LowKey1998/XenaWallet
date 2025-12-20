@@ -5,13 +5,13 @@ import java.util.Set;
 
 public class Token {
     public String name;
-    public   String imageUrl;
     public /*final*/ String chain;
     public /*final*/ String symbol;          // SOL, USDT, USDC
     public /*final*/ String logo;
     public /*final*/ String coingeckoId;      // solana, tether, usd-coin
     public /*final*/ int decimals;           // 9 for SOL, 6 for USDC
     public /*final*/ boolean isStable;  // true for USDT/USDC
+    public /*final*/ boolean isDefault;
 
     public /*final*/ String contractAddress;
 

@@ -30,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.jose.walletapp.constants.Networks;
 import com.jose.walletapp.helpers.ERC20Metadata;
@@ -38,17 +39,20 @@ import com.jose.walletapp.helpers.Token;
 import com.jose.walletapp.helpers.UnifiedTokenData;
 import com.jose.walletapp.helpers.bsc.BscHelper;
 import com.jose.walletapp.helpers.solana.SolTokenOperations;
+import com.jose.walletapp.helpers.user.UserStatus;
 import com.melnykov.fab.FloatingActionButton;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import g.p.smartcalculater.R;
 import okhttp3.*;
-import org.json.JSONArray;
+
 import org.json.JSONObject;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
@@ -83,6 +87,11 @@ public class MyWalletActivity extends Activity {
     //TextView addressTextView = findViewById(R.id.addressTextView);
     //TextView balanceTextView = findViewById(R.id.balanceTextView);
 
+    public interface TokensCallback {
+        void onSuccess(List<Token> tokens);
+        void onError(String error);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +109,85 @@ public class MyWalletActivity extends Activity {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         tokensListView=findViewById(R.id.token_list);
         totalBalance=findViewById(R.id.balance);
+
+
+        //set online presense
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference userStatusRef =
+                database.getReference("ProductionDB/Users/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"Status");
+
+        DatabaseReference connectedRef =
+                database.getReference(".info/connected");
+
+        connectedRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Boolean connected = snapshot.getValue(Boolean.class);
+                if (connected != null && connected) {
+
+                    // Set offline status on disconnect
+                    userStatusRef.onDisconnect().setValue(
+                            new UserStatus("offline", ServerValue.TIMESTAMP)
+                    );
+
+                    // Set online now
+                    userStatusRef.setValue(
+                            new UserStatus("online", ServerValue.TIMESTAMP)
+                    );
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+
+
+        //fetch online status
+        /*DatabaseReference statusRef =
+                FirebaseDatabase.getInstance().getReference("ProductionDB/Users/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"Status");
+
+        statusRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String state = snapshot.child("State").getValue(String.class);
+
+                if ("Online".equals(state)) {
+                    // show green dot
+                } else {
+                    // show last seen
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+
+*/
+
+        fetchUsersDefaultTokensFromFirebase(new TokensCallback(){
+
+            @Override
+            public void onSuccess(List<Token> tokens) {
+                if(tokens==null) {
+                    addDefaultTokensToUserFirebase(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                }
+                else{
+                    LinearLayout defaultTokensListView=findViewById(R.id.default_tokens);
+                    for(Token token:tokens){
+                        View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
+                        MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.coingeckoId);
+
+                    }
+
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
+
 
         //shimer
         showLoadingPlaceholders();
@@ -145,6 +233,53 @@ public class MyWalletActivity extends Activity {
         });*/
 
 
+    }
+
+    private void addTokenToDefaultListView(LinearLayout defaultTokensListView, View tokenItemView, String coinGeckoId) {
+    }
+
+    private void fetchUsersDefaultTokensFromFirebase(TokensCallback callback) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/tokens");
+
+        ref.orderByChild("is_default")
+                .equalTo(true)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+
+                        List<Token> tokens = new ArrayList<>();
+
+                        for (DataSnapshot child : snapshot.getChildren()) {
+                            Token token = child.getValue(Token.class);
+                            if (token != null) {
+                                tokens.add(token);
+                            }
+                        }
+
+                        callback.onSuccess(tokens);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        callback.onError(error.getMessage());
+                    }
+                });
+    }
+
+
+    private void addDefaultTokensToUserFirebase(String uid) {
+        for(String chain:new Networks().getSupportedChains()) {
+            DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/Tokens");
+
+            // Create a token object
+            Map<String, Object> tokenData = new HashMap<>();
+            tokenData.put("is_default", true);
+            tokenData.put("chain", chain); //can also use "solana", "tron", etc.
+
+            // Push the data to Firebase
+            databaseRef.push().setValue(tokenData);
+        }
     }
 
     private void showLoadingPlaceholders() {
