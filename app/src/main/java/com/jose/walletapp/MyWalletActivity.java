@@ -177,11 +177,20 @@ public class MyWalletActivity extends Activity {
                     addDefaultTokensToUserFirebase(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 }
                 else{
+                    List<String> supportedChainsNotAdded=new ArrayList<>(new Networks().getSupportedChains());
                     for(Token token:tokens){
                         View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
                         MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.chain, token.contractAddress);
+                        //add default token that was not have been uploaded to firebase
+                        if(supportedChainsNotAdded.contains(token.chain)) {
+                            supportedChainsNotAdded.remove(token.chain);
+                            System.out.println("removed: "+token.chain);
+                        }
                     }
 
+                    for(String chain:supportedChainsNotAdded){
+                        addDefaultTokenToUserFirebase(chain);
+                    }
                 }
             }
 
@@ -251,8 +260,6 @@ public class MyWalletActivity extends Activity {
         CoinGeckoTokenHelper.fetchNativeCoin(coinGeckoId, new CoinGeckoTokenHelper.TokenCallback() {
             @Override
             public void onSuccess(Token token, Set<String> platforms) {
-
-
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -285,6 +292,7 @@ public class MyWalletActivity extends Activity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         if(snapshot.exists()) {
+                            //check individually if all default tokens are present
                             List<Token> tokens = new ArrayList<>();
 
 
@@ -322,6 +330,19 @@ public class MyWalletActivity extends Activity {
             // Push the data to Firebase
             databaseRef.push().setValue(tokenData);
         }
+    }
+
+    private void addDefaultTokenToUserFirebase(String chain) {
+        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("ProductionDB/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/Tokens");
+
+        // Create a token object
+        Map<String, Object> tokenData = new HashMap<>();
+        tokenData.put("is_default", true);
+        tokenData.put("chain", chain); //can also use "solana", "tron", etc.
+
+        // Push the data to Firebase
+        databaseRef.push().setValue(tokenData);
+
     }
 
     private void showLoadingPlaceholders() {
