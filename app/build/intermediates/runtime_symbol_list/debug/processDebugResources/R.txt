@@ -3499,6 +3499,7 @@ int id etAmount 0x7f0a00d1
 int id exitUntilCollapsed 0x7f0a00d2
 int id expand_activities_button 0x7f0a00d3
 int id expanded_menu 0x7f0a00d4
+int id fab 0x7f0a0256
 int id fade 0x7f0a00d5
 int id favIcons 0x7f0a00d6
 int id favTitle 0x7f0a00d7

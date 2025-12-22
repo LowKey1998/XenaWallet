@@ -187,14 +187,14 @@ public class MyWalletActivity extends Activity {
         });
 
         // scrollView=findViewById(R.id.scroll_view);
-        /*fab=findViewById(R.id.fab);
+        fab=findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MyWalletActivity.this,AddTokenActivity.class));
             }
-        });*/
+        });
         //fab.attachToScrollView(scrollView);
         /*findViewById(R.id.depositBtn).setOnClickListener(v -> {
             Intent intent = new Intent(MyWalletActivity.this, DepositActivity.class);

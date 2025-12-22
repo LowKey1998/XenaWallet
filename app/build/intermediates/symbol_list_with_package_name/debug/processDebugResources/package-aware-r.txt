@@ -3500,6 +3500,7 @@ id etAmount
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id fade
 id favIcons
 id favTitle
