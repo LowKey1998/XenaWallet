@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import okhttp3.Call;
@@ -24,6 +25,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class CoinGeckoTokenHelper {
+
+    public static List<String> supportedIds=List.of("solana","binancecoin","tron");//coingecko token ids
 
     public static String coinIdSolana="solana";
     public static String coinIdTron="solana";

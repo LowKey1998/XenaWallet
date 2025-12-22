@@ -3,6 +3,8 @@ package com.jose.walletapp;
 import static com.jose.walletapp.helpers.ERC20Metadata.callStringFunction;
 import static com.jose.walletapp.helpers.ERC20Metadata.callUint8Function;
 
+import static java.lang.reflect.Modifier.isNative;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -61,9 +63,11 @@ import org.json.JSONObject;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
 
+/*Todo will need to have one concurrent method for default and non default tokens to prevent
+token from being added twice*/
 public class MyWalletActivity extends Activity {
     private static Context context;
-    ConcurrentHashMap<String, UnifiedTokenData> tokenMap = new ConcurrentHashMap<>();
+    //ConcurrentHashMap<String, UnifiedTokenData> tokenMap = new ConcurrentHashMap<>();
 
     //    private TextView myAddress;
     //private String myAddressStr;
@@ -417,14 +421,23 @@ public class MyWalletActivity extends Activity {
                     //Log.d("Token", "Address: " + token.contractAddress + ", Chain: " + token.chain);
                     //LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_token,null);
+                    View defaultTokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
+
                     if(token.chain.equalsIgnoreCase(Networks.SOLANA)){
                         //unify
                         MyWalletActivity.this.addSolanaTokenToListView(tokensListView,tokenItemView,token.contractAddress);
                     }
-                    else if(token.chain.equalsIgnoreCase(Networks.BSC)){
-                        MyWalletActivity.this.addBscTokenToListView(tokensListView,tokenItemView,token.contractAddress);
-                    }
+                    else if(token.chain.equalsIgnoreCase(Networks.BSC)) {
+                        if (isNativeCoin(token.coingeckoId)) {
+                            MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,
+                                            defaultTokenItemView,token.chain,
+                                            token.contractAddress);
+                        }
+                        else{
+                            MyWalletActivity.this.addBscTokenToListView(tokensListView, tokenItemView, token.contractAddress);
 
+                        }
+                    }
 
                 }
                 //update UI
@@ -456,7 +469,7 @@ public class MyWalletActivity extends Activity {
                         url= ERC20Metadata.fetchLogoFromCoinGecko(Networks.BSC,contractAddress);
                         decimals = callUint8Function(web3j, contractAddress, "decimals");
                     } catch (Exception e) {
-                        //throw new RuntimeException(e);
+                        throw new RuntimeException(e);
                     }
                     String finalUrl = url;
                     String finalName = name;
@@ -482,6 +495,7 @@ public class MyWalletActivity extends Activity {
                                 MyWalletActivity.this.startActivity(intent);
                             }
                         });
+
                         tokensListView.addView(tokenView);
 
                     });
@@ -597,10 +611,20 @@ public class MyWalletActivity extends Activity {
     }*/
 
 
-    public BigDecimal getGrandTotal() {
+    /*public BigDecimal getGrandTotal() {
         return tokenMap.values().stream()
                 .map(token -> token.totalBalance)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }*/
+
+
+    private boolean isNativeCoin(String coinGeckoId) {
+        if (coinGeckoId != null) {
+            return CoinGeckoTokenHelper.supportedIds.contains(coinGeckoId);
+        }
+        //todo: might need to add more check cases. maybe check from bscscan if is native.
+        // better on add token also check from bscan if is native and store bscscanid in firebase
+        return false;
     }
 
 
@@ -764,6 +788,13 @@ public class MyWalletActivity extends Activity {
             swipeRefreshLayout.setRefreshing(false);
         }
     }
+
+
+    private boolean hasTokenWithTag(LinearLayout parent, String tag) {
+        if (tag == null) return false;
+        return parent.findViewWithTag(tag) != null;
+    }
+
 
 }
 
