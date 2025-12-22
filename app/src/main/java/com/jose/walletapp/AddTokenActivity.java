@@ -150,6 +150,7 @@ public class AddTokenActivity extends Activity {
         tokenData.put("contractAddress", contractAddress);
         tokenData.put("chain", selectedBlockchain); // Optional, can also use "solana", "tron", etc.
         tokenData.put("timestamp", System.currentTimeMillis());
+        tokenData.put("coingeckoId", coinGeckoIdEditText.getText().toString());
 
         // Push the data to Firebase
         databaseRef.push().setValue(tokenData)

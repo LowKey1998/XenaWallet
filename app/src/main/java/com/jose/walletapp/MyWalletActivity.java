@@ -477,7 +477,7 @@ public class MyWalletActivity extends Activity {
                         url= ERC20Metadata.fetchLogoFromCoinGecko(Networks.BSC,contractAddress);
                         decimals = callUint8Function(web3j, contractAddress, "decimals");
                     } catch (Exception e) {
-                        throw new RuntimeException(e);
+                        //throw new RuntimeException(e);
                     }
                     String finalUrl = url;
                     String finalName = name;
