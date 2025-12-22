@@ -1,5 +1,7 @@
 package com.jose.walletapp.helpers.solana;
 
+import com.jose.walletapp.helpers.Token;
+
 import org.p2p.solanaj.core.*;
 import org.p2p.solanaj.programs.TokenProgram;
 import org.p2p.solanaj.rpc.RpcClient;
@@ -75,4 +77,49 @@ public class SolTokenOperations {
             return 0.0;
         }
     }
+
+
+    public BigDecimal convertNativeSolToFiat(
+            BigDecimal solAmount,
+            String fiatCurrency,
+            Map<String, BigDecimal> priceCache
+    ) {
+        BigDecimal solPrice = priceCache.get("solana");
+
+        if (solPrice == null) {
+            return BigDecimal.ZERO;
+        }
+
+        return solAmount.multiply(solPrice);
+    }
+
+    public BigDecimal convertSolToFiat(
+            BigDecimal tokenAmount,
+            Token token,
+            String fiatCurrency, // e.g. "usd"
+            Map<String, BigDecimal> priceCache // coingeckoId -> price
+    ) {
+        if (tokenAmount == null || tokenAmount.compareTo(BigDecimal.ZERO) <= 0) {
+            return BigDecimal.ZERO;
+        }
+
+        String cgId = token.coingeckoId;
+
+        // 🛑 Case 3: Token has no CoinGecko ID
+        if (cgId == null || cgId.isEmpty()) {
+            return BigDecimal.ZERO; // or return null / Optional
+        }
+
+        BigDecimal price = priceCache.get(cgId);
+
+        // 🛑 Price not found (API issue or delisted token)
+        if (price == null || price.compareTo(BigDecimal.ZERO) <= 0) {
+            return BigDecimal.ZERO;
+        }
+
+        return tokenAmount.multiply(price);
+    }
+
+
+
 }

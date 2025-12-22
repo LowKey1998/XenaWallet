@@ -15,6 +15,7 @@ public class Token {
 
     public /*final*/ String contractAddress;
 
+    public double balance=0;
     //public Set platforms;
 
     public Token() {}
@@ -30,6 +31,10 @@ public class Token {
         this.isStable = isStable;
     }
 
+
+    public void setBalance(double balance){
+        this.balance=balance;
+    }
 
 
 }

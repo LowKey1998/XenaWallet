@@ -88,6 +88,7 @@ public class MyWalletActivity extends Activity {
     private CardView contentCard;
     private ImageView profileImage;
     private boolean isSidebarOpen=false;
+    private LinearLayout defaultTokensListView;
     //TextView addressTextView = findViewById(R.id.addressTextView);
     //TextView balanceTextView = findViewById(R.id.balanceTextView);
 
@@ -101,7 +102,7 @@ public class MyWalletActivity extends Activity {
         super.onCreate(savedInstanceState);
         context = this;
         setContentView(R.layout.activity_main);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         contentCard = findViewById(R.id.contentCard);
         contentCard.animate().setInterpolator(new AccelerateDecelerateInterpolator());
@@ -167,39 +168,7 @@ public class MyWalletActivity extends Activity {
         });
 
 */
-        LinearLayout defaultTokensListView=findViewById(R.id.default_tokens);
-
-        fetchUsersDefaultTokensFromFirebase(new TokensCallback(){
-
-            @Override
-            public void onSuccess(List<Token> tokens) {
-                if(tokens==null) {
-                    addDefaultTokensToUserFirebase(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                }
-                else{
-                    List<String> supportedChainsNotAdded=new ArrayList<>(new Networks().getSupportedChains());
-                    for(Token token:tokens){
-                        View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
-                        MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.chain, token.contractAddress);
-                        //add default token that was not have been uploaded to firebase
-                        if(supportedChainsNotAdded.contains(token.chain)) {
-                            supportedChainsNotAdded.remove(token.chain);
-                            System.out.println("removed: "+token.chain);
-                        }
-                    }
-
-                    for(String chain:supportedChainsNotAdded){
-                        addDefaultTokenToUserFirebase(chain);
-                    }
-                }
-            }
-
-            @Override
-            public void onError(String error) {
-
-            }
-        });
-
+        defaultTokensListView=findViewById(R.id.default_tokens);
 
         //shimer
         showLoadingPlaceholders();
@@ -269,7 +238,14 @@ public class MyWalletActivity extends Activity {
                                 .into(tokenLogo);
                         ((TextView)tokenItemView.findViewById(R.id.name)).setText(token.name);
                         ((TextView)tokenItemView.findViewById(R.id.symbol)).setText(token.symbol);
+                        ((TextView)tokenItemView.findViewById(R.id.balance)).setText("USD "+token.balance);
 
+                        tokenItemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                            }
+                        });
                         defaultTokensListView.addView(tokenItemView);
                     }
                 });
@@ -277,7 +253,7 @@ public class MyWalletActivity extends Activity {
 
             @Override
             public void onError(String error) {
-
+                System.out.println(error);
             }
         });
     }
@@ -298,6 +274,8 @@ public class MyWalletActivity extends Activity {
 
                             for (DataSnapshot child : snapshot.getChildren()) {
                                 Token token = child.getValue(Token.class);
+                                //System.out.println("fetched:"+token.chain);
+
                                 if (token != null) {
                                     tokens.add(token);
                                 }
@@ -544,7 +522,7 @@ public class MyWalletActivity extends Activity {
                                 @Override
                                 public void run() {
                                     try {
-                                        double balance = SolTokenOperations.getUserSplTokenBalance(/*solAddress*/"4Nd1mZ5n4kL3oHUX77YPDhmPEw24kTx5cHGNy8JD7Q9y",/*contractAddress*/"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB");
+                                        double balance = 0;//SolTokenOperations.getUserSplTokenBalance(/*solAddress*/"4Nd1mZ5n4kL3oHUX77YPDhmPEw24kTx5cHGNy8JD7Q9y",/*contractAddress*/"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB");
                                         runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
@@ -670,6 +648,42 @@ public class MyWalletActivity extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            fetchUsersDefaultTokensFromFirebase(new TokensCallback(){
+
+                                @Override
+                                public void onSuccess(List<Token> tokens) {
+                                    if(tokens==null) {
+                                        addDefaultTokensToUserFirebase(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                    }
+                                    else{
+                                        List<String> supportedChainsNotAdded=new ArrayList<>(new Networks().getSupportedChains());
+                                        //  System.out.println("size: "+supportedChainsNotAdded.size());
+                                        //Todo: prevent multiple threads clearing at same time
+                                        defaultTokensListView.removeAllViews();
+                                        for(Token token:tokens){
+                                            View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
+                                            MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.chain, token.contractAddress);
+                                            //add default token that was not have been uploaded to firebase
+
+                                            // System.out.println("token: "+token.chain);
+                                            if(supportedChainsNotAdded.contains(token.chain)) {
+                                                supportedChainsNotAdded.remove(token.chain);
+                                                // System.out.println("removed: "+token.chain);
+                                            }
+                                        }
+
+                                        for(String chain:supportedChainsNotAdded){
+                                            addDefaultTokenToUserFirebase(chain);
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onError(String error) {
+
+                                }
+                            });
+
                             //Toast.makeText(MyWalletActivity.this, myAddressStr, Toast.LENGTH_SHORT).show();
                             Double balance = Double.valueOf(0)/*HdWalletHelper.getSolanaBalance(solAddress)*/;
 

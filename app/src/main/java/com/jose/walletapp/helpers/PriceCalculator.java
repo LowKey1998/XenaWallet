@@ -1,5 +1,8 @@
 package com.jose.walletapp.helpers;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class PriceCalculator {
 
     public static double toTokenAmount(long rawBalance, int decimals) {
@@ -11,7 +14,10 @@ public class PriceCalculator {
             double usdPrice,
             boolean isStable
     ) {
-        return isStable ? tokenAmount : tokenAmount * usdPrice;
+        return isStable ? tokenAmount : BigDecimal.valueOf(tokenAmount)
+                .multiply(BigDecimal.valueOf(usdPrice))
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
     }
 }
 

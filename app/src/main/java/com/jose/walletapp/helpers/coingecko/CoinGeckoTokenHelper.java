@@ -3,11 +3,17 @@ package com.jose.walletapp.helpers.coingecko;
 import androidx.annotation.NonNull;
 
 import com.jose.walletapp.constants.Networks;
+import com.jose.walletapp.helpers.MultiChainWalletManager;
+import com.jose.walletapp.helpers.PriceCalculator;
 import com.jose.walletapp.helpers.Token;
+import com.jose.walletapp.helpers.bsc.BscHelper;
+import com.jose.walletapp.helpers.solana.SolTokenOperations;
 
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -20,6 +26,7 @@ import okhttp3.Response;
 public class CoinGeckoTokenHelper {
 
     public static String coinIdSolana="solana";
+    public static String coinIdTron="solana";
     public static String coinIdBSC="binance-smart-chain";
 
     public interface TokenCallback {
@@ -193,6 +200,25 @@ public class CoinGeckoTokenHelper {
                     //token.setPriceUsd(currentPrice.getDouble("usd"));
                     //token.setMarketCapUsd(marketCap.getDouble("usd"));
                     //token.setNative(true);
+                    // -------- price extraction (THIS is what you need) --------
+                    BigDecimal priceUsd = BigDecimal.ZERO;
+
+                    final String fiatCurrency="usd";
+                    if (json.has("market_data")) {
+
+                        if (marketData.has("current_price")) {
+                            JSONObject prices = marketData.getJSONObject("current_price");
+
+                            if (prices.has(fiatCurrency)) {
+                                priceUsd = BigDecimal.valueOf(
+                                        prices.getDouble(fiatCurrency));
+
+                            }
+                        }
+                    }
+                    BigDecimal balance=fetchNativeCoinBalance(coinGeckoIdToNetwork(coinGeckoId));
+
+                    token.setBalance(PriceCalculator.toUsd(balance.doubleValue(),priceUsd.doubleValue(),false));
 
                     callback.onSuccess(token,platformsSet);
 
@@ -201,6 +227,42 @@ public class CoinGeckoTokenHelper {
                 }
             }
         });
+    }
+
+    private static String coinGeckoIdToNetwork(String coinGeckoId) {
+        if(coinGeckoId.equalsIgnoreCase("binancecoin")){
+            return Networks.BSC;
+        } else if (coinGeckoId.equalsIgnoreCase("solana")) {
+            return Networks.SOLANA;
+        } else if(coinGeckoId.equalsIgnoreCase("tron")){
+            return Networks.TRON;
+        }
+        return null;
+    }
+
+    private static BigDecimal fetchNativeCoinBalance(String chain) {
+        System.out.println("fetch native:"+chain);
+        if(chain.equalsIgnoreCase(Networks.SOLANA)){
+            double balance=0;
+            try {
+                balance = SolTokenOperations.getSolanaNativeBalance(MultiChainWalletManager.getInstance().getSolanaAddress());
+            }
+            catch (Exception e){
+                System.out.println(e.toString());
+            }
+            System.out.println("Balance sol:"+balance);
+            return BigDecimal.valueOf(balance);
+        }
+        else if(chain.equalsIgnoreCase(Networks.BSC)){
+            System.out.println("Balance bsc:");
+            return new BscHelper().getNativeBalance(MultiChainWalletManager.getInstance().getBscAddress());
+        }
+        else if(chain.equalsIgnoreCase(Networks.TRON)){
+            System.out.println("Balance tron:");
+            return BigDecimal.valueOf(0);
+        }
+
+        return BigDecimal.valueOf(0);
     }
 
 }

@@ -34,13 +34,17 @@ public class PriceService {
                 JSONObject json = null;
                 try {
                     json = new JSONObject(response.body().string());
+                    System.out.println("json: "+json.toString());
                     double price = json
                             .getJSONObject(coingeckoId)
                             .getDouble("usd");
 
+                    System.out.println("price: "+price);
                     callback.onPrice(price);
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    //fix no value for tron error
+                    //throw new RuntimeException(e);
+                    //callback.onPrice(0);
                 }
 
             }
