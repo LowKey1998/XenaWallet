@@ -243,7 +243,11 @@ public class MyWalletActivity extends Activity {
                         tokenItemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                Intent intent=new Intent(MyWalletActivity.this,TokenDetailsActivity.class);
+                                intent.putExtra("contractAddress","native");
+                                intent.putExtra("chain",token.coingeckoId);
 
+                                MyWalletActivity.this.startActivity(intent);
                             }
                         });
                         defaultTokensListView.addView(tokenItemView);

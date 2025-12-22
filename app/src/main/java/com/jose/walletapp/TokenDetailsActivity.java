@@ -30,6 +30,7 @@ import com.jose.walletapp.helpers.MultiChainWalletManager;
 import com.jose.walletapp.helpers.Token;
 import com.jose.walletapp.helpers.bsc.BscHelper;
 import com.jose.walletapp.helpers.coingecko.CoinGeckoTokenHelper;
+import com.jose.walletapp.helpers.solana.SolanaHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,7 +52,6 @@ public class TokenDetailsActivity extends Activity {
 
     private TextView title, symbol,balanceZMW;
     private ImageView logo;
-    private LineChart priceChart;
     private ListView transactionList;
 
     private String chainId;
@@ -79,6 +79,8 @@ public class TokenDetailsActivity extends Activity {
 
         // Get intent extras
         chainId = getIntent().getStringExtra("chain");
+        //Toast.makeText(getApplicationContext(),chainId,Toast.LENGTH_SHORT).show();
+
         contractAddress = getIntent().getStringExtra("contractAddress");
 
 
@@ -92,6 +94,7 @@ public class TokenDetailsActivity extends Activity {
                 else if (chainId.equalsIgnoreCase(Networks.BSC)) {
                     coinGeckoFetchChainId=CoinGeckoTokenHelper.coinIdBSC;
                 }
+
                 CoinGeckoTokenHelper.fetchTokenInfo(coinGeckoFetchChainId,
                         contractAddress, chainId, new CoinGeckoTokenHelper.TokenCallback() {
                             @Override
@@ -262,10 +265,25 @@ public class TokenDetailsActivity extends Activity {
         }
 
         // Fetch token details
-        fetchTokenDetails();
+        boolean isNative=contractAddress.equalsIgnoreCase("native");
+        if(isNative) {
+            if (chainId.equalsIgnoreCase("binancecoin")) {
+                chainId = Networks.BSC;
+            } else if (chainId.equalsIgnoreCase("solana")) {
+                chainId = Networks.SOLANA;
+            } else if (chainId.equalsIgnoreCase("tron")) {
+                chainId = Networks.TRON;
+            }
+        }
+        fetchTokenDetails(isNative);
+
     }
 
-    private void fetchTokenDetails() {
+    private void fetchTokenDetails(boolean isNative) {
+        if (isNative) {
+            fetchNativeTokenDetails();
+            return;
+        }
         if(chainId.equalsIgnoreCase(Networks.BSC)) {
             try {
                 new Thread(){
@@ -373,6 +391,62 @@ public class TokenDetailsActivity extends Activity {
             });
         }
     }
+
+/*
+    private void fetchNativeTokenDetails() {
+        if(chainId.equalsIgnoreCase(Networks.BSC)){
+
+        }
+        else if(chainId.equalsIgnoreCase(Networks.SOLANA)){
+
+        }
+        else if(chainId.equalsIgnoreCase(Networks.TRON)){
+
+        }
+    }
+*/
+
+    private void fetchNativeTokenDetails() {
+
+        String coinId;
+
+        if (chainId.equalsIgnoreCase(Networks.SOLANA)) {
+            coinId = CoinGeckoTokenHelper.coinIdSolana;
+        } else if (chainId.equalsIgnoreCase(Networks.BSC)) {
+            coinId = CoinGeckoTokenHelper.coinIdBSC;
+        } else if (chainId.equalsIgnoreCase(Networks.TRON)) {
+            coinId = CoinGeckoTokenHelper.coinIdTron;
+        } else {
+            return;
+        }
+
+        CoinGeckoTokenHelper.fetchNativeCoin(
+                coinId,
+                new CoinGeckoTokenHelper.TokenCallback() {
+                    @Override
+                    public void onSuccess(Token token, Set<String> platforms) {
+                        runOnUiThread(() -> {
+                            title.setText(token.name);
+                            symbol.setText(token.symbol.toUpperCase());
+                            balanceZMW.setText("USD "+token.balance);
+
+                            Glide.with(TokenDetailsActivity.this)
+                                    .load(token.logo)
+                                    .apply(new RequestOptions().circleCrop())
+                                    .into(logo);
+                        });
+
+
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        // handle error
+                    }
+                }
+        );
+    }
+
 
     private void displayToken(TokenData tokenData) {
         title.setText(tokenData.name);
