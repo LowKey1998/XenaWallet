@@ -425,7 +425,15 @@ public class MyWalletActivity extends Activity {
 
                     if(token.chain.equalsIgnoreCase(Networks.SOLANA)){
                         //unify
-                        MyWalletActivity.this.addSolanaTokenToListView(tokensListView,tokenItemView,token.contractAddress);
+                        if (isNativeCoin(token.coingeckoId)) {
+                            MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,
+                                    defaultTokenItemView,token.chain,
+                                    token.contractAddress);
+                        }
+                        else{
+
+                            MyWalletActivity.this.addSolanaTokenToListView(tokensListView,tokenItemView,token.contractAddress);
+                        }
                     }
                     else if(token.chain.equalsIgnoreCase(Networks.BSC)) {
                         if (isNativeCoin(token.coingeckoId)) {
