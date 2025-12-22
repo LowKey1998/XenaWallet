@@ -35,7 +35,7 @@ import g.p.smartcalculater.R;
 public class ReceiveActivity extends Activity {
 
     ImageView backButton, qrCodeImage;
-    TextView titleText, symbolText,balanceText, walletAddressText;
+    TextView titleText, symbolText,walletAddressText;
     Button copyButton;
     private String walletAddress="";
     private String chain, contractAddress;
@@ -68,7 +68,6 @@ public class ReceiveActivity extends Activity {
         walletAddressText = findViewById(R.id.wallet_address);
         copyButton = findViewById(R.id.copy_button);
        // symbolText = findViewById(R.id.symbol);
-        balanceText = findViewById(R.id.token_balance);
     }
 
     private void setupUI() {
@@ -111,13 +110,8 @@ public class ReceiveActivity extends Activity {
 
                         //fetch balance
                         try {
-                            double balance=SolTokenOperations.getUserSplTokenBalance(walletAddress, contractAddress);
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    balanceText.setText("USD "+balance);
-                                }
-                            });
+                            //double balance=SolTokenOperations.getUserSplTokenBalance(walletAddress, contractAddress);
+
                         }
                         catch (Exception e){
 
