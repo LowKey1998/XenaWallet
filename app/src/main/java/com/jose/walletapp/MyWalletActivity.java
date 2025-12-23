@@ -220,16 +220,17 @@ public class MyWalletActivity extends Activity {
 
     }
 
-    private void addTokenToDefaultListView(LinearLayout defaultTokensListView, View tokenItemView, String chain, String contractAddress) {
+    private void addTokenToDefaultListView(LinearLayout defaultTokensListView, View tokenItemView, String chain, String contractAddress/*, String coinGeckId*/) {
         String coinGeckoId = null;
         if(chain.equalsIgnoreCase(Networks.BSC)){
             coinGeckoId="binancecoin";
         } else if (chain.equalsIgnoreCase(Networks.SOLANA)) {
             coinGeckoId = "solana";
         } else if(chain.equalsIgnoreCase(Networks.TRON)){
-            coinGeckoId="tron";
+            coinGeckoId="tether";
         }
 
+        String finalCoinGeckoId = coinGeckoId;
         CoinGeckoTokenHelper.fetchNativeCoin(coinGeckoId, new CoinGeckoTokenHelper.TokenCallback() {
             @Override
             public void onSuccess(Token token, Set<String> platforms) {
@@ -254,7 +255,17 @@ public class MyWalletActivity extends Activity {
                                 MyWalletActivity.this.startActivity(intent);
                             }
                         });
-                        defaultTokensListView.addView(tokenItemView);
+
+                        if(!hasTokenWithTag(defaultTokensListView,finalCoinGeckoId)){
+                            if(finalCoinGeckoId !=null) {
+                                tokenItemView.setTag(finalCoinGeckoId);
+                            }
+                            defaultTokensListView.addView(tokenItemView);
+                        }
+
+
+
+
                     }
                 });
             }
@@ -424,11 +435,13 @@ public class MyWalletActivity extends Activity {
                     View defaultTokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
 
                     if(token.chain.equalsIgnoreCase(Networks.SOLANA)){
-                        //unify
                         if (isNativeCoin(token.coingeckoId)) {
+
                             MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,
-                                    defaultTokenItemView,token.chain,
-                                    token.contractAddress);
+                                    defaultTokenItemView,
+                                    token.chain,
+                                    token.contractAddress/*,
+                                    token.coingeckoId*/);
                         }
                         else{
 
@@ -439,7 +452,8 @@ public class MyWalletActivity extends Activity {
                         if (isNativeCoin(token.coingeckoId)) {
                             MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,
                                             defaultTokenItemView,token.chain,
-                                            token.contractAddress);
+                                            token.contractAddress/*,
+                                    token.coingeckoId*/);
                         }
                         else{
                             MyWalletActivity.this.addBscTokenToListView(tokensListView, tokenItemView, token.contractAddress);
@@ -623,6 +637,7 @@ public class MyWalletActivity extends Activity {
         return tokenMap.values().stream()
                 .map(token -> token.totalBalance)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }*/
 
 
@@ -698,7 +713,10 @@ public class MyWalletActivity extends Activity {
                                         defaultTokensListView.removeAllViews();
                                         for(Token token:tokens){
                                             View tokenItemView=MyWalletActivity.this.getLayoutInflater().inflate(R.layout.item_coin_card,null);
-                                            MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,tokenItemView,token.chain, token.contractAddress);
+                                            MyWalletActivity.this.addTokenToDefaultListView(defaultTokensListView,
+                                                    tokenItemView,token.chain,
+                                                    token.contractAddress/*,
+                                                    token.coingeckoId*/);
                                             //add default token that was not have been uploaded to firebase
 
                                             // System.out.println("token: "+token.chain);
@@ -799,7 +817,7 @@ public class MyWalletActivity extends Activity {
 
 
     private boolean hasTokenWithTag(LinearLayout parent, String tag) {
-        if (tag == null) return false;
+        if (tag == null || tag.isEmpty()) return false;
         return parent.findViewWithTag(tag) != null;
     }
 

@@ -26,7 +26,7 @@ import okhttp3.Response;
 
 public class CoinGeckoTokenHelper {
 
-    public static List<String> supportedIds=List.of("solana","binancecoin","tron");//coingecko token ids
+    public static List<String> supportedIds=List.of("solana","binancecoin","tether");//coingecko token ids
 
     public static String coinIdSolana="solana";
     public static String coinIdTron="solana";
