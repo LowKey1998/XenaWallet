@@ -3425,12 +3425,9 @@ int id clip_horizontal 0x7f0a0087
 int id clip_vertical 0x7f0a0088
 int id clockwise 0x7f0a0089
 int id close 0x7f0a008a
-int id coinBalanceValue 0x7f0a008b
 int id coinChange 0x7f0a008c
 int id coinIcon 0x7f0a008d
 int id coinListView 0x7f0a008e
-int id coinName 0x7f0a008f
-int id coinSymbol 0x7f0a0090
 int id coingecko_id 0x7f0a0091
 int id collapseActionView 0x7f0a0092
 int id column 0x7f0a0093

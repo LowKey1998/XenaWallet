@@ -3426,12 +3426,9 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id close
-id coinBalanceValue
 id coinChange
 id coinIcon
 id coinListView
-id coinName
-id coinSymbol
 id coingecko_id
 id collapseActionView
 id column

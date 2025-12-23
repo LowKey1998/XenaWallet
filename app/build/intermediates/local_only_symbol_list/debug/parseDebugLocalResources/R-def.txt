@@ -253,12 +253,9 @@ id button_check_add
 id button_next
 id button_settings
 id close
-id coinBalanceValue
 id coinChange
 id coinIcon
 id coinListView
-id coinName
-id coinSymbol
 id coingecko_id
 id contentCard
 id contractAddress
