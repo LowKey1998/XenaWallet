@@ -135,7 +135,7 @@ public class MultiChainWalletManager {
         DeterministicSeed ds = null;
         try {
             ds = new DeterministicSeed(mnemonic, null, "", 0);
-        } catch (UnreadableWalletException e) {
+        } catch (Exception e) {
             //todo:maybe remove
             throw new RuntimeException(e);
         }

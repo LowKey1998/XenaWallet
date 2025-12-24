@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "g.p.smartcalculater"
-        minSdk 24
+        minSdk 26//24
         targetSdk 35
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,21 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packagingOptions {
+        resources {
+            pickFirst "META-INF/io.netty.versions.properties"
+            excludes += [
+                    "META-INF/INDEX.LIST",
+                    "META-INF/FastDoubleParser-LICENSE",
+                    "META-INF/FastDoubleParser-NOTICE",
+                    "META-INF/DEPENDENCIES",
+                    "META-INF/LICENSE",
+                    "META-INF/LICENSE.txt",
+                    "META-INF/NOTICE",
+                    "META-INF/NOTICE.txt"
+            ]
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -31,9 +46,22 @@ android {
     configurations{
         //all*.exclude module: 'bcprov-jdk15to18'
         //all*.exclude module: 'bcutil-jdk18on'
+        all*.exclude group: "com.google.protobuf", module: "protobuf-java"
+        all*.exclude group: "org.bouncycastle", module: "bcprov-jdk18on"
+        all*.exclude group: "com.squareup.okhttp3", module: "okhttp-jvm"
         all*.exclude module: 'bcprov-jdk15on'
         all*.exclude module: 'bcutil-jdk15on'
     }
+
+    /*configurations.all {
+        exclude group: "com.google.protobuf", module: "protobuf-java"
+        //exclude group: "org.bouncycastle", module: "bcprov-jdk15on"
+        //exclude group: "org.bouncycastle", module: "bcprov-jdk18on"
+        *//*resolutionStrategy {
+            force "org.bouncycastle:bcprov-jdk15to18:1.80"
+        }*//*
+    }*/
+
 }
 
 dependencies {
@@ -52,10 +80,10 @@ dependencies {
 
 
     //implementation 'com.github.WalletConnect:WalletConnectKotlinV2:1.0.0-beta01'
-    implementation(platform("com.walletconnect:android-bom:1.2.0"))
+    /*implementation(platform("com.walletconnect:android-bom:1.2.0"))
     implementation("com.walletconnect:android-core")
     implementation("com.walletconnect:web3wallet")
-
+*/
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
@@ -69,7 +97,6 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     //implementation 'com.github.cryptoplease:solana-android-sdk:'
-    implementation 'com.mmorrell:solanaj:1.20.4'
 
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
@@ -79,9 +106,16 @@ dependencies {
 
 
     implementation 'org.web3j:core:4.9.4'
-    implementation 'org.bitcoinj:bitcoinj-core:0.15.10'
-
+    implementation 'org.bitcoinj:bitcoinj-core:0.17'
+    implementation 'com.mmorrell:solanaj:1.27.3'
+    implementation("io.github.tronprotocol:trident:0.10.0")//0.9.2
     // https://mvnrepository.com/artifact/androidx.security/security-crypto
+
+    // ✅ Android-safe protobuf
+    //implementation("com.google.protobuf:protobuf-javalite:4.29.3")
+
+    // ✅ Single BC provider (Android-safe)
+    //implementation("org.bouncycastle:bcprov-jdk15to18:1.80")
 
     implementation 'androidx.security:security-crypto:1.1.0-alpha01'
 
